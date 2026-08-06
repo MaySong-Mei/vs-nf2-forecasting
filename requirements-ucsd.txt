@@ -1,0 +1,9 @@
+# Install an appropriate CUDA-enabled PyTorch build separately.
+numpy>=1.26,<3
+scipy>=1.11,<2
+pandas>=2.0,<3
+nibabel>=5.2,<6
+SimpleITK>=2.3,<3
+PyYAML>=6,<7
+tqdm>=4.66,<5
+
