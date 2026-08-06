@@ -35,6 +35,13 @@ class ManifestTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_optional_bool("maybe")
 
+    def test_no_residual_filter_is_explicit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            frame = load_manifest(self.make_manifest(Path(directory)))
+            frame["no_residual_vs"] = [False, False, True, False]
+            self.assertEqual(len(list(iter_triplets(frame, False, False))), 2)
+            self.assertEqual(len(list(iter_triplets(frame, False, True))), 0)
+
 
 if __name__ == "__main__":
     unittest.main()

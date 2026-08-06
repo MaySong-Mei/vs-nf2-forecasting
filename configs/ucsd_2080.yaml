@@ -7,8 +7,15 @@ preprocessing:
   crop_size: [64, 64, 64]
   intensity_percentiles: [0.5, 99.5]
   sdf_clip_mm: 16.0
+  # Deterministic rigid MI. These values retain the reference single-scale
+  # behavior; use --max-triplets for a timed smoke before a full cohort run.
   registration_iterations: 100
+  registration_sampling_percentage: 0.2
+  registration_shrink_factors: [1]
+  registration_smoothing_sigmas_mm: [0.0]
+  registration_overlap_review_threshold: 0.1
   exclude_intervened: true
+  exclude_no_residual: true
 
 model:
   latent_channels: 24

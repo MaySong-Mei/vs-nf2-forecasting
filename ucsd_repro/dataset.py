@@ -51,9 +51,15 @@ class PreparedTripletDataset(Dataset):
 
 
 def load_split_metadata(
-    metadata_path: str | Path, splits_path: str | Path, fold: int
+    metadata_path: str | Path,
+    splits_path: str | Path,
+    fold: int,
+    include_qc_failed: bool = False,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     metadata = pd.read_csv(metadata_path)
+    if "preprocessing_qc_pass" in metadata and not include_qc_failed:
+        passed = metadata["preprocessing_qc_pass"].astype(str).str.lower().eq("true")
+        metadata = metadata[passed].copy()
     metadata_root = Path(metadata_path).resolve().parent
     metadata["prepared_path"] = metadata["prepared_path"].map(
         lambda value: str((metadata_root / str(value)).resolve())

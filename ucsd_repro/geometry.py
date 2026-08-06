@@ -70,6 +70,8 @@ def normalize_intensity(
         raise ValueError("image intensity percentile range is degenerate")
     clipped = np.clip(image, low, high)
     normalized = 2.0 * (clipped - low) / (high - low) - 1.0
-    normalized[image == 0] = -1.0
+    normalized[(image == 0) | ~np.isfinite(image)] = -1.0
+    if not np.isfinite(normalized).all():
+        raise ValueError("intensity normalization produced NaN/Inf")
     return normalized.astype(np.float32)
 

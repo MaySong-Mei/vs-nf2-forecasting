@@ -6,8 +6,12 @@ __pycache__/
 .mypy_cache/
 
 data/raw/
+data/processed/
 data/ucsd_prepared/
+data/ucsd_prepared_smoke/
+data/ucsd_prepared_debug/
 data/synthetic/
+manifests/
 outputs/
 checkpoints/
 wandb/

@@ -2,7 +2,13 @@ import unittest
 
 import numpy as np
 
-from ucsd_repro.geometry import crop_or_pad, mask_centroid, signed_distance, touches_border
+from ucsd_repro.geometry import (
+    crop_or_pad,
+    mask_centroid,
+    normalize_intensity,
+    signed_distance,
+    touches_border,
+)
 
 
 class GeometryTests(unittest.TestCase):
@@ -28,6 +34,13 @@ class GeometryTests(unittest.TestCase):
         self.assertFalse(touches_border(mask))
         mask[0, 3, 3] = 1
         self.assertTrue(touches_border(mask))
+
+    def test_normalization_replaces_nonfinite_background(self):
+        image = np.arange(27, dtype=np.float32).reshape(3, 3, 3)
+        image[0, 0, 0] = np.nan
+        normalized = normalize_intensity(image)
+        self.assertTrue(np.isfinite(normalized).all())
+        self.assertEqual(float(normalized[0, 0, 0]), -1.0)
 
 
 if __name__ == "__main__":

@@ -70,7 +70,29 @@ class Triplet:
     intervention_unknown: bool
 
 
-def iter_triplets(frame: pd.DataFrame, exclude_intervened: bool = True) -> Iterable[Triplet]:
+def triplet_exclusion_reasons(
+    triplet: Triplet,
+    exclude_intervened: bool = True,
+    exclude_no_residual: bool = False,
+) -> list[str]:
+    reasons = []
+    if exclude_intervened and any(
+        parse_optional_bool(row.get("intervened_since_previous")) is True
+        for row in triplet.rows[1:]
+    ):
+        reasons.append("intervention_between_scans")
+    if exclude_no_residual and any(
+        parse_optional_bool(row.get("no_residual_vs")) is True for row in triplet.rows
+    ):
+        reasons.append("no_residual_tumor_sdf_undefined")
+    return reasons
+
+
+def iter_triplets(
+    frame: pd.DataFrame,
+    exclude_intervened: bool = True,
+    exclude_no_residual: bool = False,
+) -> Iterable[Triplet]:
     for patient_id, group in frame.groupby("patient_id", sort=True):
         records = group.sort_values("study_days").to_dict("records")
         for start in range(max(0, len(records) - 2)):
@@ -79,15 +101,16 @@ def iter_triplets(frame: pd.DataFrame, exclude_intervened: bool = True) -> Itera
                 parse_optional_bool(rows[1].get("intervened_since_previous")),
                 parse_optional_bool(rows[2].get("intervened_since_previous")),
             ]
-            if exclude_intervened and any(value is True for value in statuses):
-                continue
             timepoints = "__".join(str(row["timepoint_id"]) for row in rows)
-            yield Triplet(
+            triplet = Triplet(
                 patient_id=str(patient_id),
                 triplet_id=f"{patient_id}__{timepoints}",
                 rows=rows,  # type: ignore[arg-type]
                 intervention_unknown=any(value is None for value in statuses),
             )
+            if triplet_exclusion_reasons(triplet, exclude_intervened, exclude_no_residual):
+                continue
+            yield triplet
 
 
 def validate_files(

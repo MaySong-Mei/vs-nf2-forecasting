@@ -5,6 +5,8 @@ import argparse
 import json
 import random
 import re
+import subprocess
+import time
 from pathlib import Path
 import sys
 
@@ -35,6 +37,13 @@ def arguments() -> argparse.Namespace:
     parser.add_argument("--epochs", type=int)
     parser.add_argument("--max-train-batches", type=int)
     parser.add_argument("--max-val-cases", type=int)
+    parser.add_argument("--max-test-cases", type=int)
+    parser.add_argument("--resume", type=Path, help="resume model and optimizer state from a checkpoint")
+    parser.add_argument(
+        "--include-qc-failed",
+        action="store_true",
+        help="diagnostic only: include prepared cases that failed crop/registration QC",
+    )
     parser.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
     return parser.parse_args()
 
@@ -53,6 +62,32 @@ def choose_device(requested: str) -> torch.device:
     if requested == "cuda" and not torch.cuda.is_available():
         raise SystemExit("CUDA was requested but is unavailable")
     return torch.device(requested)
+
+
+def git_state() -> tuple[str, bool | None]:
+    repo = Path(__file__).resolve().parents[1]
+    try:
+        commit = subprocess.check_output(
+            ["git", "-c", f"safe.directory={repo.as_posix()}", "rev-parse", "HEAD"],
+            cwd=repo,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+        status = subprocess.check_output(
+            ["git", "-c", f"safe.directory={repo.as_posix()}", "status", "--porcelain"],
+            cwd=repo,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        )
+        return commit, bool(status.strip())
+    except (OSError, subprocess.CalledProcessError):
+        return "unknown", None
+
+
+def finite_mean(values: pd.Series) -> float | None:
+    numeric = pd.to_numeric(values, errors="coerce").to_numpy(dtype=float, na_value=np.nan)
+    finite = numeric[np.isfinite(numeric)]
+    return float(finite.mean()) if len(finite) else None
 
 
 def evaluate(
@@ -79,6 +114,14 @@ def evaluate(
             sdf = model.predict_sdf_grid(observed, day_tensor, tuple(masks.shape[1:]), inference_chunk)
             prediction = (sdf[0] < 0).cpu().numpy()
             case_id = str(item["triplet_id"])
+            voxel_volume = float(np.prod(spacing))
+            previous_volume = float(masks[1].sum() * voxel_volume)
+            target_volume = float(masks[2].sum() * voxel_volume)
+            target_relative_change = (
+                (target_volume - previous_volume) / previous_volume
+                if previous_volume
+                else float("nan")
+            )
             np.savez_compressed(
                 prediction_dir / f"{safe_name(case_id)}.npz", prediction=prediction.astype(np.uint8)
             )
@@ -86,6 +129,7 @@ def evaluate(
                 {
                     "patient_id": str(item["patient_id"]),
                     "triplet_id": case_id,
+                    "target_relative_change": target_relative_change,
                     **case_metrics(prediction, masks[2] > 0, spacing),
                 }
             )
@@ -101,8 +145,14 @@ def main() -> int:
     device = choose_device(args.device)
     train_config = config["training"]
     model_config = config["model"]
+    input_metadata_cases = len(pd.read_csv(args.metadata))
     train_frame, validation_frame, test_frame = load_split_metadata(
-        args.metadata, args.splits, args.fold
+        args.metadata, args.splits, args.fold, include_qc_failed=args.include_qc_failed
+    )
+    modeling_cases = len(train_frame) + len(validation_frame) + len(test_frame)
+    print(
+        f"Preprocessing QC: using {modeling_cases}/{input_metadata_cases} prepared cases; "
+        f"include_qc_failed={args.include_qc_failed}"
     )
     if min(len(train_frame), len(validation_frame), len(test_frame)) == 0:
         raise SystemExit(
@@ -126,19 +176,54 @@ def main() -> int:
         weight_decay=float(train_config["weight_decay"]),
     )
     use_amp = bool(train_config["amp"]) and device.type == "cuda"
-    scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+    scaler = torch.amp.GradScaler("cuda", enabled=use_amp)
     accumulation = int(train_config["gradient_accumulation"])
     epochs = args.epochs if args.epochs is not None else int(train_config["epochs"])
     run_dir = Path(train_config["checkpoint_dir"]) / config["experiment"]["name"] / f"fold_{args.fold}"
     run_dir.mkdir(parents=True, exist_ok=True)
+    commit_sha, git_dirty = git_state()
+    with (run_dir / "resolved_config.yaml").open("w") as handle:
+        yaml.safe_dump(config, handle, sort_keys=False)
+    run_metadata = {
+        "seed": seed,
+        "fold": args.fold,
+        "commit_sha": commit_sha,
+        "git_dirty": git_dirty,
+        "device": str(device),
+        "torch": torch.__version__,
+        "torch_cuda": torch.version.cuda,
+        "gpu": torch.cuda.get_device_name(device) if device.type == "cuda" else None,
+        "prepared_input_cases": input_metadata_cases,
+        "modeling_cases_after_qc": modeling_cases,
+        "included_qc_failed": args.include_qc_failed,
+    }
+    with (run_dir / "run_metadata.json").open("w") as handle:
+        json.dump(run_metadata, handle, indent=2)
     history = []
     best_dice = -1.0
+    start_epoch = 1
+    if args.resume:
+        resumed = torch.load(args.resume, map_location=device, weights_only=False)
+        model.load_state_dict(resumed["model"])
+        optimizer.load_state_dict(resumed["optimizer"])
+        start_epoch = int(resumed["epoch"]) + 1
+        best_path = run_dir / "best.pt"
+        if best_path.exists():
+            best_dice = float(torch.load(best_path, map_location="cpu", weights_only=False).get("best_dice", -1.0))
+        history_path = run_dir / "history.csv"
+        if history_path.exists():
+            history = pd.read_csv(history_path).to_dict("records")
+        print(f"Resumed {args.resume} at epoch {start_epoch}")
     optimizer.zero_grad(set_to_none=True)
+    if device.type == "cuda":
+        torch.cuda.reset_peak_memory_stats(device)
+    training_started = time.perf_counter()
     print(
         f"Device={device}; train/val/test={len(train_frame)}/{len(validation_frame)}/{len(test_frame)}; "
         f"parameters={sum(parameter.numel() for parameter in model.parameters()):,}"
     )
-    for epoch in range(1, epochs + 1):
+    for epoch in range(start_epoch, epochs + 1):
+        epoch_started = time.perf_counter()
         model.train()
         epoch_losses = []
         for batch_number, batch in enumerate(loader, start=1):
@@ -146,7 +231,7 @@ def main() -> int:
             coords = batch["coords"].to(device, non_blocking=True)
             target_sdf = batch["sampled_sdfs"].to(device, non_blocking=True)
             days = batch["days"].to(device, non_blocking=True)
-            with torch.cuda.amp.autocast(enabled=use_amp):
+            with torch.autocast(device_type=device.type, enabled=use_amp):
                 reconstructed, predicted, regularization = model(observed, days, coords)
                 reconstruction_loss = F.l1_loss(reconstructed, target_sdf[:, :2])
                 prediction_loss = F.l1_loss(predicted, target_sdf[:, 2])
@@ -176,7 +261,8 @@ def main() -> int:
             "epoch": epoch,
             "training_loss": float(np.mean(epoch_losses)),
             "validation_dice": validation_dice,
-            "validation_hd95_mm": float(validation["hd95_mm"].mean()),
+            "validation_hd95_mm": finite_mean(validation["hd95_mm"]),
+            "epoch_seconds": float(time.perf_counter() - epoch_started),
         }
         history.append(record)
         print(json.dumps(record))
@@ -186,13 +272,18 @@ def main() -> int:
             "optimizer": optimizer.state_dict(),
             "config": config,
             "fold": args.fold,
+            "seed": seed,
+            "commit_sha": commit_sha,
+            "best_dice": max(best_dice, validation_dice),
         }
         torch.save(checkpoint, run_dir / "latest.pt")
         if validation_dice > best_dice:
             best_dice = validation_dice
             torch.save(checkpoint, run_dir / "best.pt")
     pd.DataFrame(history).to_csv(run_dir / "history.csv", index=False)
-    best = torch.load(run_dir / "best.pt", map_location=device)
+    if not (run_dir / "best.pt").exists():
+        raise SystemExit("no best checkpoint exists; epochs must include at least one training epoch")
+    best = torch.load(run_dir / "best.pt", map_location=device, weights_only=False)
     model.load_state_dict(best["model"])
     test = evaluate(
         model,
@@ -200,19 +291,27 @@ def main() -> int:
         device,
         int(train_config["inference_chunk"]),
         run_dir / "test_predictions",
-        args.max_val_cases,
+        args.max_test_cases,
     )
     test.to_csv(run_dir / "test_per_case.csv", index=False)
     summary = {
         "fold": args.fold,
         "best_epoch": int(best["epoch"]),
         "test_cases": int(len(test)),
-        "test_dice_mean": float(test["dice"].mean()),
-        "test_hd95_mm_mean": float(test["hd95_mm"].mean()),
-        "test_absolute_rvd_mean": float(test["absolute_rvd"].mean()),
+        "test_dice_mean": finite_mean(test["dice"]),
+        "test_hd95_mm_mean": finite_mean(test["hd95_mm"]),
+        "test_absolute_rvd_mean": finite_mean(test["absolute_rvd"]),
+        "training_seconds_this_invocation": float(time.perf_counter() - training_started),
+        "peak_memory_allocated_gib": (
+            float(torch.cuda.max_memory_allocated(device) / 2**30) if device.type == "cuda" else 0.0
+        ),
+        "peak_memory_reserved_gib": (
+            float(torch.cuda.max_memory_reserved(device) / 2**30) if device.type == "cuda" else 0.0
+        ),
+        **run_metadata,
     }
     with (run_dir / "test_summary.json").open("w") as handle:
-        json.dump(summary, handle, indent=2)
+        json.dump(summary, handle, indent=2, allow_nan=False)
     print(json.dumps(summary, indent=2))
     return 0
 

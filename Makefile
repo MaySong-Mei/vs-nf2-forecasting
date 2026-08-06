@@ -9,4 +9,4 @@ synthetic-baselines:
 	python scripts/evaluate_baselines.py --metadata data/synthetic/metadata.csv --output-dir outputs/synthetic-baselines
 
 preflight:
-	python scripts/preflight.py
+	python scripts/preflight.py --require-cuda

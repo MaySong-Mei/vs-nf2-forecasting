@@ -17,10 +17,14 @@ from ucsd_repro.metrics import case_metrics
 def finite_summary(frame: pd.DataFrame, columns: list[str]) -> dict:
     summary = {"cases": int(len(frame)), "patients": int(frame["patient_id"].nunique())}
     for column in columns:
-        values = pd.to_numeric(frame[column], errors="coerce").dropna()
+        numeric = pd.to_numeric(frame[column], errors="coerce")
+        finite = np.isfinite(numeric.to_numpy(dtype=float, na_value=np.nan))
+        values = numeric[finite]
         summary[column] = {
             "mean": float(values.mean()) if len(values) else None,
             "std": float(values.std(ddof=1)) if len(values) > 1 else 0.0 if len(values) else None,
+            "finite_cases": int(finite.sum()),
+            "nonfinite_cases": int((~finite).sum()),
         }
     return summary
 
@@ -29,8 +33,23 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Evaluate no-training longitudinal baselines")
     parser.add_argument("--metadata", required=True, type=Path)
     parser.add_argument("--output-dir", required=True, type=Path)
+    parser.add_argument(
+        "--include-qc-failed",
+        action="store_true",
+        help="diagnostic only: include prepared cases that failed crop/registration QC",
+    )
     args = parser.parse_args()
     metadata = pd.read_csv(args.metadata)
+    input_cases = len(metadata)
+    if "preprocessing_qc_pass" in metadata and not args.include_qc_failed:
+        passed = metadata["preprocessing_qc_pass"].astype(str).str.lower().eq("true")
+        metadata = metadata[passed].copy()
+    if metadata.empty:
+        raise SystemExit("no prepared cases remain after preprocessing QC filtering")
+    print(
+        f"Preprocessing QC: using {len(metadata)}/{input_cases} prepared cases; "
+        f"include_qc_failed={args.include_qc_failed}"
+    )
     base = args.metadata.resolve().parent
     rows = []
     for _, item in metadata.iterrows():
@@ -69,7 +88,13 @@ def main() -> int:
     change_by_case = results.drop_duplicates("triplet_id").set_index("triplet_id")["target_relative_change"].abs()
     cutoff = float(change_by_case.quantile(0.8))
     metric_columns = ["dice", "hd95_mm", "absolute_rvd", "signed_rvd", "volume_absolute_error_mm3"]
-    summary = {"top20_absolute_change_cutoff": cutoff, "methods": {}}
+    summary = {
+        "prepared_input_cases": input_cases,
+        "evaluated_cases_after_qc": len(metadata),
+        "included_qc_failed": args.include_qc_failed,
+        "top20_absolute_change_cutoff": cutoff,
+        "methods": {},
+    }
     for method, group in results.groupby("method"):
         top_ids = change_by_case[change_by_case >= cutoff].index
         summary["methods"][method] = {
