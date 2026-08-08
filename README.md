@@ -179,7 +179,7 @@ python scripts/train_ucsd.py \
    python scripts/freeze_cohort.py \
      --metadata data/ucsd_prepared/metadata.csv \
      --splits data/processed/ucsd_splits.csv \
-     --config configs/ucsd_2080.yaml \
+     --config configs/ucsd_2080_formal_103_73.yaml \
      --output-dir data/processed/frozen_reference_103_73 \
      --review-index outputs/preprocessing-qc-v2/review_index_4adc94431ae6b52d.csv \
      --failures data/ucsd_prepared/failures.csv \
