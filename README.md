@@ -172,6 +172,21 @@ python scripts/train_ucsd.py \
    codes, notes, and UTC timestamp in the review table without changing the
    frozen automatic threshold.
 
+   After review, freeze the exact modeling cohort and original patient-level
+   assignments before training:
+
+   ```bash
+   python scripts/freeze_cohort.py \
+     --metadata data/ucsd_prepared/metadata.csv \
+     --splits data/processed/ucsd_splits.csv \
+     --config configs/ucsd_2080.yaml \
+     --output-dir data/processed/frozen_reference_103_73 \
+     --review-index outputs/preprocessing-qc-v2/review_index_4adc94431ae6b52d.csv \
+     --failures data/ucsd_prepared/failures.csv \
+     --runtime-provenance outputs/runtime-provenance/environment-before-training.json \
+     --expected-cases 103 --expected-patients 73
+   ```
+
 5. Establish baselines before training, then run each fold:
 
    ```bash
@@ -179,9 +194,9 @@ python scripts/train_ucsd.py \
      --metadata data/ucsd_prepared/metadata.csv \
      --output-dir outputs/baselines
    python scripts/train_ucsd.py \
-     --config configs/ucsd_2080.yaml \
-     --metadata data/ucsd_prepared/metadata.csv \
-     --splits manifests/ucsd_splits.csv --fold 0
+     --config data/processed/frozen_reference_103_73/resolved_config.yaml \
+     --metadata data/processed/frozen_reference_103_73/modeling_metadata.csv \
+     --splits data/processed/frozen_reference_103_73/patient_folds.csv --fold 0
    ```
 
    When `preprocessing_qc_pass` is present, baseline and training commands
@@ -223,8 +238,10 @@ configuration never requests BF16.
 On 2026-08-08, the systematic renderer produced 60 local, de-identified panels:
 32 automatically flagged prepared triples, 12 deterministic QC-passed controls,
 and debug views for all 16 preprocessing failures. The machine-readable review
-table and private mapping reconcile 60/60. Human decisions are still pending,
-so this expands the auditable QC evidence but does not yet freeze the cohort.
+table and private mapping reconcile 60/60. Review retained the 12 passed controls
+and accepted exclusion of the 32 flagged plus 16 failed cases. The resulting
+103-triplet / 73-patient reference cohort and patient-level folds are frozen with
+SHA-256 hashes under the Git-ignored `data/processed/` tree.
 
 ## Data and licensing
 

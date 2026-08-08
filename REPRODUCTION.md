@@ -180,7 +180,7 @@ with the web-page summary.
 - NVIDIA GeForce RTX 3080 Laptop GPU, compute capability 8.6, 16.0 GiB
 - NumPy 2.2.6, SciPy 1.15.3, pandas 2.3.3, NiBabel 5.4.2,
   SimpleITK 2.5.6, PyYAML 6.0.3
-- 29 unit tests passed, including file-level NIfTI/SimpleITK preprocessing,
+- 30 unit tests passed, including file-level NIfTI/SimpleITK preprocessing,
   selective-download validation, and strict finite-metric reporting tests
 - Synthetic GPU smoke: forward/backward, FP16 AMP, checkpoint evaluation and
   resume passed. Loss changed from 0.9353 (two batches) to 0.9014 after resume
@@ -248,9 +248,16 @@ On 2026-08-08, the version-2 systematic renderer expanded this to 60 local
 opaque panels: all 32 automatically flagged prepared triples, 12 deterministic
 QC-passed controls, and source debug views for all 16 preprocessing failures.
 Its identifier-free review index and separate private mapping reconcile 60/60;
-all rendered SDFs passed the negative-inside check. Manual decisions remain
-blank pending human review, so the 103 / 73 modeling cohort is still provisional
-and formal five-fold training remains blocked.
+all rendered SDFs passed the negative-inside check. Review retained the 12
+passed controls and accepted exclusion of the 32 automatically flagged plus 16
+failed cases. The 103 / 73 reference cohort is therefore frozen for modeling;
+formal model results were not consulted for this decision.
+
+The frozen local artifacts record SHA-256 values for the 103-case modeling
+metadata, 73-patient fold table, resolved configuration, runtime provenance, and
+visual review index. The five test-fold case counts are 17 / 23 / 20 / 24 / 19;
+patient counts are 12 / 17 / 15 / 16 / 13. Patient-level artifacts remain under
+Git-ignored `data/processed/frozen_reference_103_73/`.
 
 Real no-training baselines on the 103 QC-passed cases were:
 
