@@ -46,7 +46,14 @@ python -m pip install torch==2.12.1 --index-url https://download.pytorch.org/whl
 python -m pip install -r requirements-ucsd-lock.txt
 python -m pip install -e .
 python scripts/preflight.py --require-cuda
+python scripts/preflight.py --require-cuda --json \
+  --output-json outputs/runtime-provenance/environment.json
 ```
+
+The JSON report records Python/OS versions, package versions, the exact CUDA
+device name, total VRAM, NVIDIA driver, CUDA runtime, and git commit/dirty state.
+It intentionally omits usernames, hostnames, and filesystem roots. Every
+training run embeds the same schema in its local `run_metadata.json`.
 
 For Linux/macOS activation use `source .venv/bin/activate`. The looser
 `requirements-ucsd.txt` remains available for compatible future environments.
@@ -149,12 +156,21 @@ python scripts/train_ucsd.py \
    python scripts/render_qc.py \
      --metadata data/ucsd_prepared/metadata.csv \
      --prepared-root data/ucsd_prepared \
-     --output-dir outputs/preprocessing-qc --max-cases 6
+     --failures data/ucsd_prepared/failures.csv \
+     --manifest data/processed/ucsd_manifest.csv \
+     --data-root /path/to/UCSD-VS-Longitudinal \
+     --output-dir outputs/preprocessing-qc-v2 \
+     --all-flagged --sample-passed 12 \
+     --include-registration --include-sdf
    ```
 
-   The QC renderer prioritizes crop-border flags and the lowest registration
-   overlap. PNG filenames are de-identified; its private local index retains
-   the triplet mapping. Keep both outputs outside version control.
+   The QC renderer includes every automatic-QC failure, an overlap-stratified
+   deterministic sample of passed cases, and source debug panels for failures.
+   It writes opaque PNG filenames, an identifier-free review table, a separate
+   private triplet mapping, and a configuration hash. Keep all of these local;
+   `outputs/` is ignored by Git. Fill `reviewer_decision`, standardized reason
+   codes, notes, and UTC timestamp in the review table without changing the
+   frozen automatic threshold.
 
 5. Establish baselines before training, then run each fold:
 
@@ -187,7 +203,8 @@ python scripts/aggregate_folds.py \
 
 `configs/ucsd_2080.yaml` uses batch size 1, 16,384 sampled SDF points, automatic
 mixed precision, two data workers, and gradient accumulation of 8. It is meant
-for an RTX 2080 with 8 GB VRAM. Lower `training.points_per_volume` to 8,192 if
+only as an RTX 2080 with 8 GB VRAM **compatibility profile**. Lower
+`training.points_per_volume` to 8,192 if
 memory is still tight. Preprocessing is CPU/RAM intensive and runs one case at a
 time by default.
 
@@ -202,6 +219,12 @@ took 19.89 s and reserved 0.139 GiB at peak. A linear five-fold/200-epoch
 budget is about 4.7 h, or about 6 h with I/O and runtime margin. The completed
 pilot is intentionally underfit and is not a final model result. The
 configuration never requests BF16.
+
+On 2026-08-08, the systematic renderer produced 60 local, de-identified panels:
+32 automatically flagged prepared triples, 12 deterministic QC-passed controls,
+and debug views for all 16 preprocessing failures. The machine-readable review
+table and private mapping reconcile 60/60. Human decisions are still pending,
+so this expands the auditable QC evidence but does not yet freeze the cohort.
 
 ## Data and licensing
 

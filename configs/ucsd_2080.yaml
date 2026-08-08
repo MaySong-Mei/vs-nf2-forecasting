@@ -1,3 +1,5 @@
+# RTX 2080 / 8 GiB compatibility profile. Runtime measurements reported in
+# README.md and REPRODUCTION.md were collected on an RTX 3080 Laptop GPU / 16 GiB.
 experiment:
   name: ucsd_deepgrowth_public_reproduction
   seed: 100

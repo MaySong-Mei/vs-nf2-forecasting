@@ -73,13 +73,29 @@ Do not start the five-fold model run until all gates pass:
 - image and mask geometry agree within each timepoint;
 - masks are nonempty before and after registration;
 - crop truncation is quantified; visually inspect every flagged target;
-- locally render de-identified three-plane QC montages for the lowest-overlap
-  cases, retaining the private case mapping outside version control;
+- locally render every automatically flagged prepared case, an
+  overlap-stratified deterministic sample of at least 12 passed cases, and all
+  recoverable preprocessing failures;
+- review registration/source, crop-face contact, mask contour, normalized
+  intensity, and negative-inside/positive-outside SDF panels while retaining
+  the private case mapping outside version control;
+- record human pass/fail/uncertain separately from the frozen automatic gate;
 - stable-mask and linear-SDF baselines complete for all evaluable cases;
 - the synthetic overfit/smoke run produces a checkpoint and predictions.
 
 The preprocessing metadata records registration status, crop contact, source
 paths, and time intervals. Keep this file with every result table.
+
+Before preprocessing or training, save machine-readable runtime provenance:
+
+```bash
+python scripts/preflight.py --require-cuda --json \
+  --output-json outputs/runtime-provenance/environment.json
+```
+
+The strict JSON schema records the exact CUDA device, VRAM, driver, PyTorch/CUDA,
+OS/Python, and git state without persisting hostnames, usernames, or paths.
+Training embeds the same schema in each fold's `run_metadata.json`.
 
 `make_splits.py` assigns only patients contributing at least one eligible
 triplet; this avoids empty/non-evaluable patients distorting fold sizes. The
@@ -156,7 +172,7 @@ counts above are recorded rather than silently forcing agreement. The
 discrepancy is retained in the paired manifest rather than forcing agreement
 with the web-page summary.
 
-## Local environment and smoke audit (2026-08-06)
+## Local environment and smoke audit (updated 2026-08-08)
 
 - Windows, Python 3.10.15
 - NVIDIA driver 596.08; driver-reported CUDA capability 13.2
@@ -164,7 +180,7 @@ with the web-page summary.
 - NVIDIA GeForce RTX 3080 Laptop GPU, compute capability 8.6, 16.0 GiB
 - NumPy 2.2.6, SciPy 1.15.3, pandas 2.3.3, NiBabel 5.4.2,
   SimpleITK 2.5.6, PyYAML 6.0.3
-- 23 unit tests passed, including file-level NIfTI/SimpleITK preprocessing,
+- 29 unit tests passed, including file-level NIfTI/SimpleITK preprocessing,
   selective-download validation, and strict finite-metric reporting tests
 - Synthetic GPU smoke: forward/backward, FP16 AMP, checkpoint evaluation and
   resume passed. Loss changed from 0.9353 (two batches) to 0.9014 after resume
@@ -227,6 +243,14 @@ three-plane montages were inspected, covering all six target-crop-border cases
 and six lowest-overlap cases. The low-overlap views confirmed unreliable
 longitudinal alignment, so these cases are explicitly filtered rather than
 silently included. The raw and QC images remain outside version control.
+
+On 2026-08-08, the version-2 systematic renderer expanded this to 60 local
+opaque panels: all 32 automatically flagged prepared triples, 12 deterministic
+QC-passed controls, and source debug views for all 16 preprocessing failures.
+Its identifier-free review index and separate private mapping reconcile 60/60;
+all rendered SDFs passed the negative-inside check. Manual decisions remain
+blank pending human review, so the 103 / 73 modeling cohort is still provisional
+and formal five-fold training remains blocked.
 
 Real no-training baselines on the 103 QC-passed cases were:
 

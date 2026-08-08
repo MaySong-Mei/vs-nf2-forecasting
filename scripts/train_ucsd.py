@@ -5,7 +5,6 @@ import argparse
 import json
 import random
 import re
-import subprocess
 import time
 from pathlib import Path
 import sys
@@ -22,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from ucsd_repro.dataset import PreparedTripletDataset, load_split_metadata
 from ucsd_repro.metrics import case_metrics
 from ucsd_repro.model import DeepGrowthLite
+from ucsd_repro.provenance import collect_runtime_provenance, write_strict_json
 
 
 def safe_name(value: str) -> str:
@@ -29,7 +29,7 @@ def safe_name(value: str) -> str:
 
 
 def arguments() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Train the RTX-2080 DeepGrowth-style profile")
+    parser = argparse.ArgumentParser(description="Train the memory-bounded DeepGrowth-style profile")
     parser.add_argument("--config", required=True, type=Path)
     parser.add_argument("--metadata", required=True, type=Path)
     parser.add_argument("--splits", required=True, type=Path)
@@ -62,26 +62,6 @@ def choose_device(requested: str) -> torch.device:
     if requested == "cuda" and not torch.cuda.is_available():
         raise SystemExit("CUDA was requested but is unavailable")
     return torch.device(requested)
-
-
-def git_state() -> tuple[str, bool | None]:
-    repo = Path(__file__).resolve().parents[1]
-    try:
-        commit = subprocess.check_output(
-            ["git", "-c", f"safe.directory={repo.as_posix()}", "rev-parse", "HEAD"],
-            cwd=repo,
-            text=True,
-            stderr=subprocess.DEVNULL,
-        ).strip()
-        status = subprocess.check_output(
-            ["git", "-c", f"safe.directory={repo.as_posix()}", "status", "--porcelain"],
-            cwd=repo,
-            text=True,
-            stderr=subprocess.DEVNULL,
-        )
-        return commit, bool(status.strip())
-    except (OSError, subprocess.CalledProcessError):
-        return "unknown", None
 
 
 def finite_mean(values: pd.Series) -> float | None:
@@ -181,7 +161,9 @@ def main() -> int:
     epochs = args.epochs if args.epochs is not None else int(train_config["epochs"])
     run_dir = Path(train_config["checkpoint_dir"]) / config["experiment"]["name"] / f"fold_{args.fold}"
     run_dir.mkdir(parents=True, exist_ok=True)
-    commit_sha, git_dirty = git_state()
+    runtime_provenance = collect_runtime_provenance(Path(__file__).resolve().parents[1])
+    commit_sha = str(runtime_provenance["git"]["commit"])
+    git_dirty = runtime_provenance["git"]["dirty"]
     with (run_dir / "resolved_config.yaml").open("w") as handle:
         yaml.safe_dump(config, handle, sort_keys=False)
     run_metadata = {
@@ -196,9 +178,9 @@ def main() -> int:
         "prepared_input_cases": input_metadata_cases,
         "modeling_cases_after_qc": modeling_cases,
         "included_qc_failed": args.include_qc_failed,
+        "runtime_provenance": runtime_provenance,
     }
-    with (run_dir / "run_metadata.json").open("w") as handle:
-        json.dump(run_metadata, handle, indent=2)
+    write_strict_json(run_dir / "run_metadata.json", run_metadata)
     history = []
     best_dice = -1.0
     start_epoch = 1
