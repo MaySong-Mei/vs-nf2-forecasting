@@ -1,0 +1,3850 @@
+{
+  "experiment": "p1_growth_event",
+  "date": "2026-09-11",
+  "seed": 100,
+  "cohort": {
+    "patients_with_ge2_pre_treatment_scans": 112,
+    "scans_in_runs": 315
+  },
+  "thresholds": {
+    "growth_20pct": {
+      "relative": 0.2,
+      "absolute_mm3": 0.0
+    },
+    "rel20_abs100": {
+      "relative": 0.2,
+      "absolute_mm3": 100.0
+    },
+    "rel50_abs50": {
+      "relative": 0.5,
+      "absolute_mm3": 50.0
+    },
+    "noise_calibrated": {
+      "relative": {
+        "size_cut_mm3": 100.0,
+        "below": 1.19,
+        "at_or_above": 0.42
+      },
+      "absolute_mm3": 0.0
+    }
+  },
+  "classification": {
+    "growth_20pct": {
+      "results": {
+        "prevalence": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 65,
+            "event_rate": 0.32019704433497537,
+            "auc": 0.4419732441471572,
+            "brier": 0.21881824608665282,
+            "log_loss": 0.6296503583525177,
+            "calibration_slope": -4.129340768295524,
+            "calibration_intercept": -3.855869134654593,
+            "ece_5bins": 0.05183049606033048,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.36521216035208576,
+              0.5138952320058459
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 27,
+            "event_rate": 0.2967032967032967,
+            "auc": 0.3833912037037037,
+            "brier": 0.21128675613793643,
+            "log_loss": 0.6140335803539999,
+            "calibration_slope": -8.027069445126447,
+            "calibration_intercept": -6.916482794678997,
+            "ece_5bins": 0.10460772427509626,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.27488348345203184,
+              0.501262415297503
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 34,
+            "event_rate": 0.32075471698113206,
+            "auc": 0.49632352941176466,
+            "brier": 0.2181796554930127,
+            "log_loss": 0.6281640175831383,
+            "calibration_slope": -0.7507369090571135,
+            "calibration_intercept": -1.3105298963486562,
+            "ece_5bins": 0.059984599183368285,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.37310053731637577,
+              0.6151649578314567
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 31,
+            "event_rate": 0.31958762886597936,
+            "auc": 0.38880742913000976,
+            "brier": 0.21951608735392958,
+            "log_loss": 0.6312746070283343,
+            "calibration_slope": -8.29154779171606,
+            "calibration_intercept": -7.039570783399533,
+            "ece_5bins": 0.08140392094686477,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.28536391135236266,
+              0.49472290185893936
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 35,
+            "event_rate": 0.3431372549019608,
+            "auc": 0.4520255863539445,
+            "brier": 0.22668416265680646,
+            "log_loss": 0.6460821018444733,
+            "calibration_slope": -2.68342442780151,
+            "calibration_intercept": -2.661077068879843,
+            "ece_5bins": 0.0802214607215242,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.3407280709486592,
+              0.5741704284452964
+            ]
+          }
+        },
+        "volume_only": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 65,
+            "event_rate": 0.32019704433497537,
+            "auc": 0.48272017837235226,
+            "brier": 0.2213625223283296,
+            "log_loss": 0.6357550393818818,
+            "calibration_slope": -1.49818375943482,
+            "calibration_intercept": -1.8994924575504013,
+            "ece_5bins": 0.048593924147147215,
+            "auc_fold_mean": 0.5361949200225062,
+            "auc_fold_sd": 0.12659954661186198,
+            "auc_ci95": [
+              0.4048232533109273,
+              0.5667899411991517
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 27,
+            "event_rate": 0.2967032967032967,
+            "auc": 0.4537037037037036,
+            "brier": 0.2121812345223742,
+            "log_loss": 0.6157630812243325,
+            "calibration_slope": -1.4631927508530451,
+            "calibration_intercept": -1.972310648130882,
+            "ece_5bins": 0.10451821850269306,
+            "auc_fold_mean": 0.5551300520208085,
+            "auc_fold_sd": 0.19014255872749983,
+            "auc_ci95": [
+              0.3527921823872528,
+              0.5746976103738399
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 34,
+            "event_rate": 0.32075471698113206,
+            "auc": 0.5277777777777778,
+            "brier": 0.22006141893731312,
+            "log_loss": 0.6334105582988815,
+            "calibration_slope": -1.055745872890884,
+            "calibration_intercept": -1.6386684560254259,
+            "ece_5bins": 0.09183882069887206,
+            "auc_fold_mean": 0.5809211376858435,
+            "auc_fold_sd": 0.12104661275065182,
+            "auc_ci95": [
+              0.3853289816873953,
+              0.6642022413116471
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 31,
+            "event_rate": 0.31958762886597936,
+            "auc": 0.3870967741935484,
+            "brier": 0.22278434665253316,
+            "log_loss": 0.6383170496375318,
+            "calibration_slope": -4.462076323948496,
+            "calibration_intercept": -3.808409685229341,
+            "ece_5bins": 0.1310267653986184,
+            "auc_fold_mean": 0.5574361259655378,
+            "auc_fold_sd": 0.09528384914391758,
+            "auc_ci95": [
+              0.2868011083743842,
+              0.5027779492606639
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 35,
+            "event_rate": 0.3431372549019608,
+            "auc": 0.5151385927505331,
+            "brier": 0.22959119866410546,
+            "log_loss": 0.6535947738460809,
+            "calibration_slope": -1.2347593624298174,
+            "calibration_intercept": -1.6267405173037317,
+            "ece_5bins": 0.05956758041349734,
+            "auc_fold_mean": 0.5734672619047618,
+            "auc_fold_sd": 0.15094916018350307,
+            "auc_ci95": [
+              0.4024236163032716,
+              0.6347377755476347
+            ]
+          }
+        },
+        "volume_horizon": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 65,
+            "event_rate": 0.32019704433497537,
+            "auc": 0.44849498327759196,
+            "brier": 0.22144622707465603,
+            "log_loss": 0.6358183353161655,
+            "calibration_slope": -2.205960969121615,
+            "calibration_intercept": -2.433623763074599,
+            "ece_5bins": 0.07007934157931027,
+            "auc_fold_mean": 0.5070029166236063,
+            "auc_fold_sd": 0.10061157568935024,
+            "auc_ci95": [
+              0.36487009227931333,
+              0.5345830682900753
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 27,
+            "event_rate": 0.2967032967032967,
+            "auc": 0.47337962962962965,
+            "brier": 0.21151283227559398,
+            "log_loss": 0.6141607032415557,
+            "calibration_slope": -1.275153472331225,
+            "calibration_intercept": -1.8200510922534643,
+            "ece_5bins": 0.0397525420986853,
+            "auc_fold_mean": 0.5708683473389355,
+            "auc_fold_sd": 0.2067151689932012,
+            "auc_ci95": [
+              0.3589354066985646,
+              0.6030740662139219
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 34,
+            "event_rate": 0.32075471698113206,
+            "auc": 0.4983660130718954,
+            "brier": 0.2200775224856532,
+            "log_loss": 0.6331855140361426,
+            "calibration_slope": -1.7039603885643826,
+            "calibration_intercept": -2.138894773683643,
+            "ece_5bins": 0.06075944838346908,
+            "auc_fold_mean": 0.5142128133304603,
+            "auc_fold_sd": 0.08454137547407815,
+            "auc_ci95": [
+              0.350589905155071,
+              0.6434292346162209
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 31,
+            "event_rate": 0.31958762886597936,
+            "auc": 0.3533724340175953,
+            "brier": 0.22294192487294778,
+            "log_loss": 0.6386954389829944,
+            "calibration_slope": -4.327550277361537,
+            "calibration_intercept": -3.8126838915326453,
+            "ece_5bins": 0.1288219089957749,
+            "auc_fold_mean": 0.4791083099906629,
+            "auc_fold_sd": 0.09333255961961508,
+            "auc_ci95": [
+              0.24154679232804235,
+              0.47237763363524016
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 35,
+            "event_rate": 0.3431372549019608,
+            "auc": 0.47078891257995725,
+            "brier": 0.22947083550269518,
+            "log_loss": 0.6530973040435981,
+            "calibration_slope": -2.0148420549546553,
+            "calibration_intercept": -2.2555120989121824,
+            "ece_5bins": 0.1144103028245433,
+            "auc_fold_mean": 0.5807620614035087,
+            "auc_fold_sd": 0.12338222232208258,
+            "auc_ci95": [
+              0.346201105277701,
+              0.5831095041322314
+            ]
+          }
+        },
+        "history": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 65,
+            "event_rate": 0.32019704433497537,
+            "auc": 0.4338907469342252,
+            "brier": 0.22072448175846635,
+            "log_loss": 0.6341121846695333,
+            "calibration_slope": -2.1014447710939876,
+            "calibration_intercept": -2.3334513978471922,
+            "ece_5bins": 0.06927263562308865,
+            "auc_fold_mean": 0.47158191616812306,
+            "auc_fold_sd": 0.061079890678392985,
+            "auc_ci95": [
+              0.34425954733427966,
+              0.5214878525042775
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 27,
+            "event_rate": 0.2967032967032967,
+            "auc": 0.40046296296296297,
+            "brier": 0.21297880333478073,
+            "log_loss": 0.6181774219780916,
+            "calibration_slope": -2.8951169449988594,
+            "calibration_intercept": -3.221497178314776,
+            "ece_5bins": 0.1175828859981092,
+            "auc_fold_mean": 0.45258903561424574,
+            "auc_fold_sd": 0.11566243845470096,
+            "auc_ci95": [
+              0.26437813811128696,
+              0.5427192589194486
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 34,
+            "event_rate": 0.32075471698113206,
+            "auc": 0.4636437908496732,
+            "brier": 0.22022760208218,
+            "log_loss": 0.6330801429546219,
+            "calibration_slope": -1.862728122822877,
+            "calibration_intercept": -2.207098257605818,
+            "ece_5bins": 0.09265961415738234,
+            "auc_fold_mean": 0.5125025138260432,
+            "auc_fold_sd": 0.125936712646799,
+            "auc_ci95": [
+              0.34687451683182235,
+              0.5815399305555554
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 31,
+            "event_rate": 0.31958762886597936,
+            "auc": 0.39296187683284456,
+            "brier": 0.22126746367275862,
+            "log_loss": 0.6352399828322199,
+            "calibration_slope": -2.685176911119283,
+            "calibration_intercept": -2.6868877309117947,
+            "ece_5bins": 0.10708175998065284,
+            "auc_fold_mean": 0.4569694847636024,
+            "auc_fold_sd": 0.13252667704485752,
+            "auc_ci95": [
+              0.27307556632241065,
+              0.5163955520732882
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 35,
+            "event_rate": 0.3431372549019608,
+            "auc": 0.4699360341151386,
+            "brier": 0.22739791404230975,
+            "log_loss": 0.6477857657074664,
+            "calibration_slope": -0.9711235031586499,
+            "calibration_intercept": -1.3831276273083766,
+            "ece_5bins": 0.07100508128184263,
+            "auc_fold_mean": 0.5256766917293233,
+            "auc_fold_sd": 0.17006771859131173,
+            "auc_ci95": [
+              0.34286814387917325,
+              0.5951730146437623
+            ]
+          }
+        },
+        "history_clinical": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 65,
+            "event_rate": 0.32019704433497537,
+            "auc": 0.4714604236343367,
+            "brier": 0.22015946118963586,
+            "log_loss": 0.6330339087971132,
+            "calibration_slope": -1.2993132957266058,
+            "calibration_intercept": -1.7302145159274716,
+            "ece_5bins": 0.06504396373741797,
+            "auc_fold_mean": 0.5073884123539296,
+            "auc_fold_sd": 0.09103220762814489,
+            "auc_ci95": [
+              0.3712720629686002,
+              0.5626350061119073
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 27,
+            "event_rate": 0.2967032967032967,
+            "auc": 0.40567129629629634,
+            "brier": 0.21351755106937167,
+            "log_loss": 0.6195752330553189,
+            "calibration_slope": -2.8819579379161704,
+            "calibration_intercept": -3.210426801826585,
+            "ece_5bins": 0.11331355057921996,
+            "auc_fold_mean": 0.5211964785914366,
+            "auc_fold_sd": 0.12826680781406238,
+            "auc_ci95": [
+              0.2792964990777102,
+              0.5439501807078764
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 34,
+            "event_rate": 0.32075471698113206,
+            "auc": 0.4705882352941177,
+            "brier": 0.22048555077862078,
+            "log_loss": 0.633858009896645,
+            "calibration_slope": -1.4907113049905356,
+            "calibration_intercept": -1.9202455608923614,
+            "ece_5bins": 0.10509801745662248,
+            "auc_fold_mean": 0.48968559218559216,
+            "auc_fold_sd": 0.16516195384208443,
+            "auc_ci95": [
+              0.348554581252791,
+              0.5923100888082505
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 31,
+            "event_rate": 0.31958762886597936,
+            "auc": 0.46774193548387094,
+            "brier": 0.21980311586559048,
+            "log_loss": 0.6321333447089652,
+            "calibration_slope": -1.2913156269232575,
+            "calibration_intercept": -1.6811357782396936,
+            "ece_5bins": 0.09150266812043358,
+            "auc_fold_mean": 0.5377847805788982,
+            "auc_fold_sd": 0.09564827521962642,
+            "auc_ci95": [
+              0.3411468028071444,
+              0.607154017857143
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 35,
+            "event_rate": 0.3431372549019608,
+            "auc": 0.5270788912579958,
+            "brier": 0.22604909580385907,
+            "log_loss": 0.6448923670776789,
+            "calibration_slope": 0.3149964542366001,
+            "calibration_intercept": -0.41072972856347373,
+            "ece_5bins": 0.10804289358311918,
+            "auc_fold_mean": 0.5625258458646617,
+            "auc_fold_sd": 0.14933654274169725,
+            "auc_ci95": [
+              0.3896858542691876,
+              0.6688353073735476
+            ]
+          }
+        },
+        "history_clinical_acq": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 65,
+            "event_rate": 0.32019704433497537,
+            "auc": 0.45685618729096994,
+            "brier": 0.22093174831030757,
+            "log_loss": 0.6348463012346564,
+            "calibration_slope": -1.6864331913670993,
+            "calibration_intercept": -2.025501459836556,
+            "ece_5bins": 0.07250346320594109,
+            "auc_fold_mean": 0.4936629500767432,
+            "auc_fold_sd": 0.09143532701976534,
+            "auc_ci95": [
+              0.3610692193492515,
+              0.5536764545236067
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 27,
+            "event_rate": 0.2967032967032967,
+            "auc": 0.3981481481481482,
+            "brier": 0.21419417713004626,
+            "log_loss": 0.6211879929051483,
+            "calibration_slope": -3.1073255629019023,
+            "calibration_intercept": -3.391428144163296,
+            "ece_5bins": 0.11377339713089003,
+            "auc_fold_mean": 0.5097679071628651,
+            "auc_fold_sd": 0.1457685283294266,
+            "auc_ci95": [
+              0.26783641088014154,
+              0.5371194161442006
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 34,
+            "event_rate": 0.32075471698113206,
+            "auc": 0.4513888888888889,
+            "brier": 0.22153359958096364,
+            "log_loss": 0.6363378340566567,
+            "calibration_slope": -1.9537497543498525,
+            "calibration_intercept": -2.2825427803092317,
+            "ece_5bins": 0.11202870843017537,
+            "auc_fold_mean": 0.47552592832004603,
+            "auc_fold_sd": 0.17247817090160414,
+            "auc_ci95": [
+              0.3137593954901647,
+              0.5739350490196079
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 31,
+            "event_rate": 0.31958762886597936,
+            "auc": 0.4521016617790811,
+            "brier": 0.22027405516917825,
+            "log_loss": 0.6332163787693779,
+            "calibration_slope": -1.575567314871822,
+            "calibration_intercept": -1.8937670092582035,
+            "ece_5bins": 0.09150316694133072,
+            "auc_fold_mean": 0.5158944486885664,
+            "auc_fold_sd": 0.09983253581016556,
+            "auc_ci95": [
+              0.3145332698677913,
+              0.5951107290929315
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 35,
+            "event_rate": 0.3431372549019608,
+            "auc": 0.4908315565031983,
+            "brier": 0.22761310166178206,
+            "log_loss": 0.6485320249802068,
+            "calibration_slope": -0.787815801347952,
+            "calibration_intercept": -1.2457591931045404,
+            "ece_5bins": 0.12436668353074921,
+            "auc_fold_mean": 0.5369619360902257,
+            "auc_fold_sd": 0.08739562338641808,
+            "auc_ci95": [
+              0.3587114726027397,
+              0.6169464188080919
+            ]
+          }
+        }
+      },
+      "fold_diagnostics": {
+        "fold_0": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0238
+            }
+          },
+          "volume_horizon": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.024,
+              "log_horizon": -0.0145
+            }
+          },
+          "history": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0236,
+              "log_horizon": -0.0135,
+              "has_prev": -0.0198,
+              "last_rate_yr": -0.028,
+              "prior_growth": -0.0505,
+              "t_run_yr": -0.0288
+            }
+          },
+          "history_clinical": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0222,
+              "log_horizon": -0.0112,
+              "has_prev": -0.0212,
+              "last_rate_yr": -0.0302,
+              "prior_growth": -0.0529,
+              "t_run_yr": -0.0275,
+              "age": -0.0282,
+              "sex_male": -0.0542
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0224,
+              "log_horizon": -0.0115,
+              "has_prev": -0.0212,
+              "last_rate_yr": -0.03,
+              "prior_growth": -0.053,
+              "t_run_yr": -0.0277,
+              "age": -0.0286,
+              "sex_male": -0.0542,
+              "slice_mm": -0.0077,
+              "seq_iac": 0.0117
+            }
+          }
+        },
+        "fold_1": {
+          "volume_only": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": -0.0612
+            }
+          },
+          "volume_horizon": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0307,
+              "log_horizon": 0.0238
+            }
+          },
+          "history": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0291,
+              "log_horizon": 0.0261,
+              "has_prev": -0.0003,
+              "last_rate_yr": -0.0019,
+              "prior_growth": -0.0833,
+              "t_run_yr": -0.0426
+            }
+          },
+          "history_clinical": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0271,
+              "log_horizon": 0.0284,
+              "has_prev": -0.0008,
+              "last_rate_yr": -0.0049,
+              "prior_growth": -0.0864,
+              "t_run_yr": -0.04,
+              "age": -0.051,
+              "sex_male": -0.0592
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0241,
+              "log_horizon": 0.0342,
+              "has_prev": -0.0014,
+              "last_rate_yr": -0.009,
+              "prior_growth": -0.0865,
+              "t_run_yr": -0.038,
+              "age": -0.0477,
+              "sex_male": -0.0607,
+              "slice_mm": -0.0249,
+              "seq_iac": -0.0426
+            }
+          }
+        },
+        "fold_2": {
+          "volume_only": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": -0.2887
+            }
+          },
+          "volume_horizon": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.2439,
+              "log_horizon": 0.0792
+            }
+          },
+          "history": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.08,
+              "log_horizon": 0.0275,
+              "has_prev": 0.0096,
+              "last_rate_yr": 0.0196,
+              "prior_growth": -0.0501,
+              "t_run_yr": -0.014
+            }
+          },
+          "history_clinical": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0768,
+              "log_horizon": 0.0293,
+              "has_prev": 0.0097,
+              "last_rate_yr": 0.0169,
+              "prior_growth": -0.0529,
+              "t_run_yr": -0.0123,
+              "age": -0.0398,
+              "sex_male": -0.0527
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0769,
+              "log_horizon": 0.0293,
+              "has_prev": 0.0096,
+              "last_rate_yr": 0.0169,
+              "prior_growth": -0.0529,
+              "t_run_yr": -0.0124,
+              "age": -0.0397,
+              "sex_male": -0.0527,
+              "slice_mm": -0.0031,
+              "seq_iac": 0.0034
+            }
+          }
+        },
+        "fold_3": {
+          "volume_only": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.1861
+            }
+          },
+          "volume_horizon": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0613,
+              "log_horizon": 0.0368
+            }
+          },
+          "history": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.061,
+              "log_horizon": 0.037,
+              "has_prev": -0.0062,
+              "last_rate_yr": 0.0191,
+              "prior_growth": -0.0444,
+              "t_run_yr": -0.0
+            }
+          },
+          "history_clinical": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0618,
+              "log_horizon": 0.0339,
+              "has_prev": -0.0057,
+              "last_rate_yr": 0.0177,
+              "prior_growth": -0.0476,
+              "t_run_yr": 0.0002,
+              "age": 0.0046,
+              "sex_male": -0.073
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0607,
+              "log_horizon": 0.0373,
+              "has_prev": -0.0061,
+              "last_rate_yr": 0.0151,
+              "prior_growth": -0.0479,
+              "t_run_yr": 0.0009,
+              "age": 0.0063,
+              "sex_male": -0.074,
+              "slice_mm": -0.017,
+              "seq_iac": -0.0249
+            }
+          }
+        },
+        "fold_4": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0174
+            }
+          },
+          "volume_horizon": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0176,
+              "log_horizon": -0.0078
+            }
+          },
+          "history": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0194,
+              "log_horizon": 0.0003,
+              "has_prev": -0.0534,
+              "last_rate_yr": 0.0268,
+              "prior_growth": -0.0564,
+              "t_run_yr": -0.0668
+            }
+          },
+          "history_clinical": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0193,
+              "log_horizon": -0.0019,
+              "has_prev": -0.0542,
+              "last_rate_yr": 0.0252,
+              "prior_growth": -0.0596,
+              "t_run_yr": -0.0674,
+              "age": 0.0105,
+              "sex_male": -0.0674
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0187,
+              "log_horizon": -0.0008,
+              "has_prev": -0.0542,
+              "last_rate_yr": 0.0247,
+              "prior_growth": -0.0593,
+              "t_run_yr": -0.067,
+              "age": 0.0112,
+              "sex_male": -0.0675,
+              "slice_mm": 0.011,
+              "seq_iac": -0.0254
+            }
+          }
+        }
+      },
+      "cohort": {
+        "intervals": 203,
+        "patients": 112,
+        "events": 65,
+        "event_rate": 0.32019704433497537,
+        "shrink_ge_threshold": 37,
+        "mirrored_shrink_events": 40,
+        "mirrored_shrink_to_growth_ratio": 0.6153846153846154,
+        "event_vs_radiology_increased": {
+          "event=0": {
+            "radiology_increased=False": 128,
+            "radiology_increased=True": 10
+          },
+          "event=1": {
+            "radiology_increased=False": 40,
+            "radiology_increased=True": 25
+          }
+        }
+      }
+    },
+    "rel20_abs100": {
+      "results": {
+        "prevalence": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 29,
+            "event_rate": 0.14285714285714285,
+            "auc": 0.409235037653587,
+            "brier": 0.12335593004200249,
+            "log_loss": 0.4139029880290905,
+            "calibration_slope": -3.9189738334854205,
+            "calibration_intercept": -8.841899831141163,
+            "ece_5bins": 0.04200512837879285,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.29866417568513376,
+              0.5358114335816335
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 12,
+            "event_rate": 0.13186813186813187,
+            "auc": 0.3449367088607595,
+            "brier": 0.11607333327973285,
+            "log_loss": 0.3965150206618676,
+            "calibration_slope": -6.691291494228463,
+            "calibration_intercept": -13.987787238178399,
+            "ece_5bins": 0.07217869227756643,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.18812500000000004,
+              0.5569593799058083
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 25,
+            "event_rate": 0.2358490566037736,
+            "auc": 0.3641975308641976,
+            "brier": 0.19069697469973879,
+            "log_loss": 0.5846158941744473,
+            "calibration_slope": -6.334826577917276,
+            "calibration_intercept": -12.55177460607159,
+            "ece_5bins": 0.09190841829214685,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.23560453211498697,
+              0.4921650717703349
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 4,
+            "event_rate": 0.041237113402061855,
+            "auc": 0.5188172043010753,
+            "brier": 0.04976674722014641,
+            "log_loss": 0.22735074007643255,
+            "calibration_slope": 3.5959121981525253,
+            "calibration_intercept": 3.269868285622027,
+            "ece_5bins": 0.10159661015517144,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.3087640801001252,
+              0.7289485612352322
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 12,
+            "event_rate": 0.11764705882352941,
+            "auc": 0.4,
+            "brier": 0.10554061766645854,
+            "log_loss": 0.3695918001210078,
+            "calibration_slope": -5.645918818279843,
+            "calibration_intercept": -12.206334544790243,
+            "ece_5bins": 0.07931835947142005,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.20444400532490223,
+              0.6371220091964773
+            ]
+          }
+        },
+        "volume_only": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 29,
+            "event_rate": 0.14285714285714285,
+            "auc": 0.6932223543400713,
+            "brier": 0.12232719249317114,
+            "log_loss": 0.39681478172602996,
+            "calibration_slope": 0.7070744280611062,
+            "calibration_intercept": -0.5163854491883663,
+            "ece_5bins": 0.017680275556927614,
+            "auc_fold_mean": 0.7256570593149541,
+            "auc_fold_sd": 0.1086321890342175,
+            "auc_ci95": [
+              0.5888048062765044,
+              0.7937526732394519
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 12,
+            "event_rate": 0.13186813186813187,
+            "auc": 0.6951476793248945,
+            "brier": 0.11530074116503858,
+            "log_loss": 0.37501537681253905,
+            "calibration_slope": 0.77725579984174,
+            "calibration_intercept": -0.48052716222400005,
+            "ece_5bins": 0.029019344907965455,
+            "auc_fold_mean": 0.74452064479638,
+            "auc_fold_sd": 0.15490447990127154,
+            "auc_ci95": [
+              0.5666233766233766,
+              0.8122311590685083
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 25,
+            "event_rate": 0.2358490566037736,
+            "auc": 0.49283950617283956,
+            "brier": 0.19684727318732653,
+            "log_loss": 0.5903599104261072,
+            "calibration_slope": -0.3985176473690846,
+            "calibration_intercept": -1.7481482370810872,
+            "ece_5bins": 0.11721418415761678,
+            "auc_fold_mean": 0.541837965955613,
+            "auc_fold_sd": 0.22598718138704682,
+            "auc_ci95": [
+              0.3533293948951609,
+              0.6337266553480475
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 4,
+            "event_rate": 0.041237113402061855,
+            "auc": 0.6263440860215053,
+            "brier": 0.040892877507805465,
+            "log_loss": 0.18531185757955373,
+            "calibration_slope": 0.37202469551627476,
+            "calibration_intercept": -2.2278961743595045,
+            "ece_5bins": 0.041999350477699544,
+            "auc_fold_mean": 0.8070175438596491,
+            "auc_fold_sd": 0.2898721340676896,
+            "auc_ci95": [
+              0.07875000000000032,
+              0.9698409090909091
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 12,
+            "event_rate": 0.11764705882352941,
+            "auc": 0.7648148148148148,
+            "brier": 0.1009264502010388,
+            "log_loss": 0.3354545490830427,
+            "calibration_slope": 1.1190409585680687,
+            "calibration_intercept": -0.16441662494401857,
+            "ece_5bins": 0.04214760158862807,
+            "auc_fold_mean": 0.7858484084826797,
+            "auc_fold_sd": 0.15471429755519014,
+            "auc_ci95": [
+              0.620326797385621,
+              0.8960923769072059
+            ]
+          }
+        },
+        "volume_horizon": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 29,
+            "event_rate": 0.14285714285714285,
+            "auc": 0.7098692033293699,
+            "brier": 0.12110382535139577,
+            "log_loss": 0.39327325840676186,
+            "calibration_slope": 0.7641607159605804,
+            "calibration_intercept": -0.42360235830287635,
+            "ece_5bins": 0.052448282842583,
+            "auc_fold_mean": 0.746625730994152,
+            "auc_fold_sd": 0.10277463157987606,
+            "auc_ci95": [
+              0.6004596322419599,
+              0.8040276086138283
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 12,
+            "event_rate": 0.13186813186813187,
+            "auc": 0.7383966244725739,
+            "brier": 0.1139102112142652,
+            "log_loss": 0.36861885123087174,
+            "calibration_slope": 0.8821438504342923,
+            "calibration_intercept": -0.3519915448119975,
+            "ece_5bins": 0.05459530038555868,
+            "auc_fold_mean": 0.7829114819004525,
+            "auc_fold_sd": 0.07949560990308578,
+            "auc_ci95": [
+              0.6027353354408149,
+              0.8588301989504602
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 25,
+            "event_rate": 0.2358490566037736,
+            "auc": 0.5160493827160494,
+            "brier": 0.1949847196574723,
+            "log_loss": 0.5859688339280293,
+            "calibration_slope": -0.16695436404849096,
+            "calibration_intercept": -1.4191956375045052,
+            "ece_5bins": 0.06715336108331256,
+            "auc_fold_mean": 0.5825985778926956,
+            "auc_fold_sd": 0.1810818107630913,
+            "auc_ci95": [
+              0.3729458555459936,
+              0.6621274750686514
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 4,
+            "event_rate": 0.041237113402061855,
+            "auc": 0.7096774193548386,
+            "brier": 0.040368002707642035,
+            "log_loss": 0.18269871196084056,
+            "calibration_slope": 1.145282698297947,
+            "calibration_intercept": -0.46892612848567733,
+            "ece_5bins": 0.05516347638130345,
+            "auc_fold_mean": 0.8086883876357561,
+            "auc_fold_sd": 0.2445546861382511,
+            "auc_ci95": [
+              0.019342793129200907,
+              0.9902341519131925
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 12,
+            "event_rate": 0.11764705882352941,
+            "auc": 0.7351851851851852,
+            "brier": 0.10029608922641231,
+            "log_loss": 0.33549334956129323,
+            "calibration_slope": 1.027851266947871,
+            "calibration_intercept": -0.09238065747617322,
+            "ece_5bins": 0.031614440570106164,
+            "auc_fold_mean": 0.7454253050160978,
+            "auc_fold_sd": 0.20077396415736007,
+            "auc_ci95": [
+              0.5776222222222221,
+              0.8710020590253946
+            ]
+          }
+        },
+        "history": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 29,
+            "event_rate": 0.14285714285714285,
+            "auc": 0.6585414189456996,
+            "brier": 0.12321091415960207,
+            "log_loss": 0.4063115744790344,
+            "calibration_slope": 0.5529393988292748,
+            "calibration_intercept": -0.7782047932726252,
+            "ece_5bins": 0.017023297171656824,
+            "auc_fold_mean": 0.709577903091061,
+            "auc_fold_sd": 0.1161655120623568,
+            "auc_ci95": [
+              0.54110725444464,
+              0.7746828340120225
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 12,
+            "event_rate": 0.13186813186813187,
+            "auc": 0.5970464135021097,
+            "brier": 0.12271126761444344,
+            "log_loss": 0.4094052577523309,
+            "calibration_slope": 0.2406802371966716,
+            "calibration_intercept": -1.4188642896308898,
+            "ece_5bins": 0.04856941315160162,
+            "auc_fold_mean": 0.7196691176470589,
+            "auc_fold_sd": 0.03841116541510258,
+            "auc_ci95": [
+              0.4398382319434951,
+              0.7722908115980405
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 25,
+            "event_rate": 0.2358490566037736,
+            "auc": 0.47456790123456793,
+            "brier": 0.19779224996833777,
+            "log_loss": 0.605773463928272,
+            "calibration_slope": -0.4942854157134202,
+            "calibration_intercept": -1.953876168820127,
+            "ece_5bins": 0.08211320644765933,
+            "auc_fold_mean": 0.5323734109028226,
+            "auc_fold_sd": 0.1836013294235264,
+            "auc_ci95": [
+              0.3220589651992091,
+              0.6165234627504849
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 4,
+            "event_rate": 0.041237113402061855,
+            "auc": 0.6666666666666666,
+            "brier": 0.041709660595416725,
+            "log_loss": 0.18834291178192936,
+            "calibration_slope": 1.3700150025861961,
+            "calibration_intercept": -0.1208752017861003,
+            "ece_5bins": 0.05466317080565429,
+            "auc_fold_mean": 0.7698412698412699,
+            "auc_fold_sd": 0.20033801834786905,
+            "auc_ci95": [
+              0.1043741234221599,
+              0.9891684198223468
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 12,
+            "event_rate": 0.11764705882352941,
+            "auc": 0.6944444444444445,
+            "brier": 0.10729534082347411,
+            "log_loss": 0.36399349902079037,
+            "calibration_slope": 0.49350743466473057,
+            "calibration_intercept": -1.0997370695676794,
+            "ece_5bins": 0.036812307795964595,
+            "auc_fold_mean": 0.7337549066449323,
+            "auc_fold_sd": 0.2073624607047794,
+            "auc_ci95": [
+              0.5326672976883061,
+              0.8627197138409762
+            ]
+          }
+        },
+        "history_clinical": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 29,
+            "event_rate": 0.14285714285714285,
+            "auc": 0.627427665477606,
+            "brier": 0.12466244597628258,
+            "log_loss": 0.40896397351202396,
+            "calibration_slope": 0.5368988140896731,
+            "calibration_intercept": -0.8326255807112133,
+            "ece_5bins": 0.015160678341648765,
+            "auc_fold_mean": 0.6919030910609857,
+            "auc_fold_sd": 0.10455808835065981,
+            "auc_ci95": [
+              0.516097297404496,
+              0.7458201891499305
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 12,
+            "event_rate": 0.13186813186813187,
+            "auc": 0.5928270042194093,
+            "brier": 0.11967835064581016,
+            "log_loss": 0.3959170339845465,
+            "calibration_slope": 0.39096714812351074,
+            "calibration_intercept": -1.1595023990141724,
+            "ece_5bins": 0.052444890618114234,
+            "auc_fold_mean": 0.7196691176470589,
+            "auc_fold_sd": 0.038411165415102595,
+            "auc_ci95": [
+              0.4285714285714286,
+              0.7630227183043014
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 25,
+            "event_rate": 0.2358490566037736,
+            "auc": 0.4296296296296296,
+            "brier": 0.1993865971981574,
+            "log_loss": 0.6055964892535116,
+            "calibration_slope": -0.8922619524259304,
+            "calibration_intercept": -2.576118338640678,
+            "ece_5bins": 0.11246022337624625,
+            "auc_fold_mean": 0.5070130359836242,
+            "auc_fold_sd": 0.2101650154003001,
+            "auc_ci95": [
+              0.29098313914937957,
+              0.5812354374760671
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 4,
+            "event_rate": 0.041237113402061855,
+            "auc": 0.6693548387096774,
+            "brier": 0.0430051260843369,
+            "log_loss": 0.19408720373266625,
+            "calibration_slope": 1.7545508407751913,
+            "calibration_intercept": 0.5540705937959457,
+            "ece_5bins": 0.06296824060972804,
+            "auc_fold_mean": 0.7840434419381789,
+            "auc_fold_sd": 0.24690957148047876,
+            "auc_ci95": [
+              0.2131877022653722,
+              0.9708934517203107
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 12,
+            "event_rate": 0.11764705882352941,
+            "auc": 0.6592592592592592,
+            "brier": 0.10644028372541653,
+            "log_loss": 0.3597275665184448,
+            "calibration_slope": 0.6595724671570046,
+            "calibration_intercept": -0.8281506977860801,
+            "ece_5bins": 0.0340557225002194,
+            "auc_fold_mean": 0.7169037626198751,
+            "auc_fold_sd": 0.21514383981321125,
+            "auc_ci95": [
+              0.5162142354596623,
+              0.8323233708391936
+            ]
+          }
+        },
+        "history_clinical_acq": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 29,
+            "event_rate": 0.14285714285714285,
+            "auc": 0.6123662306777645,
+            "brier": 0.12718587865393458,
+            "log_loss": 0.4209304513650689,
+            "calibration_slope": 0.3227760139268953,
+            "calibration_intercept": -1.2009681279273239,
+            "ece_5bins": 0.03655682863872674,
+            "auc_fold_mean": 0.6831737677527151,
+            "auc_fold_sd": 0.11731874792589253,
+            "auc_ci95": [
+              0.49552408876951076,
+              0.7285990501033174
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 12,
+            "event_rate": 0.13186813186813187,
+            "auc": 0.560126582278481,
+            "brier": 0.12441053692070428,
+            "log_loss": 0.4153737719190603,
+            "calibration_slope": 0.19270622893321723,
+            "calibration_intercept": -1.5162781178287947,
+            "ece_5bins": 0.05670002879257422,
+            "auc_fold_mean": 0.6444428733031673,
+            "auc_fold_sd": 0.06903750131552155,
+            "auc_ci95": [
+              0.3820881202131202,
+              0.7519630642954857
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 25,
+            "event_rate": 0.2358490566037736,
+            "auc": 0.41728395061728396,
+            "brier": 0.2038653991744746,
+            "log_loss": 0.6240990986478652,
+            "calibration_slope": -0.9099176404088221,
+            "calibration_intercept": -2.5920923713981296,
+            "ece_5bins": 0.109412920599987,
+            "auc_fold_mean": 0.5116375781081663,
+            "auc_fold_sd": 0.20347452688540585,
+            "auc_ci95": [
+              0.28047492588932804,
+              0.5695002913752913
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 4,
+            "event_rate": 0.041237113402061855,
+            "auc": 0.6102150537634409,
+            "brier": 0.04339176344592176,
+            "log_loss": 0.1989111048498484,
+            "calibration_slope": -0.015736690811510412,
+            "calibration_intercept": -3.181792489105001,
+            "ece_5bins": 0.056232471912856644,
+            "auc_fold_mean": 0.7451963241436926,
+            "auc_fold_sd": 0.263555414441894,
+            "auc_ci95": [
+              0.01883792048929667,
+              0.9681858902575587
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 12,
+            "event_rate": 0.11764705882352941,
+            "auc": 0.662037037037037,
+            "brier": 0.11019838902547363,
+            "log_loss": 0.3691445174578282,
+            "calibration_slope": 0.45067411001866636,
+            "calibration_intercept": -1.1936887996258485,
+            "ece_5bins": 0.0845883588088881,
+            "auc_fold_mean": 0.7440776756633534,
+            "auc_fold_sd": 0.16498999007368778,
+            "auc_ci95": [
+              0.5186058563963098,
+              0.8259845810479636
+            ]
+          }
+        }
+      },
+      "fold_diagnostics": {
+        "fold_0": {
+          "volume_only": {
+            "C": 1.0,
+            "std_coef": {
+              "log_v": 0.7161
+            }
+          },
+          "volume_horizon": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": 0.6624,
+              "log_horizon": 0.3029
+            }
+          },
+          "history": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.4874,
+              "log_horizon": 0.2384,
+              "has_prev": -0.0332,
+              "last_rate_yr": -0.0924,
+              "prior_growth": 0.0217,
+              "t_run_yr": -0.2152
+            }
+          },
+          "history_clinical": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.47,
+              "log_horizon": 0.2213,
+              "has_prev": -0.0255,
+              "last_rate_yr": -0.0729,
+              "prior_growth": 0.0252,
+              "t_run_yr": -0.228,
+              "age": 0.1173,
+              "sex_male": 0.1142
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.4566,
+              "log_horizon": 0.1938,
+              "has_prev": -0.0168,
+              "last_rate_yr": -0.0562,
+              "prior_growth": 0.0196,
+              "t_run_yr": -0.2314,
+              "age": 0.0897,
+              "sex_male": 0.1138,
+              "slice_mm": 0.0099,
+              "seq_iac": 0.176
+            }
+          }
+        },
+        "fold_1": {
+          "volume_only": {
+            "C": 1.0,
+            "std_coef": {
+              "log_v": 0.8163
+            }
+          },
+          "volume_horizon": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": 0.7721,
+              "log_horizon": 0.3645
+            }
+          },
+          "history": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": 0.3157,
+              "log_horizon": 0.1292,
+              "has_prev": -0.0249,
+              "last_rate_yr": 0.0329,
+              "prior_growth": 0.0137,
+              "t_run_yr": -0.0994
+            }
+          },
+          "history_clinical": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.5588,
+              "log_horizon": 0.2731,
+              "has_prev": 0.0051,
+              "last_rate_yr": 0.0653,
+              "prior_growth": -0.0002,
+              "t_run_yr": -0.2158,
+              "age": 0.0588,
+              "sex_male": 0.0371
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.5536,
+              "log_horizon": 0.278,
+              "has_prev": 0.0012,
+              "last_rate_yr": 0.066,
+              "prior_growth": -0.0002,
+              "t_run_yr": -0.2192,
+              "age": 0.0591,
+              "sex_male": 0.0355,
+              "slice_mm": -0.0903,
+              "seq_iac": 0.0822
+            }
+          }
+        },
+        "fold_2": {
+          "volume_only": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.3783
+            }
+          },
+          "volume_horizon": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.3826,
+              "log_horizon": 0.2334
+            }
+          },
+          "history": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.373,
+              "log_horizon": 0.2555,
+              "has_prev": 0.1131,
+              "last_rate_yr": 0.1255,
+              "prior_growth": 0.0057,
+              "t_run_yr": -0.142
+            }
+          },
+          "history_clinical": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": 0.2091,
+              "log_horizon": 0.1283,
+              "has_prev": 0.0465,
+              "last_rate_yr": 0.0767,
+              "prior_growth": 0.0205,
+              "t_run_yr": -0.054,
+              "age": 0.015,
+              "sex_male": 0.0035
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0941,
+              "log_horizon": 0.0536,
+              "has_prev": 0.0193,
+              "last_rate_yr": 0.037,
+              "prior_growth": 0.0162,
+              "t_run_yr": -0.0178,
+              "age": 0.0122,
+              "sex_male": 0.0011,
+              "slice_mm": -0.0014,
+              "seq_iac": 0.0178
+            }
+          }
+        },
+        "fold_3": {
+          "volume_only": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": 0.5377
+            }
+          },
+          "volume_horizon": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.427,
+              "log_horizon": 0.2618
+            }
+          },
+          "history": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": 0.568,
+              "log_horizon": 0.4428,
+              "has_prev": -0.1048,
+              "last_rate_yr": 0.2569,
+              "prior_growth": -0.0856,
+              "t_run_yr": -0.1632
+            }
+          },
+          "history_clinical": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": 0.2169,
+              "log_horizon": 0.132,
+              "has_prev": -0.0486,
+              "last_rate_yr": 0.1061,
+              "prior_growth": 0.0015,
+              "t_run_yr": -0.0682,
+              "age": 0.122,
+              "sex_male": 0.0453
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.3732,
+              "log_horizon": 0.2701,
+              "has_prev": -0.0847,
+              "last_rate_yr": 0.2393,
+              "prior_growth": -0.0394,
+              "t_run_yr": -0.1437,
+              "age": 0.2057,
+              "sex_male": 0.1035,
+              "slice_mm": -0.0852,
+              "seq_iac": 0.1849
+            }
+          }
+        },
+        "fold_4": {
+          "volume_only": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": 0.6945
+            }
+          },
+          "volume_horizon": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": 0.7128,
+              "log_horizon": 0.1871
+            }
+          },
+          "history": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.5468,
+              "log_horizon": 0.1873,
+              "has_prev": -0.0704,
+              "last_rate_yr": 0.2978,
+              "prior_growth": 0.0542,
+              "t_run_yr": -0.1529
+            }
+          },
+          "history_clinical": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": 0.3002,
+              "log_horizon": 0.0772,
+              "has_prev": -0.0343,
+              "last_rate_yr": 0.1653,
+              "prior_growth": 0.0459,
+              "t_run_yr": -0.0843,
+              "age": 0.0429,
+              "sex_male": 0.0721
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.5221,
+              "log_horizon": 0.1559,
+              "has_prev": -0.0513,
+              "last_rate_yr": 0.3299,
+              "prior_growth": 0.0347,
+              "t_run_yr": -0.1646,
+              "age": 0.0466,
+              "sex_male": 0.1306,
+              "slice_mm": 0.0442,
+              "seq_iac": 0.1546
+            }
+          }
+        }
+      },
+      "cohort": {
+        "intervals": 203,
+        "patients": 112,
+        "events": 29,
+        "event_rate": 0.14285714285714285,
+        "shrink_ge_threshold": 37,
+        "mirrored_shrink_events": 6,
+        "mirrored_shrink_to_growth_ratio": 0.20689655172413793,
+        "event_vs_radiology_increased": {
+          "event=0": {
+            "radiology_increased=False": 156,
+            "radiology_increased=True": 18
+          },
+          "event=1": {
+            "radiology_increased=False": 12,
+            "radiology_increased=True": 17
+          }
+        }
+      }
+    },
+    "rel50_abs50": {
+      "results": {
+        "prevalence": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 19,
+            "event_rate": 0.09359605911330049,
+            "auc": 0.3954519450800915,
+            "brier": 0.08576702203351527,
+            "log_loss": 0.315922212759175,
+            "calibration_slope": -5.876201157351257,
+            "calibration_intercept": -15.759299117184606,
+            "ece_5bins": 0.040033257419387104,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.2727522590361446,
+              0.5349339999800293
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.3554421768707483,
+            "brier": 0.07229531055266847,
+            "log_loss": 0.2784248803948588,
+            "calibration_slope": -11.774321258099018,
+            "calibration_intercept": -29.700391810171517,
+            "ece_5bins": 0.0328499060935964,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.16840961098398166,
+              0.5517900770838776
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 12,
+            "event_rate": 0.11320754716981132,
+            "auc": 0.2974290780141844,
+            "brier": 0.10233746211953677,
+            "log_loss": 0.3641121553386578,
+            "calibration_slope": -16.58412114670488,
+            "calibration_intercept": -40.495422564286415,
+            "ece_5bins": 0.07251157820217885,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.16465117724690626,
+              0.4469535956636875
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.5761904761904763,
+            "brier": 0.06765911843435772,
+            "log_loss": 0.26326103839396703,
+            "calibration_slope": -0.7185895346828406,
+            "calibration_intercept": -4.188544364351748,
+            "ece_5bins": 0.04559302225262962,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.38638638147566723,
+              0.767473532156187
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 5,
+            "event_rate": 0.049019607843137254,
+            "auc": 0.2969072164948454,
+            "brier": 0.04944844341823453,
+            "log_loss": 0.21402197082065302,
+            "calibration_slope": -17.858033122302242,
+            "calibration_intercept": -44.376698597613796,
+            "ece_5bins": 0.0527452436050273,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.09136119257086997,
+              0.5090986394557822
+            ]
+          }
+        },
+        "volume_only": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 19,
+            "event_rate": 0.09359605911330049,
+            "auc": 0.37299771167048057,
+            "brier": 0.08582244743760671,
+            "log_loss": 0.31626984170985495,
+            "calibration_slope": -5.990074499554715,
+            "calibration_intercept": -16.039886350949285,
+            "ece_5bins": 0.04270681581874329,
+            "auc_fold_mean": 0.4669802489177489,
+            "auc_fold_sd": 0.07395483494127573,
+            "auc_ci95": [
+              0.24170843776106932,
+              0.5119820788530466
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.3435374149659864,
+            "brier": 0.07232877524020215,
+            "log_loss": 0.27862801362013945,
+            "calibration_slope": -10.163786844411705,
+            "calibration_intercept": -25.978277092755913,
+            "ece_5bins": 0.044777730030582164,
+            "auc_fold_mean": 0.46662359022556393,
+            "auc_fold_sd": 0.11876473266395979,
+            "auc_ci95": [
+              0.17433748521584863,
+              0.5222565543071161
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 12,
+            "event_rate": 0.11320754716981132,
+            "auc": 0.30939716312056736,
+            "brier": 0.10236453257822281,
+            "log_loss": 0.36428847634087796,
+            "calibration_slope": -9.11134529940552,
+            "calibration_intercept": -23.15099344481271,
+            "ece_5bins": 0.0830241349093061,
+            "auc_fold_mean": 0.5024122807017544,
+            "auc_fold_sd": 0.34765138144471186,
+            "auc_ci95": [
+              0.16137232730263157,
+              0.48847594155050134
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.5111111111111111,
+            "brier": 0.0677455296550778,
+            "log_loss": 0.26379586984502573,
+            "calibration_slope": -1.420714195360104,
+            "calibration_intercept": -5.785412661114662,
+            "ece_5bins": 0.03445021984197083,
+            "auc_fold_mean": 0.3739422084623323,
+            "auc_fold_sd": 0.304972837577547,
+            "auc_ci95": [
+              0.3272615979381443,
+              0.7010607101947307
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 5,
+            "event_rate": 0.049019607843137254,
+            "auc": 0.29896907216494845,
+            "brier": 0.049510413826230094,
+            "log_loss": 0.21442080187337267,
+            "calibration_slope": -15.875361408395802,
+            "calibration_intercept": -39.854666724324076,
+            "ece_5bins": 0.049381130810591686,
+            "auc_fold_mean": 0.4383169934640523,
+            "auc_fold_sd": 0.13530617960345523,
+            "auc_ci95": [
+              0.05887334315169364,
+              0.5778654970760233
+            ]
+          }
+        },
+        "volume_horizon": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 19,
+            "event_rate": 0.09359605911330049,
+            "auc": 0.6009725400457666,
+            "brier": 0.08431443023711813,
+            "log_loss": 0.30846910486285767,
+            "calibration_slope": 0.760042691932782,
+            "calibration_intercept": -0.5338276304405576,
+            "ece_5bins": 0.018482054555030217,
+            "auc_fold_mean": 0.6617188852813853,
+            "auc_fold_sd": 0.1233460660082821,
+            "auc_ci95": [
+              0.4328807951752129,
+              0.74710140234287
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.5680272108843537,
+            "brier": 0.0716094241636521,
+            "log_loss": 0.2732289522284138,
+            "calibration_slope": 0.5580802769771798,
+            "calibration_intercept": -1.2300879209997229,
+            "ece_5bins": 0.05112278049493686,
+            "auc_fold_mean": 0.6410949248120301,
+            "auc_fold_sd": 0.2544605251309077,
+            "auc_ci95": [
+              0.34611344537815125,
+              0.7636470170454546
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 12,
+            "event_rate": 0.11320754716981132,
+            "auc": 0.597517730496454,
+            "brier": 0.10020226460965295,
+            "log_loss": 0.3540563551079553,
+            "calibration_slope": 0.7525374823203589,
+            "calibration_intercept": -0.31972303053017237,
+            "ece_5bins": 0.057125979762558836,
+            "auc_fold_mean": 0.695906432748538,
+            "auc_fold_sd": 0.027726946411999336,
+            "auc_ci95": [
+              0.3882896736522156,
+              0.8087855803177404
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.6222222222222222,
+            "brier": 0.06695246690218314,
+            "log_loss": 0.2586521097496582,
+            "calibration_slope": 0.9546379483075095,
+            "calibration_intercept": -0.4110522763618387,
+            "ece_5bins": 0.02906657581076999,
+            "auc_fold_mean": 0.5882324274739136,
+            "auc_fold_sd": 0.33359763432800693,
+            "auc_ci95": [
+              0.3730567785624888,
+              0.831574074074074
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 5,
+            "event_rate": 0.049019607843137254,
+            "auc": 0.2371134020618557,
+            "brier": 0.04886774246940874,
+            "log_loss": 0.21253637329357963,
+            "calibration_slope": -2.0944407313842452,
+            "calibration_intercept": -8.454130675609777,
+            "ece_5bins": 0.0730971718828081,
+            "auc_fold_mean": 0.24428104575163398,
+            "auc_fold_sd": 0.19981629234282608,
+            "auc_ci95": [
+              0.04060416245706208,
+              0.4698837868480724
+            ]
+          }
+        },
+        "history": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 19,
+            "event_rate": 0.09359605911330049,
+            "auc": 0.5397597254004577,
+            "brier": 0.08574662910529328,
+            "log_loss": 0.31326322201032264,
+            "calibration_slope": 0.12919215754039878,
+            "calibration_intercept": -1.9764544651130556,
+            "ece_5bins": 0.021997056884177878,
+            "auc_fold_mean": 0.6845470779220779,
+            "auc_fold_sd": 0.16226470117719266,
+            "auc_ci95": [
+              0.375851999064765,
+              0.6956334473909324
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.5272108843537415,
+            "brier": 0.07370563238566111,
+            "log_loss": 0.28000655352852943,
+            "calibration_slope": -0.3704796473251644,
+            "calibration_intercept": -3.341754018558806,
+            "ece_5bins": 0.06137577103773868,
+            "auc_fold_mean": 0.63734335839599,
+            "auc_fold_sd": 0.36195075347001693,
+            "auc_ci95": [
+              0.26616271386841006,
+              0.768067857142857
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 12,
+            "event_rate": 0.11320754716981132,
+            "auc": 0.5150709219858156,
+            "brier": 0.10298981184894809,
+            "log_loss": 0.3628999627646873,
+            "calibration_slope": -0.5292500785714531,
+            "calibration_intercept": -3.260568931600184,
+            "ece_5bins": 0.018054584536505162,
+            "auc_fold_mean": 0.7111111111111111,
+            "auc_fold_sd": 0.15713484026367722,
+            "auc_ci95": [
+              0.322645738851096,
+              0.6962657791267158
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.5793650793650794,
+            "brier": 0.06690356342666018,
+            "log_loss": 0.25902101046431597,
+            "calibration_slope": 1.5480954936291114,
+            "calibration_intercept": 0.964886237813894,
+            "ece_5bins": 0.046679289187276984,
+            "auc_fold_mean": 0.6382947769751175,
+            "auc_fold_sd": 0.286913152430499,
+            "auc_ci95": [
+              0.2841666666666667,
+              0.8758273980323835
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 5,
+            "event_rate": 0.049019607843137254,
+            "auc": 0.2123711340206186,
+            "brier": 0.0514289116432839,
+            "log_loss": 0.22040720727596333,
+            "calibration_slope": -4.068561579248032,
+            "calibration_intercept": -12.841364434604289,
+            "ece_5bins": 0.07914360096243844,
+            "auc_fold_mean": 0.2632761437908497,
+            "auc_fold_sd": 0.2469023152503508,
+            "auc_ci95": [
+              0.0450098814229249,
+              0.424352394916911
+            ]
+          }
+        },
+        "history_clinical": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 19,
+            "event_rate": 0.09359605911330049,
+            "auc": 0.5108695652173912,
+            "brier": 0.08577104094327606,
+            "log_loss": 0.3151052826402841,
+            "calibration_slope": -0.7446477897516045,
+            "calibration_intercept": -3.9803084353213842,
+            "ece_5bins": 0.05067554790375519,
+            "auc_fold_mean": 0.6468073593073593,
+            "auc_fold_sd": 0.157169286965013,
+            "auc_ci95": [
+              0.3529448077573571,
+              0.6572606899536072
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.5255102040816326,
+            "brier": 0.07260448603816874,
+            "log_loss": 0.2783655070350941,
+            "calibration_slope": -0.9737444648271891,
+            "calibration_intercept": -4.743013774791871,
+            "ece_5bins": 0.04532199385799554,
+            "auc_fold_mean": 0.5926065162907268,
+            "auc_fold_sd": 0.3646466679089952,
+            "auc_ci95": [
+              0.2942874027756596,
+              0.7413936781609196
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 12,
+            "event_rate": 0.11320754716981132,
+            "auc": 0.5079787234042553,
+            "brier": 0.10258029393700545,
+            "log_loss": 0.36408221033633714,
+            "calibration_slope": -1.9252698038466385,
+            "calibration_intercept": -6.495033442265858,
+            "ece_5bins": 0.10244401133733151,
+            "auc_fold_mean": 0.6865497076023392,
+            "auc_fold_sd": 0.1300614245112326,
+            "auc_ci95": [
+              0.30179723502304145,
+              0.700112293144208
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.5238095238095237,
+            "brier": 0.06740216653775734,
+            "log_loss": 0.2615841039208857,
+            "calibration_slope": 0.6672545974442007,
+            "calibration_intercept": -1.0322492478284138,
+            "ece_5bins": 0.03533445860018148,
+            "auc_fold_mean": 0.5918400986125445,
+            "auc_fold_sd": 0.25245408252659524,
+            "auc_ci95": [
+              0.28230392156862744,
+              0.7653858024691358
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 5,
+            "event_rate": 0.049019607843137254,
+            "auc": 0.15876288659793814,
+            "brier": 0.04964462256261648,
+            "log_loss": 0.2148094256367685,
+            "calibration_slope": -5.389800497959531,
+            "calibration_intercept": -15.973089989118822,
+            "ece_5bins": 0.07533511548482275,
+            "auc_fold_mean": 0.26858660130718953,
+            "auc_fold_sd": 0.1792573540191516,
+            "auc_ci95": [
+              0.0560374149659864,
+              0.2693767897038925
+            ]
+          }
+        },
+        "history_clinical_acq": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 19,
+            "event_rate": 0.09359605911330049,
+            "auc": 0.39731121281464526,
+            "brier": 0.08593308171947585,
+            "log_loss": 0.31667320284292233,
+            "calibration_slope": -2.6521443570748113,
+            "calibration_intercept": -8.364340932270613,
+            "ece_5bins": 0.06116446751898054,
+            "auc_fold_mean": 0.5629778138528139,
+            "auc_fold_sd": 0.1957284829710064,
+            "auc_ci95": [
+              0.2621070390828763,
+              0.53480184976702
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.3877551020408163,
+            "brier": 0.07276001975009785,
+            "log_loss": 0.2803740723977376,
+            "calibration_slope": -3.855896902556542,
+            "calibration_intercept": -11.425931951942074,
+            "ece_5bins": 0.04483359764667675,
+            "auc_fold_mean": 0.47418546365914793,
+            "auc_fold_sd": 0.3562201508891984,
+            "auc_ci95": [
+              0.19529466173361523,
+              0.5821823089700996
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 12,
+            "event_rate": 0.11320754716981132,
+            "auc": 0.3785460992907801,
+            "brier": 0.10261905021132803,
+            "log_loss": 0.36523412738743266,
+            "calibration_slope": -5.052405522162045,
+            "calibration_intercept": -13.67910025264681,
+            "ece_5bins": 0.0831372238581295,
+            "auc_fold_mean": 0.6230263157894738,
+            "auc_fold_sd": 0.13043631549423934,
+            "auc_ci95": [
+              0.22076512405120655,
+              0.5490522744908344
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.42857142857142855,
+            "brier": 0.06769893058404979,
+            "log_loss": 0.26360662550562236,
+            "calibration_slope": -0.6082465458999394,
+            "calibration_intercept": -3.949064802017244,
+            "ece_5bins": 0.03760798554746037,
+            "auc_fold_mean": 0.4311783339066621,
+            "auc_fold_sd": 0.313709784559062,
+            "auc_ci95": [
+              0.1914064287348433,
+              0.6978480696906899
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 5,
+            "event_rate": 0.049019607843137254,
+            "auc": 0.1711340206185567,
+            "brier": 0.04979108589724319,
+            "log_loss": 0.21569173433867733,
+            "calibration_slope": -7.543113095700474,
+            "calibration_intercept": -20.850153384166497,
+            "ece_5bins": 0.07628142572299798,
+            "auc_fold_mean": 0.22834967320261437,
+            "auc_fold_sd": 0.05559909145758248,
+            "auc_ci95": [
+              0.07692307692307687,
+              0.26237887086580997
+            ]
+          }
+        }
+      },
+      "fold_diagnostics": {
+        "fold_0": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0021
+            }
+          },
+          "volume_horizon": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.0234,
+              "log_horizon": 0.307
+            }
+          },
+          "history": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": 0.0047,
+              "log_horizon": 0.1521,
+              "has_prev": -0.0513,
+              "last_rate_yr": -0.0213,
+              "prior_growth": 0.0762,
+              "t_run_yr": -0.0506
+            }
+          },
+          "history_clinical": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0015,
+              "log_horizon": 0.06,
+              "has_prev": -0.0213,
+              "last_rate_yr": -0.0078,
+              "prior_growth": 0.0293,
+              "t_run_yr": -0.0193,
+              "age": 0.0211,
+              "sex_male": 0.0156
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0008,
+              "log_horizon": 0.0574,
+              "has_prev": -0.0209,
+              "last_rate_yr": -0.0065,
+              "prior_growth": 0.0291,
+              "t_run_yr": -0.0199,
+              "age": 0.0189,
+              "sex_male": 0.0158,
+              "slice_mm": 0.0218,
+              "seq_iac": 0.0414
+            }
+          }
+        },
+        "fold_1": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0251
+            }
+          },
+          "volume_horizon": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": -0.0575,
+              "log_horizon": 0.1518
+            }
+          },
+          "history": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0254,
+              "log_horizon": 0.0633,
+              "has_prev": -0.0233,
+              "last_rate_yr": 0.02,
+              "prior_growth": 0.023,
+              "t_run_yr": -0.0188
+            }
+          },
+          "history_clinical": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0254,
+              "log_horizon": 0.063,
+              "has_prev": -0.0234,
+              "last_rate_yr": 0.0196,
+              "prior_growth": 0.023,
+              "t_run_yr": -0.0189,
+              "age": -0.0005,
+              "sex_male": -0.0341
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0247,
+              "log_horizon": 0.0648,
+              "has_prev": -0.0237,
+              "last_rate_yr": 0.0182,
+              "prior_growth": 0.0226,
+              "t_run_yr": -0.0183,
+              "age": 0.0006,
+              "sex_male": -0.0346,
+              "slice_mm": -0.034,
+              "seq_iac": -0.0157
+            }
+          }
+        },
+        "fold_2": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0009
+            }
+          },
+          "volume_horizon": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.0015,
+              "log_horizon": 0.3367
+            }
+          },
+          "history": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0021,
+              "log_horizon": 0.0725,
+              "has_prev": -0.021,
+              "last_rate_yr": 0.025,
+              "prior_growth": 0.0578,
+              "t_run_yr": -0.0167
+            }
+          },
+          "history_clinical": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": -0.0102,
+              "log_horizon": 0.1739,
+              "has_prev": -0.0545,
+              "last_rate_yr": 0.0478,
+              "prior_growth": 0.129,
+              "t_run_yr": -0.0508,
+              "age": 0.027,
+              "sex_male": -0.0353
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0023,
+              "log_horizon": 0.0729,
+              "has_prev": -0.0213,
+              "last_rate_yr": 0.0241,
+              "prior_growth": 0.0574,
+              "t_run_yr": -0.017,
+              "age": 0.0141,
+              "sex_male": -0.0165,
+              "slice_mm": -0.024,
+              "seq_iac": -0.0043
+            }
+          }
+        },
+        "fold_3": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0082
+            }
+          },
+          "volume_horizon": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.0217,
+              "log_horizon": 0.4232
+            }
+          },
+          "history": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": -0.0264,
+              "log_horizon": 0.2099,
+              "has_prev": -0.0841,
+              "last_rate_yr": 0.0523,
+              "prior_growth": 0.1723,
+              "t_run_yr": -0.0534
+            }
+          },
+          "history_clinical": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": -0.0319,
+              "log_horizon": 0.202,
+              "has_prev": -0.084,
+              "last_rate_yr": 0.0558,
+              "prior_growth": 0.1717,
+              "t_run_yr": -0.057,
+              "age": 0.0826,
+              "sex_male": -0.031
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0102,
+              "log_horizon": 0.0835,
+              "has_prev": -0.032,
+              "last_rate_yr": 0.0274,
+              "prior_growth": 0.0772,
+              "t_run_yr": -0.0183,
+              "age": 0.0366,
+              "sex_male": -0.0148,
+              "slice_mm": -0.021,
+              "seq_iac": -0.0067
+            }
+          }
+        },
+        "fold_4": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0071
+            }
+          },
+          "volume_horizon": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": 0.0527,
+              "log_horizon": 0.2769
+            }
+          },
+          "history": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": 0.0152,
+              "log_horizon": 0.1466,
+              "has_prev": -0.0502,
+              "last_rate_yr": 0.1145,
+              "prior_growth": 0.142,
+              "t_run_yr": -0.0681
+            }
+          },
+          "history_clinical": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0061,
+              "log_horizon": 0.0563,
+              "has_prev": -0.0178,
+              "last_rate_yr": 0.0522,
+              "prior_growth": 0.0652,
+              "t_run_yr": -0.024,
+              "age": 0.0265,
+              "sex_male": 0.0081
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.006,
+              "log_horizon": 0.0567,
+              "has_prev": -0.018,
+              "last_rate_yr": 0.052,
+              "prior_growth": 0.0652,
+              "t_run_yr": -0.0241,
+              "age": 0.0266,
+              "sex_male": 0.0081,
+              "slice_mm": -0.0124,
+              "seq_iac": 0.0062
+            }
+          }
+        }
+      },
+      "cohort": {
+        "intervals": 203,
+        "patients": 112,
+        "events": 19,
+        "event_rate": 0.09359605911330049,
+        "shrink_ge_threshold": 9,
+        "mirrored_shrink_events": 4,
+        "mirrored_shrink_to_growth_ratio": 0.21052631578947367,
+        "event_vs_radiology_increased": {
+          "event=0": {
+            "radiology_increased=False": 165,
+            "radiology_increased=True": 19
+          },
+          "event=1": {
+            "radiology_increased=False": 3,
+            "radiology_increased=True": 16
+          }
+        }
+      }
+    },
+    "noise_calibrated": {
+      "results": {
+        "prevalence": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 21,
+            "event_rate": 0.10344827586206896,
+            "auc": 0.4109105180533752,
+            "brier": 0.0934351355511336,
+            "log_loss": 0.3361578282906688,
+            "calibration_slope": -4.505836929958951,
+            "calibration_intercept": -11.957646144428441,
+            "ece_5bins": 0.033295728340109826,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.28616500485959245,
+              0.5437026358111595
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.2755102040816326,
+            "brier": 0.07270284579916451,
+            "log_loss": 0.28041241178883575,
+            "calibration_slope": -14.682787151901547,
+            "calibration_intercept": -34.76533563173652,
+            "ece_5bins": 0.05396928285591276,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.13370237506185056,
+              0.4546320765797509
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 14,
+            "event_rate": 0.1320754716981132,
+            "auc": 0.38975155279503104,
+            "brier": 0.1164479502916861,
+            "log_loss": 0.3996423101155634,
+            "calibration_slope": -5.537900545053276,
+            "calibration_intercept": -13.93205786639847,
+            "ece_5bins": 0.06600063248168773,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.2440984529374497,
+              0.540982744107744
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.4682539682539682,
+            "brier": 0.06828711119547827,
+            "log_loss": 0.2667830337191346,
+            "calibration_slope": -2.8056520509521454,
+            "calibration_intercept": -8.645228340192045,
+            "ece_5bins": 0.04892738095894821,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.2233309813287017,
+              0.7385168650793646
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 6,
+            "event_rate": 0.058823529411764705,
+            "auc": 0.45052083333333337,
+            "brier": 0.057642943284174165,
+            "log_loss": 0.23753116856711629,
+            "calibration_slope": -1.6312401121906166,
+            "calibration_intercept": -6.304408565583969,
+            "ece_5bins": 0.04769953472792389,
+            "auc_fold_mean": 0.5,
+            "auc_fold_sd": 0.0,
+            "auc_ci95": [
+              0.19984693877551019,
+              0.6879198554421767
+            ]
+          }
+        },
+        "volume_only": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 21,
+            "event_rate": 0.10344827586206896,
+            "auc": 0.3406593406593406,
+            "brier": 0.09369635957052848,
+            "log_loss": 0.33757294543693656,
+            "calibration_slope": -3.922727252139788,
+            "calibration_intercept": -10.73143566727443,
+            "ece_5bins": 0.07098219602957358,
+            "auc_fold_mean": 0.3602547504175411,
+            "auc_fold_sd": 0.0381598953756185,
+            "auc_ci95": [
+              0.22684802071235,
+              0.4631452842029765
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.24489795918367346,
+            "brier": 0.07285941661966447,
+            "log_loss": 0.2812054370835008,
+            "calibration_slope": -6.8777791420065935,
+            "calibration_intercept": -17.614221053440296,
+            "ece_5bins": 0.08404861380937861,
+            "auc_fold_mean": 0.3673611111111111,
+            "auc_fold_sd": 0.08937313841625107,
+            "auc_ci95": [
+              0.11188953488372096,
+              0.39130596532091094
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 14,
+            "event_rate": 0.1320754716981132,
+            "auc": 0.3967391304347826,
+            "brier": 0.11652941083997549,
+            "log_loss": 0.4001296191569883,
+            "calibration_slope": -2.586888293625919,
+            "calibration_intercept": -7.577491163192588,
+            "ece_5bins": 0.061237940707011586,
+            "auc_fold_mean": 0.4500250626566416,
+            "auc_fold_sd": 0.31848344917960086,
+            "auc_ci95": [
+              0.22840373563218386,
+              0.5636480186480186
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.28095238095238095,
+            "brier": 0.06874477777092657,
+            "log_loss": 0.2692120442583233,
+            "calibration_slope": -6.254460547266319,
+            "calibration_intercept": -16.09514190709187,
+            "ece_5bins": 0.05786786837544275,
+            "auc_fold_mean": 0.251137102014295,
+            "auc_fold_sd": 0.17555317174123308,
+            "auc_ci95": [
+              0.09086363636363638,
+              0.5118311965811966
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 6,
+            "event_rate": 0.058823529411764705,
+            "auc": 0.3315972222222222,
+            "brier": 0.05796019495775232,
+            "log_loss": 0.2393166170888599,
+            "calibration_slope": -4.228117387822794,
+            "calibration_intercept": -12.04552926490594,
+            "ece_5bins": 0.0458621629284692,
+            "auc_fold_mean": 0.33621057118499575,
+            "auc_fold_sd": 0.10377607504582154,
+            "auc_ci95": [
+              0.06420329532953295,
+              0.6193084192439863
+            ]
+          }
+        },
+        "volume_horizon": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 21,
+            "event_rate": 0.10344827586206896,
+            "auc": 0.5894819466248038,
+            "brier": 0.09316081279742829,
+            "log_loss": 0.333217330365159,
+            "calibration_slope": 0.44000615674094007,
+            "calibration_intercept": -1.196969236434083,
+            "ece_5bins": 0.039070848636240045,
+            "auc_fold_mean": 0.6397267286976589,
+            "auc_fold_sd": 0.13926934335787106,
+            "auc_ci95": [
+              0.4479616671737147,
+              0.7417133549510598
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.554421768707483,
+            "brier": 0.07309540075533545,
+            "log_loss": 0.2809679458277583,
+            "calibration_slope": -0.0629281092755446,
+            "calibration_intercept": -2.620636523396166,
+            "ece_5bins": 0.057414993179329646,
+            "auc_fold_mean": 0.70679012345679,
+            "auc_fold_sd": 0.1889282215160851,
+            "auc_ci95": [
+              0.32295707070707064,
+              0.7640967399691357
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 14,
+            "event_rate": 0.1320754716981132,
+            "auc": 0.579192546583851,
+            "brier": 0.11512486295110941,
+            "log_loss": 0.3944240099241405,
+            "calibration_slope": 0.740113055810584,
+            "calibration_intercept": -0.22196279432052035,
+            "ece_5bins": 0.07336951053305872,
+            "auc_fold_mean": 0.6041102756892232,
+            "auc_fold_sd": 0.2226242348513603,
+            "auc_ci95": [
+              0.3882223942208462,
+              0.788043597027972
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.6523809523809524,
+            "brier": 0.06915886108309638,
+            "log_loss": 0.2663316805378184,
+            "calibration_slope": 0.6323216668762922,
+            "calibration_intercept": -1.2227238527864475,
+            "ece_5bins": 0.08032068568638996,
+            "auc_fold_mean": 0.7514619883040936,
+            "auc_fold_sd": 0.14946640841090128,
+            "auc_ci95": [
+              0.510137139962368,
+              0.7910461760461759
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 6,
+            "event_rate": 0.058823529411764705,
+            "auc": 0.3472222222222222,
+            "brier": 0.05711291104590967,
+            "log_loss": 0.23483449149673036,
+            "calibration_slope": -0.9199137340403634,
+            "calibration_intercept": -5.0255321802170885,
+            "ece_5bins": 0.06588116429359916,
+            "auc_fold_mean": 0.3573436167945439,
+            "auc_fold_sd": 0.2652850975898887,
+            "auc_ci95": [
+              0.15972448979591838,
+              0.5705291005291004
+            ]
+          }
+        },
+        "history": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 21,
+            "event_rate": 0.10344827586206896,
+            "auc": 0.7111459968602825,
+            "brier": 0.08885175578027536,
+            "log_loss": 0.31249447481061354,
+            "calibration_slope": 0.805792709905694,
+            "calibration_intercept": -0.3978140486178913,
+            "ece_5bins": 0.04072944146997527,
+            "auc_fold_mean": 0.7184442976274371,
+            "auc_fold_sd": 0.11910358292748241,
+            "auc_ci95": [
+              0.5552419790864107,
+              0.8284883720930233
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.7534013605442177,
+            "brier": 0.07012961405581196,
+            "log_loss": 0.2532599949360912,
+            "calibration_slope": 0.6830868418093733,
+            "calibration_intercept": -0.8492820272955321,
+            "ece_5bins": 0.05588203755014536,
+            "auc_fold_mean": 0.8506172839506173,
+            "auc_fold_sd": 0.1580198687535723,
+            "auc_ci95": [
+              0.47678833455612624,
+              0.9767508687516706
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 14,
+            "event_rate": 0.1320754716981132,
+            "auc": 0.7453416149068324,
+            "brier": 0.11255405409679319,
+            "log_loss": 0.37462371454635957,
+            "calibration_slope": 0.6930522115456642,
+            "calibration_intercept": -0.35303125274299324,
+            "ece_5bins": 0.050312543674200724,
+            "auc_fold_mean": 0.7297243107769423,
+            "auc_fold_sd": 0.13492689591324505,
+            "auc_ci95": [
+              0.5449794699514745,
+              0.8807675438596492
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.6968253968253969,
+            "brier": 0.06295027514573014,
+            "log_loss": 0.24460066643959208,
+            "calibration_slope": 1.2193016609106848,
+            "calibration_intercept": 0.033104699548564154,
+            "ece_5bins": 0.059989588960486416,
+            "auc_fold_mean": 0.7647823261858347,
+            "auc_fold_sd": 0.210727769231617,
+            "auc_ci95": [
+              0.41871896043771045,
+              0.9433464912280702
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 6,
+            "event_rate": 0.058823529411764705,
+            "auc": 0.6354166666666666,
+            "brier": 0.062098399861892487,
+            "log_loss": 0.23957773917743566,
+            "calibration_slope": 0.3358262252458461,
+            "calibration_intercept": -1.9204609811307627,
+            "ece_5bins": 0.03490807031481166,
+            "auc_fold_mean": 0.5492460571184996,
+            "auc_fold_sd": 0.2989496276257618,
+            "auc_ci95": [
+              0.31620743517650735,
+              0.8530221262817053
+            ]
+          }
+        },
+        "history_clinical": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 21,
+            "event_rate": 0.10344827586206896,
+            "auc": 0.6928309785452643,
+            "brier": 0.09227319460692691,
+            "log_loss": 0.3198409365017035,
+            "calibration_slope": 0.8304988208819958,
+            "calibration_intercept": -0.3481871231222254,
+            "ece_5bins": 0.02435993925561768,
+            "auc_fold_mean": 0.7045185915505683,
+            "auc_fold_sd": 0.059819508044417734,
+            "auc_ci95": [
+              0.5440819639929588,
+              0.8100832723666456
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.8231292517006803,
+            "brier": 0.07153101942446762,
+            "log_loss": 0.25128193848547975,
+            "calibration_slope": 0.8967532291107102,
+            "calibration_intercept": -0.44054051667631056,
+            "ece_5bins": 0.05966485443848146,
+            "auc_fold_mean": 0.9037037037037038,
+            "auc_fold_sd": 0.1140355875432641,
+            "auc_ci95": [
+              0.6509055993531432,
+              0.9746839925901709
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 14,
+            "event_rate": 0.1320754716981132,
+            "auc": 0.7236024844720497,
+            "brier": 0.11610626042202815,
+            "log_loss": 0.38195369698247505,
+            "calibration_slope": 0.7225367291507339,
+            "calibration_intercept": -0.3009839794826761,
+            "ece_5bins": 0.04247036921612023,
+            "auc_fold_mean": 0.7290100250626568,
+            "auc_fold_sd": 0.09552701114990755,
+            "auc_ci95": [
+              0.5623989284315372,
+              0.8528332854788774
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.6507936507936508,
+            "brier": 0.06622881340691937,
+            "log_loss": 0.25196513638869533,
+            "calibration_slope": 1.207399477073541,
+            "calibration_intercept": 0.046984075288560474,
+            "ece_5bins": 0.04016333031350833,
+            "auc_fold_mean": 0.7690058479532165,
+            "auc_fold_sd": 0.16743436610784102,
+            "auc_ci95": [
+              0.4156664580725908,
+              0.876538753799392
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 6,
+            "event_rate": 0.058823529411764705,
+            "auc": 0.6024305555555556,
+            "brier": 0.060575616931690245,
+            "log_loss": 0.23338710049454048,
+            "calibration_slope": 0.4103348120435239,
+            "calibration_intercept": -1.7760649184791448,
+            "ece_5bins": 0.05172445061119775,
+            "auc_fold_mean": 0.5475410272804774,
+            "auc_fold_sd": 0.27467791528442886,
+            "auc_ci95": [
+              0.32943326050769867,
+              0.7937326066790352
+            ]
+          }
+        },
+        "history_clinical_acq": {
+          "all": {
+            "cases": 203,
+            "patients": 112,
+            "events": 21,
+            "event_rate": 0.10344827586206896,
+            "auc": 0.7090528519099948,
+            "brier": 0.09139363941045288,
+            "log_loss": 0.31464853597340775,
+            "calibration_slope": 0.7866579129419407,
+            "calibration_intercept": -0.37660740875037274,
+            "ece_5bins": 0.013392281283127437,
+            "auc_fold_mean": 0.7189123063628877,
+            "auc_fold_sd": 0.06998721642533284,
+            "auc_ci95": [
+              0.5705091714104997,
+              0.8148933928318745
+            ]
+          },
+          "two_or_more_prior": {
+            "cases": 91,
+            "patients": 60,
+            "events": 7,
+            "event_rate": 0.07692307692307693,
+            "auc": 0.804421768707483,
+            "brier": 0.0703037254757823,
+            "log_loss": 0.24205394914047865,
+            "calibration_slope": 0.8812487959147234,
+            "calibration_intercept": -0.3586761117496181,
+            "ece_5bins": 0.03469205171555987,
+            "auc_fold_mean": 0.891358024691358,
+            "auc_fold_sd": 0.13463018153299347,
+            "auc_ci95": [
+              0.6066970095814888,
+              0.9761974789915967
+            ]
+          },
+          "tumor_ge_100mm3": {
+            "cases": 106,
+            "patients": 64,
+            "events": 14,
+            "event_rate": 0.1320754716981132,
+            "auc": 0.7243788819875777,
+            "brier": 0.11541961720009773,
+            "log_loss": 0.3786965809572804,
+            "calibration_slope": 0.6817900313547968,
+            "calibration_intercept": -0.3270371565362514,
+            "ece_5bins": 0.033717099442940074,
+            "auc_fold_mean": 0.7330075187969924,
+            "auc_fold_sd": 0.05029422901588525,
+            "auc_ci95": [
+              0.56443280842217,
+              0.8631007864299942
+            ]
+          },
+          "small_tumor_lt_100mm3": {
+            "cases": 97,
+            "patients": 55,
+            "events": 7,
+            "event_rate": 0.07216494845360824,
+            "auc": 0.6888888888888889,
+            "brier": 0.06513844718671725,
+            "log_loss": 0.24465788887762926,
+            "calibration_slope": 1.0594819278716632,
+            "calibration_intercept": -0.1918049868639566,
+            "ece_5bins": 0.04177731703826471,
+            "auc_fold_mean": 0.7927225471085121,
+            "auc_fold_sd": 0.14119215771477814,
+            "auc_ci95": [
+              0.46934005309440846,
+              0.914191359800537
+            ]
+          },
+          "horizon_le_365d": {
+            "cases": 102,
+            "patients": 71,
+            "events": 6,
+            "event_rate": 0.058823529411764705,
+            "auc": 0.6006944444444444,
+            "brier": 0.060413986605655785,
+            "log_loss": 0.23180453639851564,
+            "calibration_slope": 0.3919369735055614,
+            "calibration_intercept": -1.7377357842997412,
+            "ece_5bins": 0.04647828638240908,
+            "auc_fold_mean": 0.5498255008525149,
+            "auc_fold_sd": 0.2660132211915178,
+            "auc_ci95": [
+              0.295614528632158,
+              0.8122400990099006
+            ]
+          }
+        }
+      },
+      "fold_diagnostics": {
+        "fold_0": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0029
+            }
+          },
+          "volume_horizon": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": 0.0103,
+              "log_horizon": 0.164
+            }
+          },
+          "history": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": -0.0072,
+              "log_horizon": 0.5936,
+              "has_prev": -0.2559,
+              "last_rate_yr": -0.2084,
+              "prior_growth": 0.586,
+              "t_run_yr": -0.5543
+            }
+          },
+          "history_clinical": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.0124,
+              "log_horizon": 0.3658,
+              "has_prev": -0.2005,
+              "last_rate_yr": -0.0852,
+              "prior_growth": 0.3763,
+              "t_run_yr": -0.2923,
+              "age": 0.083,
+              "sex_male": 0.1708
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": -0.0267,
+              "log_horizon": 0.5802,
+              "has_prev": -0.2407,
+              "last_rate_yr": -0.1347,
+              "prior_growth": 0.5456,
+              "t_run_yr": -0.579,
+              "age": 0.087,
+              "sex_male": 0.2374,
+              "slice_mm": -0.4257,
+              "seq_iac": 0.5372
+            }
+          }
+        },
+        "fold_1": {
+          "volume_only": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": -0.091
+            }
+          },
+          "volume_horizon": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0371,
+              "log_horizon": 0.0746
+            }
+          },
+          "history": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.2051,
+              "log_horizon": 0.4022,
+              "has_prev": -0.1758,
+              "last_rate_yr": 0.0282,
+              "prior_growth": 0.3349,
+              "t_run_yr": -0.2319
+            }
+          },
+          "history_clinical": {
+            "C": 0.03,
+            "std_coef": {
+              "log_v": -0.0976,
+              "log_horizon": 0.1889,
+              "has_prev": -0.094,
+              "last_rate_yr": 0.0251,
+              "prior_growth": 0.1641,
+              "t_run_yr": -0.0924,
+              "age": 0.0134,
+              "sex_male": 0.0046
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.1879,
+              "log_horizon": 0.4341,
+              "has_prev": -0.1873,
+              "last_rate_yr": 0.0023,
+              "prior_growth": 0.3217,
+              "t_run_yr": -0.2274,
+              "age": 0.0301,
+              "sex_male": 0.0085,
+              "slice_mm": -0.3185,
+              "seq_iac": 0.0847
+            }
+          }
+        },
+        "fold_2": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.0236
+            }
+          },
+          "volume_horizon": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.0966,
+              "log_horizon": 0.4275
+            }
+          },
+          "history": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.1481,
+              "log_horizon": 0.4671,
+              "has_prev": -0.1314,
+              "last_rate_yr": 0.0131,
+              "prior_growth": 0.4173,
+              "t_run_yr": -0.2384
+            }
+          },
+          "history_clinical": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.1511,
+              "log_horizon": 0.4675,
+              "has_prev": -0.1309,
+              "last_rate_yr": 0.0198,
+              "prior_growth": 0.4157,
+              "t_run_yr": -0.24,
+              "age": 0.0114,
+              "sex_male": 0.0574
+            }
+          },
+          "history_clinical_acq": {
+            "C": 1.0,
+            "std_coef": {
+              "log_v": -0.2813,
+              "log_horizon": 0.898,
+              "has_prev": 0.0197,
+              "last_rate_yr": -0.0771,
+              "prior_growth": 0.7362,
+              "t_run_yr": -0.8304,
+              "age": 0.0287,
+              "sex_male": 0.1052,
+              "slice_mm": -0.693,
+              "seq_iac": 0.5337
+            }
+          }
+        },
+        "fold_3": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": -0.026
+            }
+          },
+          "volume_horizon": {
+            "C": 0.3,
+            "std_coef": {
+              "log_v": -0.1308,
+              "log_horizon": 0.5693
+            }
+          },
+          "history": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.1419,
+              "log_horizon": 0.4344,
+              "has_prev": -0.2187,
+              "last_rate_yr": 0.054,
+              "prior_growth": 0.3139,
+              "t_run_yr": -0.1885
+            }
+          },
+          "history_clinical": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.1641,
+              "log_horizon": 0.4151,
+              "has_prev": -0.2193,
+              "last_rate_yr": 0.0905,
+              "prior_growth": 0.3015,
+              "t_run_yr": -0.205,
+              "age": 0.2057,
+              "sex_male": 0.114
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.1618,
+              "log_horizon": 0.4322,
+              "has_prev": -0.2288,
+              "last_rate_yr": 0.071,
+              "prior_growth": 0.2983,
+              "t_run_yr": -0.2075,
+              "age": 0.2208,
+              "sex_male": 0.1116,
+              "slice_mm": -0.2765,
+              "seq_iac": 0.1171
+            }
+          }
+        },
+        "fold_4": {
+          "volume_only": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0079
+            }
+          },
+          "volume_horizon": {
+            "C": 0.01,
+            "std_coef": {
+              "log_v": 0.0089,
+              "log_horizon": 0.0625
+            }
+          },
+          "history": {
+            "C": 1.0,
+            "std_coef": {
+              "log_v": 0.0083,
+              "log_horizon": 0.7012,
+              "has_prev": -0.003,
+              "last_rate_yr": 0.201,
+              "prior_growth": 0.6196,
+              "t_run_yr": -0.7441
+            }
+          },
+          "history_clinical": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.0025,
+              "log_horizon": 0.3403,
+              "has_prev": -0.1089,
+              "last_rate_yr": 0.1862,
+              "prior_growth": 0.3653,
+              "t_run_yr": -0.2321,
+              "age": 0.1752,
+              "sex_male": 0.1182
+            }
+          },
+          "history_clinical_acq": {
+            "C": 0.1,
+            "std_coef": {
+              "log_v": -0.0105,
+              "log_horizon": 0.3543,
+              "has_prev": -0.1164,
+              "last_rate_yr": 0.1804,
+              "prior_growth": 0.3647,
+              "t_run_yr": -0.2372,
+              "age": 0.1804,
+              "sex_male": 0.1216,
+              "slice_mm": -0.1491,
+              "seq_iac": 0.0856
+            }
+          }
+        }
+      },
+      "cohort": {
+        "intervals": 203,
+        "patients": 112,
+        "events": 21,
+        "event_rate": 0.10344827586206896,
+        "shrink_ge_threshold": null,
+        "mirrored_shrink_events": 9,
+        "mirrored_shrink_to_growth_ratio": 0.42857142857142855,
+        "event_vs_radiology_increased": {
+          "event=0": {
+            "radiology_increased=False": 163,
+            "radiology_increased=True": 19
+          },
+          "event=1": {
+            "radiology_increased=False": 5,
+            "radiology_increased=True": 16
+          }
+        }
+      }
+    }
+  },
+  "time_to_growth": {
+    "growth_20pct": {
+      "patients": 112,
+      "events": 58,
+      "followup_years_median": 1.1827515400410678,
+      "growth_free_fraction": {
+        "1y": 0.7087080419023153,
+        "2y": 0.5183960328789342,
+        "3y": 0.442950895951018,
+        "5y": 0.2906379562906679
+      },
+      "median_time_to_growth_years": 2.078028747433265,
+      "cox": {
+        "volume_only": {
+          "cv_c_index_mean": 0.5290024703163599,
+          "cv_c_index_folds": [
+            0.624,
+            0.55,
+            0.281,
+            0.5,
+            0.69
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 0.955
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.5358
+          }
+        },
+        "volume_clinical": {
+          "cv_c_index_mean": 0.5778292416803055,
+          "cv_c_index_folds": [
+            0.496,
+            0.575,
+            0.5,
+            0.608,
+            0.71
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 0.966,
+            "age0": 0.978,
+            "sex_male": 0.645
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.6482,
+            "age0": 0.0402,
+            "sex_male": 0.0866
+          }
+        },
+        "volume_clinical_acq": {
+          "cv_c_index_mean": 0.6096691247233921,
+          "cv_c_index_folds": [
+            0.553,
+            0.567,
+            0.556,
+            0.592,
+            0.78
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 0.988,
+            "age0": 0.979,
+            "sex_male": 0.6,
+            "slice_mm0": 0.776
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.8708,
+            "age0": 0.0486,
+            "sex_male": 0.0492,
+            "slice_mm0": 0.0674
+          }
+        }
+      },
+      "events_by_baseline_volume_tertile": null,
+      "growth_free_2y_by_baseline_volume_tertile": {
+        "small": {
+          "patients": 38,
+          "events": 21,
+          "growth_free_2y": 0.49009009009009036
+        },
+        "medium": {
+          "patients": 37,
+          "events": 20,
+          "growth_free_2y": 0.5045938651474751
+        },
+        "large": {
+          "patients": 37,
+          "events": 17,
+          "growth_free_2y": 0.5647139270088257
+        }
+      }
+    },
+    "rel20_abs100": {
+      "patients": 112,
+      "events": 27,
+      "followup_years_median": 1.571526351813826,
+      "growth_free_fraction": {
+        "1y": 0.9087579639768554,
+        "2y": 0.7762503256856048,
+        "3y": 0.7388239706971917,
+        "5y": 0.5077325364236921
+      },
+      "median_time_to_growth_years": 5.152635181382615,
+      "cox": {
+        "volume_only": {
+          "cv_c_index_mean": 0.7194833040948826,
+          "cv_c_index_folds": [
+            0.652,
+            0.698,
+            0.915,
+            0.833,
+            0.5
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 1.368
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.0013
+          }
+        },
+        "volume_clinical": {
+          "cv_c_index_mean": 0.724812798944417,
+          "cv_c_index_folds": [
+            0.667,
+            0.674,
+            0.883,
+            0.833,
+            0.567
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 1.365,
+            "age0": 1.001,
+            "sex_male": 1.052
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.0016,
+            "age0": 0.9413,
+            "sex_male": 0.8859
+          }
+        },
+        "volume_clinical_acq": {
+          "cv_c_index_mean": 0.7119733705186452,
+          "cv_c_index_folds": [
+            0.667,
+            0.651,
+            0.872,
+            0.803,
+            0.567
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 1.37,
+            "age0": 1.001,
+            "sex_male": 1.032,
+            "slice_mm0": 0.912
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.0014,
+            "age0": 0.9418,
+            "sex_male": 0.9298,
+            "slice_mm0": 0.6651
+          }
+        }
+      },
+      "events_by_baseline_volume_tertile": null,
+      "growth_free_2y_by_baseline_volume_tertile": {
+        "small": {
+          "patients": 38,
+          "events": 2,
+          "growth_free_2y": 0.9600000000000003
+        },
+        "medium": {
+          "patients": 37,
+          "events": 9,
+          "growth_free_2y": 0.7829570747217804
+        },
+        "large": {
+          "patients": 37,
+          "events": 16,
+          "growth_free_2y": 0.5878866570969501
+        }
+      }
+    },
+    "rel50_abs50": {
+      "patients": 112,
+      "events": 19,
+      "followup_years_median": 1.6824093086926761,
+      "growth_free_fraction": {
+        "1y": 0.9601464321568615,
+        "2y": 0.8530130915747103,
+        "3y": 0.7877296372089503,
+        "5y": 0.6173831031625148
+      },
+      "median_time_to_growth_years": null,
+      "cox": {
+        "volume_only": {
+          "cv_c_index_mean": 0.47574658545588777,
+          "cv_c_index_folds": [
+            0.444,
+            0.354,
+            0.629,
+            0.535,
+            0.417
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 1.017
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.8895
+          }
+        },
+        "volume_clinical": {
+          "cv_c_index_mean": 0.4525092284976006,
+          "cv_c_index_folds": [
+            0.422,
+            0.229,
+            0.571,
+            0.581,
+            0.458
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 1.021,
+            "age0": 0.994,
+            "sex_male": 0.86
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.8633,
+            "age0": 0.742,
+            "sex_male": 0.7117
+          }
+        },
+        "volume_clinical_acq": {
+          "cv_c_index_mean": 0.3983342561830934,
+          "cv_c_index_folds": [
+            0.289,
+            0.188,
+            0.457,
+            0.558,
+            0.5
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 1.033,
+            "age0": 0.994,
+            "sex_male": 0.806,
+            "slice_mm0": 0.797
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.784,
+            "age0": 0.7274,
+            "sex_male": 0.6017,
+            "slice_mm0": 0.3256
+          }
+        }
+      },
+      "events_by_baseline_volume_tertile": null,
+      "growth_free_2y_by_baseline_volume_tertile": {
+        "small": {
+          "patients": 38,
+          "events": 3,
+          "growth_free_2y": 0.9600000000000003
+        },
+        "medium": {
+          "patients": 37,
+          "events": 12,
+          "growth_free_2y": 0.7217382087970321
+        },
+        "large": {
+          "patients": 37,
+          "events": 4,
+          "growth_free_2y": 0.8788254755996692
+        }
+      }
+    },
+    "noise_calibrated": {
+      "patients": 112,
+      "events": 22,
+      "followup_years_median": 1.6824093086926761,
+      "growth_free_fraction": {
+        "1y": 0.9381995867285208,
+        "2y": 0.8101147755819147,
+        "3y": 0.746237129411434,
+        "5y": 0.5917239173337036
+      },
+      "median_time_to_growth_years": null,
+      "cox": {
+        "volume_only": {
+          "cv_c_index_mean": 0.3942030606437386,
+          "cv_c_index_folds": [
+            0.509,
+            0.492,
+            0.286,
+            0.333,
+            0.351
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 0.976
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.8296
+          }
+        },
+        "volume_clinical": {
+          "cv_c_index_mean": 0.41296212016551,
+          "cv_c_index_folds": [
+            0.364,
+            0.458,
+            0.411,
+            0.481,
+            0.351
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 0.982,
+            "age0": 0.99,
+            "sex_male": 0.941
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.8729,
+            "age0": 0.5041,
+            "sex_male": 0.874
+          }
+        },
+        "volume_clinical_acq": {
+          "cv_c_index_mean": 0.4111663964206337,
+          "cv_c_index_folds": [
+            0.4,
+            0.322,
+            0.393,
+            0.481,
+            0.459
+          ],
+          "full_fit_hazard_ratios": {
+            "log_v0": 0.996,
+            "age0": 0.989,
+            "sex_male": 0.877,
+            "slice_mm0": 0.783
+          },
+          "full_fit_p_values": {
+            "log_v0": 0.9734,
+            "age0": 0.492,
+            "sex_male": 0.7367,
+            "slice_mm0": 0.2535
+          }
+        }
+      },
+      "events_by_baseline_volume_tertile": null,
+      "growth_free_2y_by_baseline_volume_tertile": {
+        "small": {
+          "patients": 38,
+          "events": 4,
+          "growth_free_2y": 0.8705454545454546
+        },
+        "medium": {
+          "patients": 37,
+          "events": 13,
+          "growth_free_2y": 0.704680320458867
+        },
+        "large": {
+          "patients": 37,
+          "events": 5,
+          "growth_free_2y": 0.8513621794871795
+        }
+      }
+    }
+  },
+  "feature_sets": {
+    "volume_only": [
+      "log_v"
+    ],
+    "volume_horizon": [
+      "log_v",
+      "log_horizon"
+    ],
+    "history": [
+      "log_v",
+      "log_horizon",
+      "has_prev",
+      "last_rate_yr",
+      "prior_growth",
+      "t_run_yr"
+    ],
+    "history_clinical": [
+      "log_v",
+      "log_horizon",
+      "has_prev",
+      "last_rate_yr",
+      "prior_growth",
+      "t_run_yr",
+      "age",
+      "sex_male"
+    ],
+    "history_clinical_acq": [
+      "log_v",
+      "log_horizon",
+      "has_prev",
+      "last_rate_yr",
+      "prior_growth",
+      "t_run_yr",
+      "age",
+      "sex_male",
+      "slice_mm",
+      "seq_iac"
+    ]
+  },
+  "cox_feature_sets": {
+    "volume_only": [
+      "log_v0"
+    ],
+    "volume_clinical": [
+      "log_v0",
+      "age0",
+      "sex_male"
+    ],
+    "volume_clinical_acq": [
+      "log_v0",
+      "age0",
+      "sex_male",
+      "slice_mm0"
+    ]
+  },
+  "provenance": {
+    "git": {
+      "commit": "1e9f0ccb3503f2ca7fbea42b3073bd58411e3796",
+      "dirty": true
+    },
+    "python": "3.10.15",
+    "sklearn": "1.7.2",
+    "lifelines": "0.30.0",
+    "manifest_sha256": "97a1d965608564f24dfd14b06cb729f2d5a2d90b373fc29b8e83217a85060c97",
+    "folds_sha256": "a4b431e8051a3acaec362ecac1daf53cc233033c16fca026d4d304ad4393023f",
+    "command": "projects/frank_vs_forecasting/scripts/p1_growth_event.py --manifest reproductions/deepgrowth_ucsd/data/processed/ucsd_manifest.csv --clinical reproductions/deepgrowth_ucsd/data/raw/metadata/UCSD-VS-Longitudinal_clinical_information.tsv --volumes projects/frank_vs_forecasting/data/p1_volume_baselines/timepoint_volumes.csv --spacing projects/frank_vs_forecasting/data/p1_volume_baselines/timepoint_spacing.csv --folds projects/frank_vs_forecasting/data/p1_regression/extended_patient_folds.csv --private-dir projects/frank_vs_forecasting/data/p1_growth_event --results-dir projects/frank_vs_forecasting/results/2026-09-11-p1-growth-event --thresholds growth_20pct=0.2,rel20_abs100=0.2:100,rel50_abs50=0.5:50,noise_calibrated=stratified/1.19/0.42@100"
+  }
+}

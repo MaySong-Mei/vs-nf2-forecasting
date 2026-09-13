@@ -1,0 +1,51 @@
+== Task A next-visit growth_20pct {'relative': 0.2, 'absolute_mm3': 0.0}: 203 intervals / 112 patients, events 65 (0.32), mirrored shrink 40 (ratio 0.62) ==
+model                     AUC         AUC CI95  foldAUC  Brier  logloss cal.slope    ECE | AUC >=100mm3  AUC <100mm3
+prevalence              0.442 [0.365, 0.514]    0.500  0.219    0.630     -4.13  0.052 |        0.500        0.500
+volume_only             0.483 [0.405, 0.567]    0.536  0.221    0.636     -1.50  0.049 |        0.581        0.557
+volume_horizon          0.448 [0.365, 0.535]    0.507  0.221    0.636     -2.21  0.070 |        0.514        0.479
+history                 0.434 [0.344, 0.521]    0.472  0.221    0.634     -2.10  0.069 |        0.513        0.457
+history_clinical        0.471 [0.371, 0.563]    0.507  0.220    0.633     -1.30  0.065 |        0.490        0.538
+history_clinical_acq    0.457 [0.361, 0.554]    0.494  0.221    0.635     -1.69  0.073 |        0.476        0.516
+-- Task B time-to-growth growth_20pct: 112 patients, 58 events; growth-free 1/2/3/5y = 0.71/0.52/0.44/0.29
+   cox volume_only            CV C-index 0.529 folds [np.float64(0.624), np.float64(0.55), np.float64(0.281), np.float64(0.5), np.float64(0.69)] HR {'log_v0': 0.955} p {'log_v0': 0.5358}
+   cox volume_clinical        CV C-index 0.578 folds [np.float64(0.496), np.float64(0.575), np.float64(0.5), np.float64(0.608), np.float64(0.71)] HR {'log_v0': 0.966, 'age0': 0.978, 'sex_male': 0.645} p {'log_v0': 0.6482, 'age0': 0.0402, 'sex_male': 0.0866}
+   cox volume_clinical_acq    CV C-index 0.610 folds [np.float64(0.553), np.float64(0.567), np.float64(0.556), np.float64(0.592), np.float64(0.78)] HR {'log_v0': 0.988, 'age0': 0.979, 'sex_male': 0.6, 'slice_mm0': 0.776} p {'log_v0': 0.8708, 'age0': 0.0486, 'sex_male': 0.0492, 'slice_mm0': 0.0674}
+
+== Task A next-visit rel20_abs100 {'relative': 0.2, 'absolute_mm3': 100.0}: 203 intervals / 112 patients, events 29 (0.14), mirrored shrink 6 (ratio 0.21) ==
+model                     AUC         AUC CI95  foldAUC  Brier  logloss cal.slope    ECE | AUC >=100mm3  AUC <100mm3
+prevalence              0.409 [0.299, 0.536]    0.500  0.123    0.414     -3.92  0.042 |        0.500        0.500
+volume_only             0.693 [0.589, 0.794]    0.726  0.122    0.397      0.71  0.018 |        0.542        0.807
+volume_horizon          0.710 [0.600, 0.804]    0.747  0.121    0.393      0.76  0.052 |        0.583        0.809
+history                 0.659 [0.541, 0.775]    0.710  0.123    0.406      0.55  0.017 |        0.532        0.770
+history_clinical        0.627 [0.516, 0.746]    0.692  0.125    0.409      0.54  0.015 |        0.507        0.784
+history_clinical_acq    0.612 [0.496, 0.729]    0.683  0.127    0.421      0.32  0.037 |        0.512        0.745
+-- Task B time-to-growth rel20_abs100: 112 patients, 27 events; growth-free 1/2/3/5y = 0.91/0.78/0.74/0.51
+   cox volume_only            CV C-index 0.719 folds [np.float64(0.652), np.float64(0.698), np.float64(0.915), np.float64(0.833), np.float64(0.5)] HR {'log_v0': 1.368} p {'log_v0': 0.0013}
+   cox volume_clinical        CV C-index 0.725 folds [np.float64(0.667), np.float64(0.674), np.float64(0.883), np.float64(0.833), np.float64(0.567)] HR {'log_v0': 1.365, 'age0': 1.001, 'sex_male': 1.052} p {'log_v0': 0.0016, 'age0': 0.9413, 'sex_male': 0.8859}
+   cox volume_clinical_acq    CV C-index 0.712 folds [np.float64(0.667), np.float64(0.651), np.float64(0.872), np.float64(0.803), np.float64(0.567)] HR {'log_v0': 1.37, 'age0': 1.001, 'sex_male': 1.032, 'slice_mm0': 0.912} p {'log_v0': 0.0014, 'age0': 0.9418, 'sex_male': 0.9298, 'slice_mm0': 0.6651}
+
+== Task A next-visit rel50_abs50 {'relative': 0.5, 'absolute_mm3': 50.0}: 203 intervals / 112 patients, events 19 (0.09), mirrored shrink 4 (ratio 0.21) ==
+model                     AUC         AUC CI95  foldAUC  Brier  logloss cal.slope    ECE | AUC >=100mm3  AUC <100mm3
+prevalence              0.395 [0.273, 0.535]    0.500  0.086    0.316     -5.88  0.040 |        0.500        0.500
+volume_only             0.373 [0.242, 0.512]    0.467  0.086    0.316     -5.99  0.043 |        0.502        0.374
+volume_horizon          0.601 [0.433, 0.747]    0.662  0.084    0.308      0.76  0.018 |        0.696        0.588
+history                 0.540 [0.376, 0.696]    0.685  0.086    0.313      0.13  0.022 |        0.711        0.638
+history_clinical        0.511 [0.353, 0.657]    0.647  0.086    0.315     -0.74  0.051 |        0.687        0.592
+history_clinical_acq    0.397 [0.262, 0.535]    0.563  0.086    0.317     -2.65  0.061 |        0.623        0.431
+-- Task B time-to-growth rel50_abs50: 112 patients, 19 events; growth-free 1/2/3/5y = 0.96/0.85/0.79/0.62
+   cox volume_only            CV C-index 0.476 folds [np.float64(0.444), np.float64(0.354), np.float64(0.629), np.float64(0.535), np.float64(0.417)] HR {'log_v0': 1.017} p {'log_v0': 0.8895}
+   cox volume_clinical        CV C-index 0.453 folds [np.float64(0.422), np.float64(0.229), np.float64(0.571), np.float64(0.581), np.float64(0.458)] HR {'log_v0': 1.021, 'age0': 0.994, 'sex_male': 0.86} p {'log_v0': 0.8633, 'age0': 0.742, 'sex_male': 0.7117}
+   cox volume_clinical_acq    CV C-index 0.398 folds [np.float64(0.289), np.float64(0.188), np.float64(0.457), np.float64(0.558), np.float64(0.5)] HR {'log_v0': 1.033, 'age0': 0.994, 'sex_male': 0.806, 'slice_mm0': 0.797} p {'log_v0': 0.784, 'age0': 0.7274, 'sex_male': 0.6017, 'slice_mm0': 0.3256}
+
+== Task A next-visit noise_calibrated {'relative': {'size_cut_mm3': 100.0, 'below': 1.19, 'at_or_above': 0.42}, 'absolute_mm3': 0.0}: 203 intervals / 112 patients, events 21 (0.10), mirrored shrink 9 (ratio 0.43) ==
+model                     AUC         AUC CI95  foldAUC  Brier  logloss cal.slope    ECE | AUC >=100mm3  AUC <100mm3
+prevalence              0.411 [0.286, 0.544]    0.500  0.093    0.336     -4.51  0.033 |        0.500        0.500
+volume_only             0.341 [0.227, 0.463]    0.360  0.094    0.338     -3.92  0.071 |        0.450        0.251
+volume_horizon          0.589 [0.448, 0.742]    0.640  0.093    0.333      0.44  0.039 |        0.604        0.751
+history                 0.711 [0.555, 0.828]    0.718  0.089    0.312      0.81  0.041 |        0.730        0.765
+history_clinical        0.693 [0.544, 0.810]    0.705  0.092    0.320      0.83  0.024 |        0.729        0.769
+history_clinical_acq    0.709 [0.571, 0.815]    0.719  0.091    0.315      0.79  0.013 |        0.733        0.793
+-- Task B time-to-growth noise_calibrated: 112 patients, 22 events; growth-free 1/2/3/5y = 0.94/0.81/0.75/0.59
+   cox volume_only            CV C-index 0.394 folds [np.float64(0.509), np.float64(0.492), np.float64(0.286), np.float64(0.333), np.float64(0.351)] HR {'log_v0': 0.976} p {'log_v0': 0.8296}
+   cox volume_clinical        CV C-index 0.413 folds [np.float64(0.364), np.float64(0.458), np.float64(0.411), np.float64(0.481), np.float64(0.351)] HR {'log_v0': 0.982, 'age0': 0.99, 'sex_male': 0.941} p {'log_v0': 0.8729, 'age0': 0.5041, 'sex_male': 0.874}
+   cox volume_clinical_acq    CV C-index 0.411 folds [np.float64(0.4), np.float64(0.322), np.float64(0.393), np.float64(0.481), np.float64(0.459)] HR {'log_v0': 0.996, 'age0': 0.989, 'sex_male': 0.877, 'slice_mm0': 0.783} p {'log_v0': 0.9734, 'age0': 0.492, 'sex_male': 0.7367, 'slice_mm0': 0.2535}

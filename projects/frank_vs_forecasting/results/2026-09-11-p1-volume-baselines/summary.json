@@ -1,0 +1,2437 @@
+{
+  "experiment": "p1_volume_baselines",
+  "date": "2026-09-11",
+  "seed": 100,
+  "cohort": {
+    "timepoints": 570,
+    "patients": 191,
+    "candidate_triplets": 188,
+    "candidate_patients": 117,
+    "eligible_triplets": 151,
+    "eligible_patients": 98,
+    "exclusion_reason_counts": {
+      "intervention_between_scans": 33,
+      "no_residual_tumor": 26,
+      "empty_mask": 26
+    },
+    "intervention_unknown_eligible": 0,
+    "registration_qc_pass_subset": 103,
+    "treatment_status_counts": {
+      "all_pre": 91,
+      "all_post": 60
+    },
+    "fold_test_cases": {
+      "0": 30,
+      "1": 28,
+      "2": 31,
+      "3": 32,
+      "4": 30
+    },
+    "fold_test_patients": {
+      "0": 20,
+      "1": 20,
+      "2": 20,
+      "3": 19,
+      "4": 19
+    },
+    "growth_pairs_for_pooled_rate": 317,
+    "lmm_points": 464,
+    "lmm_patients": 159,
+    "top20_abs_change_cutoff": 0.4000000317814316,
+    "radiology_class_t3_vs_volume_change_20pct": {
+      "Decreased": {
+        "Decreased": 7,
+        "Increased": 0,
+        "Unchanged": 3
+      },
+      "Increased": {
+        "Decreased": 0,
+        "Increased": 11,
+        "Unchanged": 6
+      },
+      "Unchanged": {
+        "Decreased": 29,
+        "Increased": 27,
+        "Unchanged": 68
+      }
+    },
+    "targets_below_50_mm3": 30,
+    "horizon_days": {
+      "median": 373.0,
+      "min": 37.0,
+      "max": 4102.0
+    },
+    "target_volume_mm3": {
+      "median": 251.2499985683238,
+      "min": 4.821279720725495,
+      "max": 16698.83413706107
+    }
+  },
+  "methods": {
+    "persistence": {
+      "all": {
+        "cases": 151,
+        "patients": 98,
+        "abs_rvd": {
+          "mean": 2.695683984479548,
+          "std": 29.621398633160272,
+          "median": 0.1779980905048511,
+          "patient_level_mean": 4.012735820816131,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.24852298998645653,
+            7.8905124960312465
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 183.05204228875186,
+          "std": 516.2649628630331,
+          "median": 41.8753805526037,
+          "patient_level_mean": 213.554430372311,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            112.86262757928377,
+            274.3536242800821
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.31303927474893783,
+          "std": 0.5528244837720042,
+          "median": 0.19389463891219627,
+          "patient_level_mean": 0.3454502039128091,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 2.4808204173476387,
+          "std": 29.64029207234043,
+          "median": -0.028510077837598197,
+          "patient_level_mean": 3.790668972667441,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        }
+      },
+      "top20_abs_change": {
+        "cases": 31,
+        "patients": 30,
+        "abs_rvd": {
+          "mean": 12.490616422911119,
+          "std": 65.2862964999801,
+          "median": 0.714285716617538,
+          "patient_level_mean": 12.886884593897047,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.6490829114977612,
+            37.107493025546916
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 254.12984191412164,
+          "std": 485.7682706106314,
+          "median": 48.21279176843662,
+          "patient_level_mean": 262.24890819146634,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            111.69888492014195,
+            437.19381254188437
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.9130001551686047,
+          "std": 0.9991089013297879,
+          "median": 0.5950849155336941,
+          "patient_level_mean": 0.9220327181047165,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 11.973877199350627,
+          "std": 65.3862651191909,
+          "median": -0.3071819370893632,
+          "patient_level_mean": 12.370869923941807,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        }
+      },
+      "horizon_le_365d": {
+        "cases": 68,
+        "patients": 53,
+        "abs_rvd": {
+          "mean": 5.571862148262846,
+          "std": 44.14702411728409,
+          "median": 0.14971367525773566,
+          "patient_level_mean": 7.085161268781291,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.15932928163329374,
+            17.522769004968424
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 133.97988199405512,
+          "std": 275.9462190198132,
+          "median": 39.37766105929293,
+          "patient_level_mean": 145.80038580276775,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            74.73162393525608,
+            217.19533019210448
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.28764272152946013,
+          "std": 0.7213540003582294,
+          "median": 0.1482523719556914,
+          "patient_level_mean": 0.3125605384787194,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 5.383758599893447,
+          "std": 44.17070621606651,
+          "median": -0.0419973875089982,
+          "patient_level_mean": 6.901254861399698,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        }
+      },
+      "horizon_gt_365d": {
+        "cases": 83,
+        "patients": 66,
+        "abs_rvd": {
+          "mean": 0.3392970551149183,
+          "std": 0.3561376600635381,
+          "median": 0.21215619999972474,
+          "patient_level_mean": 0.3447878674290036,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.2731662905054682,
+            0.40961154554363205
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 223.2557398795878,
+          "std": 649.3873134731617,
+          "median": 48.21279176843662,
+          "patient_level_mean": 247.26248706826175,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            102.37478044218905,
+            407.6520887371553
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.333846089434775,
+          "std": 0.3645727212414335,
+          "median": 0.22351513798022538,
+          "patient_level_mean": 0.34723331619276815,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.10250961718962613,
+          "std": 0.4824148491591344,
+          "median": -0.007806955287437737,
+          "patient_level_mean": 0.09174269614540786,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        }
+      },
+      "all_pre_treatment": {
+        "cases": 91,
+        "patients": 60,
+        "abs_rvd": {
+          "mean": 4.2862937318664285,
+          "std": 38.15592994524492,
+          "median": 0.14743580066652942,
+          "patient_level_mean": 6.356345501647379,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.23529487280765088,
+            12.880903951738256
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 97.35321117207403,
+          "std": 235.85850561135436,
+          "median": 16.689052523943044,
+          "patient_level_mean": 110.43297159861572,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            52.35968010672123,
+            153.5351970299874
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.36104896080410004,
+          "std": 0.6902784818465885,
+          "median": 0.14315250325401507,
+          "patient_level_mean": 0.4001757030094343,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 4.016163836241461,
+          "std": 38.18563409632288,
+          "median": -0.05057873157320427,
+          "patient_level_mean": 6.0753364640771395,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        }
+      },
+      "all_post_treatment": {
+        "cases": 60,
+        "patients": 38,
+        "abs_rvd": {
+          "mean": 0.2832592009427801,
+          "std": 0.31671690304342576,
+          "median": 0.200345951024622,
+          "patient_level_mean": 0.31229948266152757,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.2108198354444021,
+            0.3654702716940476
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 313.0286028157133,
+          "std": 751.1666736664124,
+          "median": 91.8421131638973,
+          "patient_level_mean": 376.3777863307773,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            152.8065149834405,
+            538.0913083658062
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.24022458423194168,
+          "std": 0.2029767740912122,
+          "median": 0.203818507396349,
+          "patient_level_mean": 0.2590415211286641,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.1522162320253419,
+          "std": 0.3979231213829252,
+          "median": 0.05288474276027477,
+          "patient_level_mean": 0.18329924938896966,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        }
+      },
+      "registration_qc_pass_subset": {
+        "cases": 103,
+        "patients": 73,
+        "abs_rvd": {
+          "mean": 0.28054925183968843,
+          "std": 0.3293579550803978,
+          "median": 0.17532378132295315,
+          "patient_level_mean": 0.3056153042915372,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.2180429991608897,
+            0.34696939305702207
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 142.78961846243732,
+          "std": 271.1375378298875,
+          "median": 44.97139092034121,
+          "patient_level_mean": 148.14987936150504,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            90.74253071825501,
+            207.06215949977522
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.2673080849169122,
+          "std": 0.28725707085040886,
+          "median": 0.18779087922723292,
+          "patient_level_mean": 0.2909931784904918,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.07228851826540589,
+          "std": 0.4274100252135188,
+          "median": -0.028510077837598197,
+          "patient_level_mean": 0.08454280901244847,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        }
+      }
+    },
+    "linear_volume": {
+      "all": {
+        "cases": 151,
+        "patients": 98,
+        "abs_rvd": {
+          "mean": 4.477293989309074,
+          "std": 49.20322499727385,
+          "median": 0.3259755126691622,
+          "patient_level_mean": 6.653665367902995,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.40409777635966654,
+            13.324871100855772
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 229.08891317456587,
+          "std": 540.0564160790431,
+          "median": 61.192649762004635,
+          "patient_level_mean": 266.6863398217102,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            156.2970641100493,
+            326.0450624769699
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.8504867257409195,
+          "std": 1.4868456781237012,
+          "median": 0.33094847988643394,
+          "patient_level_mean": 0.9872554983432867,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 4.0111610084115545,
+          "std": 49.24368464371038,
+          "median": -0.027142754194748517,
+          "patient_level_mean": 6.153820166548096,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.05759931114968093,
+        "direction_agreement": 0.543046357615894
+      },
+      "top20_abs_change": {
+        "cases": 31,
+        "patients": 30,
+        "abs_rvd": {
+          "mean": 20.403570889627613,
+          "std": 108.51042322992872,
+          "median": 0.6675327299932248,
+          "patient_level_mean": 21.04424165877662,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.700582299150472,
+            61.511183636030125
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 233.19050065765975,
+          "std": 548.0605701779821,
+          "median": 50.278087900527886,
+          "patient_level_mean": 240.35574745901462,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            87.44273585026707,
+            444.5165121270516
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 1.37716281152873,
+          "std": 1.7230235779526568,
+          "median": 0.7652841227298772,
+          "patient_level_mean": 1.3939218210433837,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 19.714414690263407,
+          "std": 108.64198586775244,
+          "median": -0.2880217874673238,
+          "patient_level_mean": 20.348828782810433,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.11372114182200728,
+        "direction_agreement": 0.5161290322580645
+      },
+      "horizon_le_365d": {
+        "cases": 68,
+        "patients": 53,
+        "abs_rvd": {
+          "mean": 9.239675761935995,
+          "std": 73.33346607840394,
+          "median": 0.22161952927830814,
+          "patient_level_mean": 11.750860083580228,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.2693821971618426,
+            28.401238865879233
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 188.10738562857466,
+          "std": 406.85799538985475,
+          "median": 54.904082423488134,
+          "patient_level_mean": 209.7057474648282,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            104.7983210721057,
+            307.8404154396149
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.6418675512634374,
+          "std": 1.2978076170749053,
+          "median": 0.23336987081508043,
+          "patient_level_mean": 0.6906031602032678,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 8.897003275368478,
+          "std": 73.37646045080268,
+          "median": -0.0014372413051094587,
+          "patient_level_mean": 11.387892603562271,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": -0.08959896202214751,
+        "direction_agreement": 0.4852941176470588
+      },
+      "horizon_gt_365d": {
+        "cases": 83,
+        "patients": 66,
+        "abs_rvd": {
+          "mean": 0.5755836213737675,
+          "std": 0.5564519670470123,
+          "median": 0.3703099645864641,
+          "patient_level_mean": 0.5700066036057041,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.45354321349892546,
+            0.7074254225105956
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 262.66414056164297,
+          "std": 629.0782028876338,
+          "median": 73.56973083175535,
+          "patient_level_mean": 291.5317590653898,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            152.13578103659236,
+            412.85678250623664
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 1.021403639770664,
+          "std": 1.6131092657960857,
+          "median": 0.4485272409905594,
+          "patient_level_mean": 1.1165144623902419,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.00830228367576121,
+          "std": 0.8030602278836423,
+          "median": -0.2003222102339662,
+          "patient_level_mean": -0.025065700149274794,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.1302613045272549,
+        "direction_agreement": 0.5903614457831325
+      },
+      "all_pre_treatment": {
+        "cases": 91,
+        "patients": 60,
+        "abs_rvd": {
+          "mean": 7.1132865233681395,
+          "std": 63.38078030287572,
+          "median": 0.29977593499571253,
+          "patient_level_mean": 10.537267723463223,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.37538551053370706,
+            21.774780581941837
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 123.28345669099699,
+          "std": 328.45657617527394,
+          "median": 31.06423076575723,
+          "patient_level_mean": 146.06029721362995,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            67.07359755981723,
+            199.57571464793332
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.6581982355492796,
+          "std": 1.153721763461302,
+          "median": 0.3030098108671453,
+          "patient_level_mean": 0.7269518807571522,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 6.7185808659267465,
+          "std": 63.42431307791425,
+          "median": -0.02933589274537781,
+          "patient_level_mean": 10.127379844702087,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": -0.06714979713895033,
+        "direction_agreement": 0.5054945054945055
+      },
+      "all_post_treatment": {
+        "cases": 60,
+        "patients": 38,
+        "abs_rvd": {
+          "mean": 0.4793719793194939,
+          "std": 0.4355413472485985,
+          "median": 0.38816369176925564,
+          "patient_level_mean": 0.5216616485973711,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.3607238536908684,
+            0.6104356389521544
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 389.5605221746453,
+          "std": 730.4028411935352,
+          "median": 165.9244250453867,
+          "patient_level_mean": 457.1485123607843,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            244.45327169126102,
+            605.3649479350653
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 1.1421242691982405,
+          "std": 1.8564683024841775,
+          "median": 0.40647856348090583,
+          "patient_level_mean": 1.3982612103213938,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": -0.0950924421531534,
+          "std": 0.6435781195881779,
+          "median": -0.0031398755594349336,
+          "patient_level_mean": -0.12022143053715285,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.21650732480539409,
+        "direction_agreement": 0.6
+      },
+      "registration_qc_pass_subset": {
+        "cases": 103,
+        "patients": 73,
+        "abs_rvd": {
+          "mean": 0.4431592624208876,
+          "std": 0.5225665386455912,
+          "median": 0.297551978537894,
+          "patient_level_mean": 0.47631882143922166,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.34906982229142963,
+            0.5568696035785746
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 179.7693904486447,
+          "std": 261.08184900030636,
+          "median": 64.94807893533365,
+          "patient_level_mean": 184.55544269570137,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            129.3574724712635,
+            238.74223045051994
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.7291339534507553,
+          "std": 1.3625941856819106,
+          "median": 0.292658538315441,
+          "patient_level_mean": 0.8260026336737795,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.02170718472089589,
+          "std": 0.6862328257497529,
+          "median": -0.01975445007589029,
+          "patient_level_mean": 0.02600866599718903,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.060987497981932884,
+        "direction_agreement": 0.5339805825242718
+      }
+    },
+    "log_linear_volume": {
+      "all": {
+        "cases": 151,
+        "patients": 98,
+        "abs_rvd": {
+          "mean": 173.02095839568238,
+          "std": 2119.244733196567,
+          "median": 0.34057092348500995,
+          "patient_level_mean": 266.3157912558686,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.4433182160009226,
+            543.0758881258605
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 1078.1213918854082,
+          "std": 10220.273420918511,
+          "median": 68.08962943226757,
+          "patient_level_mean": 1570.2491366639083,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            171.97244346015364,
+            2887.309290643222
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.5586609316448292,
+          "std": 0.9411659964303832,
+          "median": 0.35512399431048625,
+          "patient_level_mean": 0.6236789663475086,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 172.67785706093014,
+          "std": 2119.272903530334,
+          "median": 0.003530195376739575,
+          "patient_level_mean": 265.94388981106357,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.06306378529104217,
+        "direction_agreement": 0.543046357615894
+      },
+      "top20_abs_change": {
+        "cases": 31,
+        "patients": 30,
+        "abs_rvd": {
+          "mean": 841.1300933050103,
+          "std": 4677.134174534087,
+          "median": 0.6145603455464999,
+          "patient_level_mean": 869.0981089798062,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.7830541597964116,
+            2605.3937909504516
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 4203.623163661182,
+          "std": 22523.958262857,
+          "median": 49.702092773091394,
+          "patient_level_mean": 4342.728964016547,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            89.26751875182195,
+            12676.477502094907
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 1.0799034769759588,
+          "std": 1.751595464400779,
+          "median": 0.6883775148663185,
+          "patient_level_mean": 1.0786998382828172,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 840.6716312067005,
+          "std": 4677.21934811206,
+          "median": 0.015216760601237191,
+          "patient_level_mean": 868.6409517939085,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.10524193548387097,
+        "direction_agreement": 0.5161290322580645
+      },
+      "horizon_le_365d": {
+        "cases": 68,
+        "patients": 53,
+        "abs_rvd": {
+          "mean": 383.33182574934233,
+          "std": 3158.0454401865986,
+          "median": 0.2759420666675966,
+          "patient_level_mean": 491.7076206796249,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.27954689440351077,
+            1220.979988376548
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 2003.071677411202,
+          "std": 15208.59149790736,
+          "median": 57.85484629984605,
+          "patient_level_mean": 2535.726590785187,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            119.25682616134756,
+            5968.484844103414
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.5068446177390735,
+          "std": 1.2604777816079402,
+          "median": 0.27492518701996715,
+          "patient_level_mean": 0.5461451818749502,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 383.06256142281006,
+          "std": 3158.0786001921665,
+          "median": 0.015872762345948525,
+          "patient_level_mean": 491.4305837336476,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": -0.09523991296713365,
+        "direction_agreement": 0.4852941176470588
+      },
+      "horizon_gt_365d": {
+        "cases": 83,
+        "patients": 66,
+        "abs_rvd": {
+          "mean": 0.718079117985084,
+          "std": 1.138880336384521,
+          "median": 0.39511834645201055,
+          "patient_level_mean": 0.7247463435633196,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.49470873437396096,
+            0.993429489818261
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 320.33079651487816,
+          "std": 890.8443413632574,
+          "median": 88.46918198294424,
+          "patient_level_mean": 365.53342780075855,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            160.2725995322346,
+            533.7361117626497
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.6011128514712317,
+          "std": 0.5640335570133452,
+          "median": 0.41578424320650864,
+          "patient_level_mean": 0.6143081986675023,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.31448481264297606,
+          "std": 1.3110558723775012,
+          "median": -0.009610131630263061,
+          "patient_level_mean": 0.30804852253706155,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.14354980899206582,
+        "direction_agreement": 0.5903614457831325
+      },
+      "all_pre_treatment": {
+        "cases": 91,
+        "patients": 60,
+        "abs_rvd": {
+          "mean": 286.74039171783653,
+          "std": 2729.9124855757523,
+          "median": 0.3274460721542472,
+          "patient_level_mean": 434.5805818668036,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.45017057783170134,
+            909.0596117644434
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 1502.3431717680762,
+          "std": 13150.618915791783,
+          "median": 40.271684126565276,
+          "patient_level_mean": 2219.4489873050957,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            85.741869399229,
+            4537.9346297283755
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.5943558927929974,
+          "std": 1.1310917726819671,
+          "median": 0.35512399431048625,
+          "patient_level_mean": 0.6523745747349488,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 286.4300656762632,
+          "std": 2729.94542526985,
+          "median": 0.006009466599028156,
+          "patient_level_mean": 434.2580170081996,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": -0.06150660933269629,
+        "direction_agreement": 0.5054945054945055
+      },
+      "all_post_treatment": {
+        "cases": 60,
+        "patients": 38,
+        "abs_rvd": {
+          "mean": 0.5464845237486216,
+          "std": 1.0982410794321518,
+          "median": 0.3472905151417487,
+          "patient_level_mean": 0.6345429228131974,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.33948600261280093,
+            0.9124852037337179
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 434.7183590633612,
+          "std": 1028.3566703943059,
+          "median": 165.03256571050653,
+          "patient_level_mean": 545.1967409146654,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            216.8248870709018,
+            746.0882133093835
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.5045235739034412,
+          "std": 0.5435920083637088,
+          "median": 0.3553301125964641,
+          "patient_level_mean": 0.5783701109989189,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.1536739943416961,
+          "std": 1.2189440618842886,
+          "median": 0.0006338474198051079,
+          "patient_level_mean": 0.184741605059173,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.22017227007502083,
+        "direction_agreement": 0.6
+      },
+      "registration_qc_pass_subset": {
+        "cases": 103,
+        "patients": 73,
+        "abs_rvd": {
+          "mean": 0.5517757686887832,
+          "std": 1.046665862584101,
+          "median": 0.3002277848684972,
+          "patient_level_mean": 0.6115126017060614,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.3701154001557876,
+            0.7560777623448031
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 218.3616360040447,
+          "std": 620.8941230775437,
+          "median": 61.576649827903424,
+          "patient_level_mean": 244.6107609409876,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            126.9327736590134,
+            355.8140563634455
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.44567670981008667,
+          "std": 0.47813405943658094,
+          "median": 0.2912055536897169,
+          "patient_level_mean": 0.47965253161485144,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.24011283198860905,
+          "std": 1.1596255367059616,
+          "median": 0.006009466599028156,
+          "patient_level_mean": 0.27800482136959204,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.06776347581601722,
+        "direction_agreement": 0.5339805825242718
+      }
+    },
+    "pooled_rate": {
+      "all": {
+        "cases": 151,
+        "patients": 98,
+        "abs_rvd": {
+          "mean": 2.742131446014776,
+          "std": 30.23856901133722,
+          "median": 0.18010035580871125,
+          "patient_level_mean": 4.0879981405157375,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.24477467133657527,
+            8.122109725553821
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 178.76401746515995,
+          "std": 489.46075310249535,
+          "median": 45.621966060556275,
+          "patient_level_mean": 208.66199272120755,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            105.20530474444807,
+            261.95516547937365
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.31259081976043995,
+          "std": 0.5551763834986851,
+          "median": 0.19067975422038153,
+          "patient_level_mean": 0.346836416948352,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 2.5223517946233036,
+          "std": 30.257822057335787,
+          "median": -0.0393513751967007,
+          "patient_level_mean": 3.859304875105977,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.04686998954339491,
+        "direction_agreement": 0.48344370860927155
+      },
+      "top20_abs_change": {
+        "cases": 31,
+        "patients": 30,
+        "abs_rvd": {
+          "mean": 12.711655557458807,
+          "std": 66.65231892903977,
+          "median": 0.6614043037763546,
+          "patient_level_mean": 13.115429818486124,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.62445310199866,
+            37.890658908519924
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 255.84980180197266,
+          "std": 497.2218489885542,
+          "median": 37.74248263200144,
+          "patient_level_mean": 264.02773925629214,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            102.67856307285132,
+            452.2929416900315
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.9030609296791142,
+          "std": 1.0120231440511824,
+          "median": 0.582610141668003,
+          "patient_level_mean": 0.9117885507688835,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 12.196743845616863,
+          "std": 66.75166489369516,
+          "median": -0.29093579618279,
+          "patient_level_mean": 12.601375893794152,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": -0.050806451612903224,
+        "direction_agreement": 0.5806451612903226
+      },
+      "horizon_le_365d": {
+        "cases": 68,
+        "patients": 53,
+        "abs_rvd": {
+          "mean": 5.685369938244976,
+          "std": 45.06612206445779,
+          "median": 0.1440183207386178,
+          "patient_level_mean": 7.231243805229542,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.16537802746635702,
+            17.686311074390836
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 134.0315481642749,
+          "std": 273.1620239351928,
+          "median": 46.09123030637925,
+          "patient_level_mean": 146.28753082841715,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            77.53559494815434,
+            206.85254279847786
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.2905973911596675,
+          "std": 0.722886619192534,
+          "median": 0.15183356499971268,
+          "patient_level_mean": 0.3165965464109143,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 5.491919892433611,
+          "std": 45.0904632655855,
+          "median": -0.048532442040737866,
+          "patient_level_mean": 7.039803557868129,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": -0.05302133832118181,
+        "direction_agreement": 0.39705882352941174
+      },
+      "horizon_gt_365d": {
+        "cases": 83,
+        "patients": 66,
+        "abs_rvd": {
+          "mean": 0.33080352466955204,
+          "std": 0.3489585605817283,
+          "median": 0.2064788050226392,
+          "patient_level_mean": 0.3378024473454031,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.26682178192144246,
+            0.40065555031594985
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 215.41230556708993,
+          "std": 611.7633227779147,
+          "median": 43.523010825917595,
+          "patient_level_mean": 240.2674916875929,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            101.47347607843469,
+            362.19842433064434
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3306095323490245,
+          "std": 0.3689375473242819,
+          "median": 0.22598818625652317,
+          "patient_level_mean": 0.34590014128470203,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.08945263015220845,
+          "std": 0.47374910801587083,
+          "median": -0.01539679013514039,
+          "patient_level_mean": 0.07833124735381336,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.0816086646236514,
+        "direction_agreement": 0.5542168674698795
+      },
+      "all_pre_treatment": {
+        "cases": 91,
+        "patients": 60,
+        "abs_rvd": {
+          "mean": 4.3650815568655945,
+          "std": 38.951052589849304,
+          "median": 0.1627237571327179,
+          "patient_level_mean": 6.47830479252681,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.23627614787760937,
+            15.321279035352166
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 100.14337201465506,
+          "std": 243.0257757044798,
+          "median": 17.926942251759897,
+          "patient_level_mean": 113.0591797424825,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            53.66894183942854,
+            158.33187943098244
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3608105408924545,
+          "std": 0.6935767527018388,
+          "median": 0.15076531921156988,
+          "patient_level_mean": 0.4007377635260097,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 4.089125720469755,
+          "std": 38.98132126781495,
+          "median": -0.06536303942447975,
+          "patient_level_mean": 6.190693723613479,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.11535276317885014,
+        "direction_agreement": 0.43956043956043955
+      },
+      "all_post_treatment": {
+        "cases": 60,
+        "patients": 38,
+        "abs_rvd": {
+          "mean": 0.28065711122436715,
+          "std": 0.31437897193531217,
+          "median": 0.2043756396321391,
+          "patient_level_mean": 0.3138297426035172,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.20812388764906442,
+            0.37328587437575983
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 298.00532973175905,
+          "std": 703.5579995593218,
+          "median": 93.00976745937453,
+          "patient_level_mean": 359.6138026876156,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            149.55557594799686,
+            511.5944155878166
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.23945757604355103,
+          "std": 0.2019499137435105,
+          "median": 0.2044764762092366,
+          "patient_level_mean": 0.2617290276152083,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.14607800708951882,
+          "std": 0.39653140036915796,
+          "median": 0.018747111386584518,
+          "patient_level_mean": 0.17816458798886922,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": -0.008391219783273132,
+        "direction_agreement": 0.55
+      },
+      "registration_qc_pass_subset": {
+        "cases": 103,
+        "patients": 73,
+        "abs_rvd": {
+          "mean": 0.2765316569367591,
+          "std": 0.3227250967945689,
+          "median": 0.1738152403575759,
+          "patient_level_mean": 0.3042788190413612,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.21683871135458324,
+            0.34438091682935706
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 139.61239076217336,
+          "std": 270.6390479271337,
+          "median": 49.24528747864764,
+          "patient_level_mean": 147.1081759815159,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            88.05256061196941,
+            206.71069943259553
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.26642540225381645,
+          "std": 0.2871474243802027,
+          "median": 0.18371762325979635,
+          "patient_level_mean": 0.2927204525935533,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.0636221646911566,
+          "std": 0.4210504541453573,
+          "median": -0.040498271731736785,
+          "patient_level_mean": 0.07678332645008383,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.1017330756051487,
+        "direction_agreement": 0.5145631067961165
+      }
+    },
+    "ridge_history": {
+      "all": {
+        "cases": 151,
+        "patients": 98,
+        "abs_rvd": {
+          "mean": 2.1205694921268075,
+          "std": 22.135329062859967,
+          "median": 0.2204851329883446,
+          "patient_level_mean": 3.0980925700632103,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.2758062727760988,
+            5.855496756870853
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 211.90761924332813,
+          "std": 460.76847467342475,
+          "median": 52.38785956914387,
+          "patient_level_mean": 219.2247283390478,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            134.3071599458385,
+            308.2429199004076
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3569219217459457,
+          "std": 0.5587222599451733,
+          "median": 0.22039461264856364,
+          "patient_level_mean": 0.38958393960874965,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 1.8761876039636387,
+          "std": 22.15752782540815,
+          "median": -0.01427201946100476,
+          "patient_level_mean": 2.839945943915708,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.2017636807249913,
+        "direction_agreement": 0.5562913907284768
+      },
+      "top20_abs_change": {
+        "cases": 31,
+        "patients": 30,
+        "abs_rvd": {
+          "mean": 9.482910163839518,
+          "std": 48.77719135869107,
+          "median": 0.6638188949406665,
+          "patient_level_mean": 9.78301995181007,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.6091464080811486,
+            27.949675267964064
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 167.36153738782608,
+          "std": 275.434313705467,
+          "median": 41.614356908138674,
+          "patient_level_mean": 172.65197215266073,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            81.57933641819213,
+            268.283447119189
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.8586165936957642,
+          "std": 0.9633628287742695,
+          "median": 0.63269534920199,
+          "patient_level_mean": 0.8697495819665875,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 8.997977107812936,
+          "std": 48.87202802309159,
+          "median": -0.25357764819040296,
+          "patient_level_mean": 9.29802373038464,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.2754032258064516,
+        "direction_agreement": 0.6451612903225806
+      },
+      "horizon_le_365d": {
+        "cases": 68,
+        "patients": 53,
+        "abs_rvd": {
+          "mean": 4.261203422734425,
+          "std": 32.99009977954934,
+          "median": 0.16715160752214786,
+          "patient_level_mean": 5.40039724930646,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.21003808374698874,
+            13.36655348577007
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 229.8788943482884,
+          "std": 446.61584908590055,
+          "median": 52.43300607298818,
+          "patient_level_mean": 214.99260809826274,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            109.78967384565493,
+            382.20996620895767
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3488528471886029,
+          "std": 0.7403363874027894,
+          "median": 0.16929473021626062,
+          "patient_level_mean": 0.3893637855642266,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 4.038348248185598,
+          "std": 33.018538541882215,
+          "median": -0.05991539846164826,
+          "patient_level_mean": 5.167525421102465,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.30682902622437686,
+        "direction_agreement": 0.5147058823529411
+      },
+      "horizon_gt_365d": {
+        "cases": 83,
+        "patients": 66,
+        "abs_rvd": {
+          "mean": 0.3667971152434586,
+          "std": 0.3458681706418879,
+          "median": 0.2761913733729026,
+          "patient_level_mean": 0.3609082473627707,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.29911590673733657,
+            0.4416191158116874
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 197.18416494046912,
+          "std": 474.2385499556537,
+          "median": 52.172698567776024,
+          "patient_level_mean": 216.5551910168968,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            113.23473665622038,
+            316.3063290592957
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3635327298170217,
+          "std": 0.35086940796948957,
+          "median": 0.26910157648751554,
+          "patient_level_mean": 0.3725961102761312,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.1047788833962504,
+          "std": 0.49466468287443477,
+          "median": 0.0033319800098054577,
+          "patient_level_mean": 0.07332178838520793,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.14147181058729694,
+        "direction_agreement": 0.5903614457831325
+      },
+      "all_pre_treatment": {
+        "cases": 91,
+        "patients": 60,
+        "abs_rvd": {
+          "mean": 3.335451857003223,
+          "std": 28.510110710056633,
+          "median": 0.19941136355989683,
+          "patient_level_mean": 4.878369315591539,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.29035430988634625,
+            10.026973954604255
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 127.20901371435032,
+          "std": 260.8484387685512,
+          "median": 21.408159986414148,
+          "patient_level_mean": 137.33047774247098,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            72.92747976269695,
+            189.36661767618205
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.41650944450759964,
+          "std": 0.6835278571690158,
+          "median": 0.2165958571320421,
+          "patient_level_mean": 0.45667913242048525,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 3.0402242520248355,
+          "std": 28.54346864802297,
+          "median": -0.060739750365936436,
+          "patient_level_mean": 4.56938900723451,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.10727822901735945,
+        "direction_agreement": 0.5274725274725275
+      },
+      "all_post_treatment": {
+        "cases": 60,
+        "patients": 38,
+        "abs_rvd": {
+          "mean": 0.27799790539757846,
+          "std": 0.2445022080413854,
+          "median": 0.2282048377128293,
+          "patient_level_mean": 0.28712928765006057,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.21322897984844766,
+            0.3501284000698722
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 340.36717096227784,
+          "std": 638.8474034354084,
+          "median": 114.74047507820406,
+          "patient_level_mean": 348.5314398073268,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            170.75770257466974,
+            564.528627850923
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.2665475122241039,
+          "std": 0.25918684646794127,
+          "median": 0.22478538002454052,
+          "patient_level_mean": 0.2836441614849568,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.1107320210708233,
+          "std": 0.3548304381252765,
+          "median": 0.062291553457480595,
+          "patient_level_mean": 0.10924637025443955,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.2826340650180606,
+        "direction_agreement": 0.6
+      },
+      "registration_qc_pass_subset": {
+        "cases": 103,
+        "patients": 73,
+        "abs_rvd": {
+          "mean": 0.29366974267643536,
+          "std": 0.3102768606019555,
+          "median": 0.19206194386126027,
+          "patient_level_mean": 0.31650880102900203,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.23535652112574432,
+            0.35564848140288263
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 157.45168374149821,
+          "std": 274.12607067258614,
+          "median": 60.612063728299745,
+          "patient_level_mean": 166.66389144085989,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            109.42475954109399,
+            219.2889116297651
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.2930823548500378,
+          "std": 0.320416802785438,
+          "median": 0.2017984120207741,
+          "patient_level_mean": 0.31987022335536,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.06985279356162136,
+          "std": 0.42241201076423884,
+          "median": -0.01427201946100476,
+          "patient_level_mean": 0.06945114585181643,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.20903439792645961,
+        "direction_agreement": 0.5728155339805825
+      }
+    },
+    "ridge_history_clinical": {
+      "all": {
+        "cases": 151,
+        "patients": 98,
+        "abs_rvd": {
+          "mean": 2.2136350522711505,
+          "std": 23.10838160780543,
+          "median": 0.22375541242351762,
+          "patient_level_mean": 3.233161205630812,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.29542448751716477,
+            6.261430333599753
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 221.21033403838075,
+          "std": 480.3755611572574,
+          "median": 48.332618195527175,
+          "patient_level_mean": 229.1306451538858,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            140.55317198717617,
+            328.36507997667724
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3690844766623719,
+          "std": 0.5609340438161925,
+          "median": 0.21917079033780418,
+          "patient_level_mean": 0.40121747284409254,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 1.961025584568683,
+          "std": 23.131339989833695,
+          "median": -0.02170614706177936,
+          "patient_level_mean": 2.9681265400032606,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.13654583478563959,
+        "direction_agreement": 0.5033112582781457
+      },
+      "top20_abs_change": {
+        "cases": 31,
+        "patients": 30,
+        "abs_rvd": {
+          "mean": 9.879163118738076,
+          "std": 50.92548104537336,
+          "median": 0.6689625060935751,
+          "patient_level_mean": 10.192433418645555,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.6178987516328938,
+            29.054138978202094
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 173.7621945615759,
+          "std": 288.35471852850975,
+          "median": 44.801013308404634,
+          "patient_level_mean": 179.26748936330833,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            88.1833664335184,
+            290.22951950666265
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.8676245710826522,
+          "std": 0.9690201449415252,
+          "median": 0.6411334622100666,
+          "patient_level_mean": 0.8793207023699596,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 9.39317075104585,
+          "std": 51.020417812642656,
+          "median": -0.22375541242351762,
+          "patient_level_mean": 9.705864416031213,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.22943548387096774,
+        "direction_agreement": 0.6451612903225806
+      },
+      "horizon_le_365d": {
+        "cases": 68,
+        "patients": 53,
+        "abs_rvd": {
+          "mean": 4.447458355369418,
+          "std": 34.44059732461003,
+          "median": 0.1820302501237383,
+          "patient_level_mean": 5.6371512600824545,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.2144857166132115,
+            13.421482085880621
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 237.92928535208748,
+          "std": 453.52693836119937,
+          "median": 46.04878895876415,
+          "patient_level_mean": 226.00433224621943,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            125.46496976988641,
+            382.4407702378974
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.35961087117444557,
+          "std": 0.7461716230805762,
+          "median": 0.18223047573672546,
+          "patient_level_mean": 0.4009698191562047,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 4.217289361147497,
+          "std": 34.469970508465515,
+          "median": -0.051752419423916195,
+          "patient_level_mean": 5.396784275148446,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.21952895369698822,
+        "direction_agreement": 0.4852941176470588
+      },
+      "horizon_gt_365d": {
+        "cases": 83,
+        "patients": 66,
+        "abs_rvd": {
+          "mean": 0.3835147557569068,
+          "std": 0.3477147777488756,
+          "median": 0.2864981533168013,
+          "patient_level_mean": 0.3763705473373149,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.31415988974392345,
+            0.45128451541816145
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 207.51287995004265,
+          "std": 503.6272586097196,
+          "median": 58.260100957439676,
+          "patient_level_mean": 229.82696380315704,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            115.55264997982995,
+            343.80519223860415
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.376845984772962,
+          "std": 0.3471524788763656,
+          "median": 0.27611160033558413,
+          "patient_level_mean": 0.3851015171075048,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.1125203218294138,
+          "std": 0.5069197308180491,
+          "median": -0.0049943893742340345,
+          "patient_level_mean": 0.07929537546630361,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.07969858528189412,
+        "direction_agreement": 0.5180722891566265
+      },
+      "all_pre_treatment": {
+        "cases": 91,
+        "patients": 60,
+        "abs_rvd": {
+          "mean": 3.4798294969984696,
+          "std": 29.763569168357996,
+          "median": 0.22182116312881467,
+          "patient_level_mean": 5.0908068642266295,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.3095885150585297,
+            10.234045523083712
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 137.42488655058386,
+          "std": 282.60016205944913,
+          "median": 21.574041450935,
+          "patient_level_mean": 147.7770534892893,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            74.13944044504952,
+            219.67252105622063
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.4294201278594953,
+          "std": 0.6840034934446716,
+          "median": 0.21825197973966937,
+          "patient_level_mean": 0.46966697206594976,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 3.174436198469665,
+          "std": 29.79806700837771,
+          "median": -0.08957566843884307,
+          "patient_level_mean": 4.7729534323196985,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.054594680681637205,
+        "direction_agreement": 0.4725274725274725
+      },
+      "all_post_treatment": {
+        "cases": 60,
+        "patients": 38,
+        "abs_rvd": {
+          "mean": 0.29324014443471624,
+          "std": 0.2642550855956208,
+          "median": 0.23803904079329158,
+          "patient_level_mean": 0.30003648153215495,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.22445572009191342,
+            0.3681480973341423
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 348.28492939487273,
+          "std": 661.5178750631087,
+          "median": 109.78637035659018,
+          "patient_level_mean": 357.5836846243014,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            166.41255431791322,
+            555.9338523803555
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.2775754056800678,
+          "std": 0.26857659782889404,
+          "median": 0.22523131393776863,
+          "patient_level_mean": 0.2931393161780022,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.12068615348552629,
+          "std": 0.37744664782764964,
+          "median": 0.034059582042429384,
+          "patient_level_mean": 0.11839986792467423,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.21694915254237288,
+        "direction_agreement": 0.55
+      },
+      "registration_qc_pass_subset": {
+        "cases": 103,
+        "patients": 73,
+        "abs_rvd": {
+          "mean": 0.31100210758603447,
+          "std": 0.31748468081993336,
+          "median": 0.2118165150621664,
+          "patient_level_mean": 0.332148199965118,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.2539508264825869,
+            0.37831763196042173
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 163.03297992391145,
+          "std": 281.07647768112116,
+          "median": 55.2582828768349,
+          "patient_level_mean": 171.13907981138533,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            110.70125562221466,
+            232.28520355101986
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3073824000201827,
+          "std": 0.3208281045227465,
+          "median": 0.21369624972628554,
+          "patient_level_mean": 0.33258719507611983,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.07719606212513079,
+          "std": 0.4386905920779204,
+          "median": -0.02170614706177936,
+          "patient_level_mean": 0.07813532476100025,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.1058955322233449,
+        "direction_agreement": 0.49514563106796117
+      }
+    },
+    "lmm_random_slope": {
+      "all": {
+        "cases": 151,
+        "patients": 98,
+        "abs_rvd": {
+          "mean": 0.47850044703779604,
+          "std": 1.5902071596459424,
+          "median": 0.24967805285708405,
+          "patient_level_mean": 0.5536557781754341,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.30811495792270177,
+            0.7929681955864485
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 280.281144389761,
+          "std": 774.3394256537929,
+          "median": 45.55779073428897,
+          "patient_level_mean": 262.7609751682386,
+          "finite_cases": 151,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            133.98447104920731,
+            469.928118337463
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.35407971070622,
+          "std": 0.3885853281893032,
+          "median": 0.2525739142096213,
+          "patient_level_mean": 0.37217015619610044,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.2051892428391866,
+          "std": 1.6482914174109478,
+          "median": -0.05493245641648545,
+          "patient_level_mean": 0.27706764726249977,
+          "finite_cases": 151,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.14534332520041826,
+        "direction_agreement": 0.5364238410596026
+      },
+      "top20_abs_change": {
+        "cases": 31,
+        "patients": 30,
+        "abs_rvd": {
+          "mean": 1.3851726957661445,
+          "std": 3.3724795269665067,
+          "median": 0.6997300969053708,
+          "patient_level_mean": 1.4106761460731432,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.6554356348872125,
+            2.6562503310175076
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 157.60205215436343,
+          "std": 241.70149287951168,
+          "median": 30.896760830613616,
+          "patient_level_mean": 162.52055138536545,
+          "finite_cases": 31,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            80.67390187705271,
+            242.4860259937174
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.7911789884678719,
+          "std": 0.5956335440794367,
+          "median": 0.624687653264635,
+          "patient_level_mean": 0.799373941417476,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.9445375828119932,
+          "std": 3.526242861264429,
+          "median": -0.007026510864653529,
+          "patient_level_mean": 0.9677690581899142,
+          "finite_cases": 31,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.1875,
+        "direction_agreement": 0.7096774193548387
+      },
+      "horizon_le_365d": {
+        "cases": 68,
+        "patients": 53,
+        "abs_rvd": {
+          "mean": 0.5724675837070274,
+          "std": 2.3331769705565453,
+          "median": 0.212754419725164,
+          "patient_level_mean": 0.6591566212741231,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.23095361965072386,
+            1.1738193158613695
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 376.48976011540384,
+          "std": 1009.744951828,
+          "median": 51.569431178847964,
+          "patient_level_mean": 319.65782813852707,
+          "finite_cases": 68,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            139.63152748680497,
+            778.1303372274995
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3214361612392959,
+          "std": 0.41477665884250753,
+          "median": 0.22555111142873407,
+          "patient_level_mean": 0.3408925106838772,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.2887812338948031,
+          "std": 2.3857254544701973,
+          "median": -0.12836134392169093,
+          "patient_level_mean": 0.3777978191774879,
+          "finite_cases": 68,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.18731152422033057,
+        "direction_agreement": 0.4852941176470588
+      },
+      "horizon_gt_365d": {
+        "cases": 83,
+        "patients": 66,
+        "abs_rvd": {
+          "mean": 0.40151532301963044,
+          "std": 0.4056399156906187,
+          "median": 0.2611064522263992,
+          "patient_level_mean": 0.3858531547156603,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.3240404988539088,
+            0.4868060952446518
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 201.4596278916438,
+          "std": 499.792226608395,
+          "median": 44.18193549606208,
+          "patient_level_mean": 228.1612493337866,
+          "finite_cases": 83,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            110.64817367605842,
+            311.00976490272143
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.3808238235224951,
+          "std": 0.36611504945885714,
+          "median": 0.2831383533161844,
+          "patient_level_mean": 0.38599019787180033,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.13670423811892254,
+          "std": 0.5557052952978814,
+          "median": 0.011770873705945003,
+          "patient_level_mean": 0.09509711071547546,
+          "finite_cases": 83,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.1201041098190672,
+        "direction_agreement": 0.5783132530120482
+      },
+      "all_pre_treatment": {
+        "cases": 91,
+        "patients": 60,
+        "abs_rvd": {
+          "mean": 0.5910058353521723,
+          "std": 2.0309869359257577,
+          "median": 0.26099523023999227,
+          "patient_level_mean": 0.6860947060911262,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.321315797685469,
+            1.0359315916650222
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 160.19987967404688,
+          "std": 452.4855105736594,
+          "median": 24.541912424357186,
+          "patient_level_mean": 150.77192311925995,
+          "finite_cases": 91,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            68.30515215587593,
+            308.3990002120677
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.39997376002092316,
+          "std": 0.4689981641223136,
+          "median": 0.26015448496617344,
+          "patient_level_mean": 0.41093470096839496,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.29718521878153326,
+          "std": 2.0949406747858177,
+          "median": -0.04207169512847382,
+          "patient_level_mean": 0.39052335698035395,
+          "finite_cases": 91,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.013537187450230928,
+        "direction_agreement": 0.5164835164835165
+      },
+      "all_post_treatment": {
+        "cases": 60,
+        "patients": 38,
+        "abs_rvd": {
+          "mean": 0.3078672747609918,
+          "std": 0.2961143185688994,
+          "median": 0.2447196194404666,
+          "patient_level_mean": 0.3445416814664469,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.24026571364566396,
+            0.39222058918683717
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 462.4043958752606,
+          "std": 1075.2299038109372,
+          "median": 112.2177715569421,
+          "patient_level_mean": 439.5857941929416,
+          "finite_cases": 60,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            180.6495921983592,
+            890.9062384435764
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.2844737359122533,
+          "std": 0.20046890249056695,
+          "median": 0.244442930015623,
+          "patient_level_mean": 0.31096298023984587,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.06566201265996088,
+          "std": 0.4238960383372337,
+          "median": -0.07424342747146521,
+          "patient_level_mean": 0.09792705297115092,
+          "finite_cases": 60,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.21689358155043068,
+        "direction_agreement": 0.5666666666666667
+      },
+      "registration_qc_pass_subset": {
+        "cases": 103,
+        "patients": 73,
+        "abs_rvd": {
+          "mean": 0.33850684613339405,
+          "std": 0.37552813823924686,
+          "median": 0.23893414209938596,
+          "patient_level_mean": 0.36449454484989074,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            0.2747651397916618,
+            0.4118399553275052
+          ]
+        },
+        "abs_error_mm3": {
+          "mean": 215.02597324188227,
+          "std": 581.6588728207654,
+          "median": 52.32657445005157,
+          "patient_level_mean": 243.50759713817666,
+          "finite_cases": 103,
+          "nonfinite_cases": 0,
+          "bootstrap_ci95": [
+            121.87949237480545,
+            345.848972734134
+          ]
+        },
+        "abs_log_ratio": {
+          "mean": 0.31752931903133547,
+          "std": 0.2878465638884045,
+          "median": 0.24957518136724044,
+          "patient_level_mean": 0.34298835678828615,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "signed_rvd": {
+          "mean": 0.07269600333406034,
+          "std": 0.5013932075212421,
+          "median": -0.05493245641648545,
+          "patient_level_mean": 0.08474183037447525,
+          "finite_cases": 103,
+          "nonfinite_cases": 0
+        },
+        "spearman_predicted_vs_actual_change": 0.12431357905372754,
+        "direction_agreement": 0.5533980582524272
+      }
+    }
+  },
+  "fold_diagnostics": {
+    "fold_0": {
+      "train_cases": 121,
+      "test_cases": 30,
+      "pooled_log_rate_per_year": -0.030530009169600046,
+      "pooled_rate_pairs": 199,
+      "ridge_history_lambda": 1.0,
+      "ridge_history_train_rows": 121,
+      "ridge_history_clinical_lambda": 1.0,
+      "ridge_history_clinical_train_rows": 121,
+      "lmm": {
+        "converged": false,
+        "fixed_intercept": 5.497502484018018,
+        "fixed_slope_per_year": -0.005651229455256045,
+        "random_sd_intercept": 1.373953084867898,
+        "random_sd_slope": 0.08485512176074311,
+        "residual_sd": 0.5210153792537153,
+        "train_points": 265
+      }
+    },
+    "fold_1": {
+      "train_cases": 123,
+      "test_cases": 28,
+      "pooled_log_rate_per_year": -0.006212942553521362,
+      "pooled_rate_pairs": 201,
+      "ridge_history_lambda": 0.0,
+      "ridge_history_train_rows": 123,
+      "ridge_history_clinical_lambda": 1.0,
+      "ridge_history_clinical_train_rows": 123,
+      "lmm": {
+        "converged": true,
+        "fixed_intercept": 5.2789591732447185,
+        "fixed_slope_per_year": 0.04212178919232295,
+        "random_sd_intercept": 1.474795551508001,
+        "random_sd_slope": 0.3296255723426264,
+        "residual_sd": 0.4763697317593539,
+        "train_points": 267
+      }
+    },
+    "fold_2": {
+      "train_cases": 120,
+      "test_cases": 31,
+      "pooled_log_rate_per_year": -0.020641650172828582,
+      "pooled_rate_pairs": 198,
+      "ridge_history_lambda": 0.0,
+      "ridge_history_train_rows": 120,
+      "ridge_history_clinical_lambda": 1.0,
+      "ridge_history_clinical_train_rows": 120,
+      "lmm": {
+        "converged": false,
+        "fixed_intercept": 5.310146742222823,
+        "fixed_slope_per_year": 0.0397772411379814,
+        "random_sd_intercept": 1.5774171294663095,
+        "random_sd_slope": 0.3927749864459807,
+        "residual_sd": 0.4899585062655215,
+        "train_points": 261
+      }
+    },
+    "fold_3": {
+      "train_cases": 119,
+      "test_cases": 32,
+      "pooled_log_rate_per_year": 0.009053005075016544,
+      "pooled_rate_pairs": 198,
+      "ridge_history_lambda": 1.0,
+      "ridge_history_train_rows": 119,
+      "ridge_history_clinical_lambda": 1.0,
+      "ridge_history_clinical_train_rows": 119,
+      "lmm": {
+        "converged": false,
+        "fixed_intercept": 5.333269330392559,
+        "fixed_slope_per_year": 0.05279449847952651,
+        "random_sd_intercept": 1.5561230283330114,
+        "random_sd_slope": 0.40433102667298587,
+        "residual_sd": 0.47501454532869974,
+        "train_points": 265
+      }
+    },
+    "fold_4": {
+      "train_cases": 121,
+      "test_cases": 30,
+      "pooled_log_rate_per_year": 0.021687385024019804,
+      "pooled_rate_pairs": 200,
+      "ridge_history_lambda": 0.0,
+      "ridge_history_train_rows": 121,
+      "ridge_history_clinical_lambda": 0.1,
+      "ridge_history_clinical_train_rows": 121,
+      "lmm": {
+        "converged": false,
+        "fixed_intercept": 5.452371295566131,
+        "fixed_slope_per_year": 0.00725970750997036,
+        "random_sd_intercept": 1.5323143295109818,
+        "random_sd_slope": 0.08821109111786254,
+        "residual_sd": 0.4037616817377184,
+        "train_points": 270
+      }
+    }
+  },
+  "provenance": {
+    "git": {
+      "commit": "1e9f0ccb3503f2ca7fbea42b3073bd58411e3796",
+      "dirty": true
+    },
+    "python": "3.10.15",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "statsmodels": "0.15.0",
+    "manifest_sha256": "97a1d965608564f24dfd14b06cb729f2d5a2d90b373fc29b8e83217a85060c97",
+    "splits_sha256": "6f5dc9771d2bbb1843e3c1479fe6597487afb863643ebb5510f11cf96066ef73",
+    "clinical_sha256": "3e82c89d3d59c1e1fef8ba3eca86baaa4aeedce96e3357e1d97a1ddcdba1e39d",
+    "command": "projects/frank_vs_forecasting/scripts/p1_volume_baselines.py --manifest reproductions/deepgrowth_ucsd/data/processed/ucsd_manifest.csv --data-root reproductions/deepgrowth_ucsd/data/raw/ucsd_images/UCSD-VS-Longitudinal --clinical reproductions/deepgrowth_ucsd/data/raw/metadata/UCSD-VS-Longitudinal_clinical_information.tsv --splits reproductions/deepgrowth_ucsd/data/processed/ucsd_splits.csv --qc-metadata reproductions/deepgrowth_ucsd/data/ucsd_prepared/metadata.csv --private-dir projects/frank_vs_forecasting/data/p1_volume_baselines --results-dir projects/frank_vs_forecasting/results/2026-09-11-p1-volume-baselines"
+  }
+}

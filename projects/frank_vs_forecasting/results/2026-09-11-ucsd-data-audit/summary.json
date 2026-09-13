@@ -1,0 +1,224 @@
+{
+  "patients": {
+    "n": 191,
+    "timepoints_per_patient": {
+      "2": 74,
+      "3": 46,
+      "4": 71
+    },
+    "sex": {
+      "MALE": 98,
+      "FEMALE": 93
+    },
+    "race": {
+      "White": 123,
+      "Not Reported": 36,
+      "Asian": 24,
+      "Black": 4,
+      "Native Hawaiian or Other Pacific Islander": 2,
+      "American Indian or Alaska Native": 1,
+      "Asian & White": 1
+    },
+    "ethnicity": {
+      "Not Reported": 98,
+      "Not Hispanic or Latino": 77,
+      "Hispanic or Latino": 16
+    },
+    "age_first_scan": "60.7 [49.5, 70.7] (range 19.2–87.4)",
+    "followup_span_days_patients_with_ge2": "729 [378, 1246] (range 61–4561)",
+    "treatment1": {
+      "No": 89,
+      "Surgery": 67,
+      "Radiation": 34,
+      "no": 1
+    },
+    "treatment2": {
+      "No": 189,
+      "Surgery": 1,
+      "Radiation ": 1
+    },
+    "patients_with_any_post_treatment_scan": 91,
+    "patients_with_intervention_between_scans": 44,
+    "patients_with_no_residual_timepoint": 27
+  },
+  "timepoints": {
+    "pre_post": {
+      "Pre": 348,
+      "Post": 222
+    },
+    "no_residual": 44,
+    "empty_mask": 46,
+    "growth_class": {
+      "Unchanged": 267,
+      "Missing": 191,
+      "Increased": 50,
+      "Decreased/Resection": 37,
+      "Decreased": 25
+    },
+    "reference_sequence": {
+      "t1postiac": 484,
+      "t1post": 86
+    },
+    "manufacturer": {
+      "GE Medical Systems": 505,
+      "Siemens": 44,
+      "Canon": 17,
+      "Time Medical Systems": 4
+    },
+    "tesla": {
+      "1.5": 294,
+      "3.0": 272,
+      "0.35": 4
+    }
+  },
+  "resolution": {
+    "inplane_mm": "0.352 [0.332, 0.352] (range 0.137–1.200)",
+    "slice_mm": "3.00 [2.20, 3.00] (range 0.50–5.00)",
+    "slice_bins": {
+      "2.5–3.5": 373,
+      "1.5–2.5": 88,
+      "≤1.0": 69,
+      ">3.5": 30,
+      "1.0–1.5": 10
+    },
+    "slice_by_sequence": {
+      "t1post": 1.0,
+      "t1postiac": 3.0
+    }
+  },
+  "volumes": {
+    "first_pre_treatment": "239.7 [54.2, 1052.5] (range 2.8–36210.7)",
+    "first_size_bins": {
+      "<100": 56,
+      "100–500": 40,
+      ">4000": 20,
+      "1000–4000": 18,
+      "500–1000": 10
+    },
+    "pre_all": "171.0 [40.8, 666.7] (range 2.8–36210.7)",
+    "pre_below_50mm3": 99
+  },
+  "natural_history_pairs": {
+    "n_pairs": 203,
+    "n_patients": 112,
+    "interval_days": "365 [195, 584] (range 13–2084)",
+    "relative_change": "0.056 [-0.121, 0.292] (range -0.997–639.364)",
+    "annual_log_rate": "0.057 [-0.117, 0.313] (range -6.229–6.170)",
+    "abs_change_gt_20pct": 102,
+    "radiology_vs_volume": {
+      "Decreased": {
+        "减>20%": 1,
+        "±20%内": 0,
+        "增>20%": 0
+      },
+      "Increased": {
+        "减>20%": 0,
+        "±20%内": 10,
+        "增>20%": 25
+      },
+      "Unchanged": {
+        "减>20%": 36,
+        "±20%内": 91,
+        "增>20%": 39
+      }
+    }
+  },
+  "noise_proxies": {
+    "参考序列相同": {
+      "n": 182,
+      "abs_log_ratio_median": 0.18649145883923954,
+      "abs_rel_median": 0.17569147824157272,
+      "gt20pct": 0.489010989010989
+    },
+    "参考序列切换 (t1post↔IAC)": {
+      "n": 21,
+      "abs_log_ratio_median": 0.3080886053174055,
+      "abs_rel_median": 0.36082155962169193,
+      "gt20pct": 0.6190476190476191
+    },
+    "扫描仪型号相同": {
+      "n": 98,
+      "abs_log_ratio_median": 0.12806400021212488,
+      "abs_rel_median": 0.1280509368580246,
+      "gt20pct": 0.3979591836734694
+    },
+    "扫描仪型号切换": {
+      "n": 105,
+      "abs_log_ratio_median": 0.2607261364084027,
+      "abs_rel_median": 0.2600000111373426,
+      "gt20pct": 0.6
+    },
+    "两次层厚均 ≤1.5 mm": {
+      "n": 28,
+      "abs_log_ratio_median": 0.08568608209580311,
+      "abs_rel_median": 0.08947540230743689,
+      "gt20pct": 0.39285714285714285
+    },
+    "至少一次层厚 >2.5 mm": {
+      "n": 167,
+      "abs_log_ratio_median": 0.20763936887340237,
+      "abs_rel_median": 0.2165421861540111,
+      "gt20pct": 0.5209580838323353
+    },
+    "起始体积 <100 mm³": {
+      "n": 97,
+      "abs_log_ratio_median": 0.2839437503411738,
+      "abs_rel_median": 0.28301915196188965,
+      "gt20pct": 0.5773195876288659
+    },
+    "起始体积 100–1000 mm³": {
+      "n": 76,
+      "abs_log_ratio_median": 0.14484394787632987,
+      "abs_rel_median": 0.143602814557642,
+      "gt20pct": 0.4342105263157895
+    },
+    "起始体积 ≥1000 mm³": {
+      "n": 30,
+      "abs_log_ratio_median": 0.13322458026710426,
+      "abs_rel_median": 0.1380168315362611,
+      "gt20pct": 0.43333333333333335
+    },
+    "间隔 ≤200 天": {
+      "n": 54,
+      "abs_log_ratio_median": 0.1297451140962156,
+      "abs_rel_median": 0.13338770493919866,
+      "gt20pct": 0.4074074074074074
+    },
+    "间隔 200–500 天": {
+      "n": 87,
+      "abs_log_ratio_median": 0.19521314970316597,
+      "abs_rel_median": 0.21557005727520506,
+      "gt20pct": 0.5172413793103449
+    },
+    "间隔 >500 天": {
+      "n": 62,
+      "abs_log_ratio_median": 0.29221110495331515,
+      "abs_rel_median": 0.2711569752660178,
+      "gt20pct": 0.5645161290322581
+    }
+  },
+  "usable": {
+    "pre_run_ge_2": {
+      "patients": 112,
+      "samples": 203
+    },
+    "pre_run_ge_3": {
+      "patients": 60,
+      "samples": 91
+    },
+    "pre_run_ge_4": {
+      "patients": 31,
+      "samples": 31
+    }
+  },
+  "rolling_triplet_composition": {
+    "全部治疗前": {
+      "triplets": 91,
+      "patients": 60
+    },
+    "全部治疗后（残留肿瘤随访）": {
+      "triplets": 60,
+      "patients": 38
+    }
+  }
+}
