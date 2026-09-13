@@ -1,5 +1,7 @@
 # Reproduction protocol
 
+> Status clarification added 2026-09-11: this document preserves the historical protocol and Aug 6–8 audit checkpoints. Its earlier “formal training has not started” statement describes the pre-run checkpoint only. The completed Aug 8 five-fold result and segmentation-collapse analysis are recorded in [README.md](README.md#formal-five-fold-result). Reorganization did not rerun training.
+
 ## Claim boundary
 
 The original DeepGrowth experiments used 131 private patients, each with three

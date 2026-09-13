@@ -76,6 +76,13 @@ def _cuda_details() -> dict[str, Any]:
 
 
 def _git_state(repo_root: Path) -> dict[str, str | bool | None]:
+    # Experiments may live below the Git checkout root after reorganization.
+    repo_root = repo_root.resolve()
+    repo_root = next(
+        (candidate for candidate in (repo_root, *repo_root.parents)
+         if (candidate / ".git").exists()),
+        repo_root,
+    )
     try:
         commit = subprocess.check_output(
             ["git", "-c", f"safe.directory={repo_root.as_posix()}", "rev-parse", "HEAD"],
