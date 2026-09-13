@@ -1,0 +1,411 @@
+{
+  "experiment": "p1_noise_estimate",
+  "date": "2026-09-11",
+  "seed": 100,
+  "anomaly_rule": "|log ratio| > log(8) excluded from scale estimates",
+  "cohort": {
+    "pre_treatment_pairs": 203,
+    "pre_treatment_patients": 112,
+    "pre_anomalies_excluded": 3,
+    "post_treatment_pairs": 114,
+    "post_treatment_patients": 54,
+    "post_anomalies_excluded": 0,
+    "interval_years_pre": "1.00 [0.53, 1.60]",
+    "exams_with_both_t1post_and_t1postiac": 484,
+    "patients_with_ge2_dual_sequence_exams": 167
+  },
+  "zero_interval_extrapolation_pre": {
+    "bins": [
+      {
+        "mean_dt2": 0.12470957184305051,
+        "robust_var": 0.04267102639592555,
+        "n": 40
+      },
+      {
+        "mean_dt2": 0.42434831983381754,
+        "robust_var": 0.05030465231918982,
+        "n": 40
+      },
+      {
+        "mean_dt2": 0.981039029485496,
+        "robust_var": 0.0922726701718297,
+        "n": 39
+      },
+      {
+        "mean_dt2": 2.003842593987586,
+        "robust_var": 0.10578472620583422,
+        "n": 41
+      },
+      {
+        "mean_dt2": 8.243006838536607,
+        "robust_var": 0.16024403149413707,
+        "n": 40
+      }
+    ],
+    "intercept_2sigma_m2": 0.059757438794291344,
+    "slope_growth_var_per_yr2": 0.012948739767234319,
+    "sigma_pair": 0.2444533468666186,
+    "sigma_single": 0.17285461925313328,
+    "sigma_pair_ci95": [
+      0.09963774983077522,
+      0.3237883168091339
+    ]
+  },
+  "zero_interval_extrapolation_post": {
+    "bins": [
+      {
+        "mean_dt2": 0.2165088133101769,
+        "robust_var": 0.08287765046123764,
+        "n": 23
+      },
+      {
+        "mean_dt2": 0.6012399523583166,
+        "robust_var": 0.061778314916958406,
+        "n": 23
+      },
+      {
+        "mean_dt2": 1.022747321934821,
+        "robust_var": 0.09121594734786573,
+        "n": 22
+      },
+      {
+        "mean_dt2": 1.8497370645196987,
+        "robust_var": 0.13400814749081005,
+        "n": 23
+      },
+      {
+        "mean_dt2": 13.163962027688811,
+        "robust_var": 0.12070318397311446,
+        "n": 23
+      }
+    ],
+    "intercept_2sigma_m2": 0.08891383437343385,
+    "slope_growth_var_per_yr2": 0.002731393435634165,
+    "sigma_pair": 0.29818422891466584,
+    "sigma_single": 0.21084809030844204
+  },
+  "shrinkage_side_pre_all": {
+    "pairs": 200,
+    "negative_pairs": 78,
+    "negative_fraction": 0.39,
+    "sigma_pair_halfnormal": 0.4399860940761378,
+    "sigma_pair_quantile": 0.27211410023272176,
+    "sigma_single_halfnormal": 0.3111171507490193,
+    "empirical_neg_quantiles": {
+      "p50": 0.1835409606069708,
+      "p90": 0.6256685193836263,
+      "p95": 0.8733367543893947
+    },
+    "sigma_pair_halfnormal_ci95": [
+      0.3311931283739682,
+      0.5616669747367946
+    ],
+    "sigma_pair_quantile_ci95": [
+      0.201963807664069,
+      0.4214523917503496
+    ]
+  },
+  "shrinkage_side_pre_le_1yr": {
+    "pairs": 101,
+    "negative_pairs": 35,
+    "negative_fraction": 0.3465346534653465,
+    "sigma_pair_halfnormal": 0.3860581907570357,
+    "sigma_pair_quantile": 0.19156660981087606,
+    "sigma_single_halfnormal": 0.2729843646169096,
+    "empirical_neg_quantiles": {
+      "p50": 0.1292116783174359,
+      "p90": 0.6614760299580333,
+      "p95": 0.9202667303292027
+    },
+    "sigma_pair_halfnormal_ci95": [
+      0.24681578108378402,
+      0.5022317048939665
+    ]
+  },
+  "consensus": {
+    "sigma_pair_candidates": {
+      "zero_interval": 0.2444533468666186,
+      "halfnormal": 0.4399860940761378,
+      "quantile": 0.27211410023272176
+    },
+    "sigma_pair": 0.27211410023272176,
+    "sigma_single_measurement": 0.19241372553103342,
+    "single_measurement_cv_percent": 19.420847406943516,
+    "thresholds_normal": {
+      "one_sided_95_log": 0.447600483472804,
+      "one_sided_95_relative": 0.5645535057917499,
+      "two_sided_95_relative": 0.7046224281664841,
+      "false_growth_rate_at_20pct": 0.25142291002816974,
+      "false_growth_rate_at_50pct": 0.0681048234957694
+    },
+    "thresholds_empirical_mirrored": {
+      "one_sided_95_log": 0.8733367543893947,
+      "one_sided_95_relative": 1.3948886914326413,
+      "one_sided_90_relative": 0.869495333637722
+    },
+    "observed_shrink_fraction_ge_20pct": 0.18226600985221675,
+    "observed_shrink_fraction_ge_50pct": 0.04433497536945813
+  },
+  "strata_pre_treatment": {
+    "slice_thickness": {
+      "any_gt_2.5mm": {
+        "pairs": 165,
+        "negative_pairs": 68,
+        "negative_fraction": 0.4121212121212121,
+        "sigma_pair_halfnormal": 0.46566065576662585,
+        "sigma_pair_quantile": 0.32627187877866815,
+        "sigma_single_halfnormal": 0.3292718074243557,
+        "empirical_neg_quantiles": {
+          "p50": 0.22007038223621167,
+          "p90": 0.7087141616574248,
+          "p95": 0.8815523290010466
+        },
+        "ci95": [
+          0.3396593224646494,
+          0.5875888189329227
+        ],
+        "thresholds": {
+          "one_sided_95_log": 0.7659652126705229,
+          "one_sided_95_relative": 1.1510696126163933,
+          "two_sided_95_relative": 1.4910265268563978,
+          "false_growth_rate_at_20pct": 0.34770161621956663,
+          "false_growth_rate_at_50pct": 0.19195055933300775
+        },
+        "abs_rel_change_median": 0.2165421861540111
+      },
+      "both_le_1.5mm": {
+        "pairs": 27,
+        "negative_pairs": 8,
+        "negative_fraction": 0.2962962962962963,
+        "sigma_pair_halfnormal": 0.21026560023281682,
+        "sigma_pair_quantile": 0.09898546525168468,
+        "sigma_single_halfnormal": 0.14868023177488446,
+        "empirical_neg_quantiles": {
+          "p50": 0.06676569631226131,
+          "p90": 0.3848422892446612,
+          "p95": 0.41770801672652996
+        },
+        "ci95": [
+          0.05515320751423639,
+          0.3261724083112977
+        ],
+        "thresholds": {
+          "one_sided_95_log": 0.3458658858229604,
+          "one_sided_95_relative": 0.41321307119962536,
+          "two_sided_95_relative": 0.5100164977906512,
+          "false_growth_rate_at_20pct": 0.19294327831093017,
+          "false_growth_rate_at_50pct": 0.026905969411497255
+        },
+        "abs_rel_change_median": 0.08947540230743689
+      },
+      "mixed_1.5_2.5mm": {
+        "pairs": 8,
+        "negative_pairs": 2,
+        "negative_fraction": 0.25
+      }
+    },
+    "reference_sequence_switch": {
+      "False": {
+        "pairs": 181,
+        "negative_pairs": 71,
+        "negative_fraction": 0.39226519337016574,
+        "sigma_pair_halfnormal": 0.4186147627076165,
+        "sigma_pair_quantile": 0.2629494571304138,
+        "sigma_single_halfnormal": 0.29600533741535306,
+        "empirical_neg_quantiles": {
+          "p50": 0.1773594088344641,
+          "p90": 0.5697680618307704,
+          "p95": 0.7839511718530174
+        },
+        "ci95": [
+          0.2977643082055138,
+          0.5456620617209066
+        ],
+        "thresholds": {
+          "one_sided_95_log": 0.6885794231777583,
+          "one_sided_95_relative": 0.990885317911522,
+          "two_sided_95_relative": 1.2716011491704466,
+          "false_growth_rate_at_20pct": 0.3315869172291087,
+          "false_growth_rate_at_50pct": 0.16637547261250463
+        },
+        "abs_rel_change_median": 0.17569147824157272
+      },
+      "True": {
+        "pairs": 19,
+        "negative_pairs": 7,
+        "negative_fraction": 0.3684210526315789,
+        "sigma_pair_halfnormal": 0.6162008976600997,
+        "sigma_pair_quantile": 0.37182958260219207,
+        "sigma_single_halfnormal": 0.43571983330869424,
+        "empirical_neg_quantiles": {
+          "p50": 0.25079905346517856,
+          "p90": 0.9555214376974691,
+          "p95": 1.0502909533259064
+        },
+        "ci95": [
+          0.1989758943065832,
+          0.8521925861154088
+        ],
+        "thresholds": {
+          "one_sided_95_log": 1.013588856561098,
+          "one_sided_95_relative": 1.7554722859264298,
+          "two_sided_95_relative": 2.345960373051954,
+          "false_growth_rate_at_20pct": 0.38366084082617524,
+          "false_growth_rate_at_50pct": 0.2552665016280481
+        },
+        "abs_rel_change_median": 0.36082155962169193
+      }
+    },
+    "scanner_model_switch": {
+      "False": {
+        "pairs": 97,
+        "negative_pairs": 34,
+        "negative_fraction": 0.35051546391752575,
+        "sigma_pair_halfnormal": 0.4528425697340311,
+        "sigma_pair_quantile": 0.19671089425874846,
+        "sigma_single_halfnormal": 0.3202080518688754,
+        "empirical_neg_quantiles": {
+          "p50": 0.13268149817752584,
+          "p90": 0.5649327937842484,
+          "p95": 0.7578748988071525
+        },
+        "ci95": [
+          0.23642517730072118,
+          0.6657111783493955
+        ],
+        "thresholds": {
+          "one_sided_95_log": 0.7448807429555078,
+          "one_sided_95_relative": 1.1061902419793603,
+          "two_sided_95_relative": 1.4292229600261197,
+          "false_growth_rate_at_20pct": 0.3436154558113367,
+          "false_growth_rate_at_50pct": 0.18529262660604195
+        },
+        "abs_rel_change_median": 0.1280509368580246
+      },
+      "True": {
+        "pairs": 103,
+        "negative_pairs": 44,
+        "negative_fraction": 0.42718446601941745,
+        "sigma_pair_halfnormal": 0.4297882182412746,
+        "sigma_pair_quantile": 0.39183087659763177,
+        "sigma_single_halfnormal": 0.30390616359248906,
+        "empirical_neg_quantiles": {
+          "p50": 0.2642899262651026,
+          "p90": 0.6937090910838783,
+          "p95": 0.8785820590737554
+        },
+        "ci95": [
+          0.3227080792501872,
+          0.5279021821176194
+        ],
+        "thresholds": {
+          "one_sided_95_log": 0.7069586401850726,
+          "one_sided_95_relative": 1.0278145569161445,
+          "two_sided_95_relative": 1.3218978910812176,
+          "false_growth_rate_at_20pct": 0.33570540383992375,
+          "false_growth_rate_at_50pct": 0.17273644478914507
+        },
+        "abs_rel_change_median": 0.2600000111373426
+      }
+    },
+    "tumor_volume": {
+      "100_1000mm3": {
+        "pairs": 80,
+        "negative_pairs": 27,
+        "negative_fraction": 0.3375,
+        "sigma_pair_halfnormal": 0.21376429962449436,
+        "sigma_pair_quantile": 0.16954510103588324,
+        "sigma_single_halfnormal": 0.1511541858400729,
+        "empirical_neg_quantiles": {
+          "p50": 0.11435817064870324,
+          "p90": 0.35759516125027185,
+          "p95": 0.4432971187127149
+        },
+        "ci95": [
+          0.15168328041037418,
+          0.2671110873948483
+        ],
+        "thresholds": {
+          "one_sided_95_log": 0.3516208964523308,
+          "one_sided_95_relative": 0.4213695753178548,
+          "two_sided_95_relative": 0.5204069469227226,
+          "false_growth_rate_at_20pct": 0.1968548050451151,
+          "false_growth_rate_at_50pct": 0.028928100917216204
+        },
+        "abs_rel_change_median": 0.15390576263198685
+      },
+      "ge_1000mm3": {
+        "pairs": 29,
+        "negative_pairs": 8,
+        "negative_fraction": 0.27586206896551724,
+        "sigma_pair_halfnormal": 0.7136482389532062,
+        "sigma_pair_quantile": 0.09939942878756033,
+        "sigma_single_halfnormal": 0.5046255091456497,
+        "empirical_neg_quantiles": {
+          "p50": 0.06704491471720944,
+          "p90": 0.8333193653272974,
+          "p95": 1.4015757481560096
+        },
+        "ci95": [
+          0.05972364356241092,
+          1.2559814736609232
+        ],
+        "thresholds": {
+          "one_sided_95_log": 1.1738799882541289,
+          "one_sided_95_relative": 2.234518215953868,
+          "two_sided_95_relative": 3.050136354576164,
+          "false_growth_rate_at_20pct": 0.3991768952871664,
+          "false_growth_rate_at_50pct": 0.2849637714366402
+        },
+        "abs_rel_change_median": 0.13914564801340634
+      },
+      "lt_100mm3": {
+        "pairs": 91,
+        "negative_pairs": 43,
+        "negative_fraction": 0.4725274725274725,
+        "sigma_pair_halfnormal": 0.4771944485521005,
+        "sigma_pair_quantile": 0.4450001062579978,
+        "sigma_single_halfnormal": 0.33742743051576535,
+        "empirical_neg_quantiles": {
+          "p50": 0.3001525716710195,
+          "p90": 0.8105249857991952,
+          "p95": 0.8856601163068726
+        },
+        "ci95": [
+          0.37418374663381526,
+          0.5636305775515419
+        ],
+        "thresholds": {
+          "one_sided_95_log": 0.7849371484233502,
+          "one_sided_95_relative": 1.1922691488305972,
+          "two_sided_95_relative": 1.5479805880141515,
+          "false_growth_rate_at_20pct": 0.3512048197337394,
+          "false_growth_rate_at_50pct": 0.19775003670615232
+        },
+        "abs_rel_change_median": 0.2592947985701459
+      }
+    }
+  },
+  "resampling_component": {
+    "cases": 103,
+    "log_ratio_resampled_over_native": {
+      "mean": -0.004025636876539846,
+      "sd": 0.05618280653607197,
+      "robust_sd": 0.03935045043644826,
+      "p05": -0.09442002687838008,
+      "p95": 0.08462997007574745
+    },
+    "note": "0.58 mm isotropic linear resampling of the timepoint-2 mask versus native voxel counting; interpolation/partial-volume component only"
+  },
+  "provenance": {
+    "git": {
+      "commit": "1e9f0ccb3503f2ca7fbea42b3073bd58411e3796",
+      "dirty": true
+    },
+    "python": "3.10.15",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "manifest_sha256": "97a1d965608564f24dfd14b06cb729f2d5a2d90b373fc29b8e83217a85060c97",
+    "command": "projects/frank_vs_forecasting/scripts/p1_noise_estimate.py --manifest reproductions/deepgrowth_ucsd/data/processed/ucsd_manifest.csv --clinical reproductions/deepgrowth_ucsd/data/raw/metadata/UCSD-VS-Longitudinal_clinical_information.tsv --volumes projects/frank_vs_forecasting/data/p1_volume_baselines/timepoint_volumes.csv --spacing projects/frank_vs_forecasting/data/p1_volume_baselines/timepoint_spacing.csv --prepared-metadata reproductions/deepgrowth_ucsd/data/ucsd_prepared/metadata.csv --private-dir projects/frank_vs_forecasting/data/p1_noise_estimate --results-dir projects/frank_vs_forecasting/results/2026-09-11-p1-noise-estimate"
+  }
+}

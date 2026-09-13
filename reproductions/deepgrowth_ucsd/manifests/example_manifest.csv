@@ -1,0 +1,4 @@
+patient_id,timepoint_id,study_days,image_path,mask_path,intervened_since_previous,growth_class
+UCSD-EXAMPLE,baseline,0,sub-example/ses-baseline/anat/t1ce.nii.gz,sub-example/ses-baseline/anat/t1ce_mask.nii.gz,false,
+UCSD-EXAMPLE,followup1,365,sub-example/ses-followup1/anat/t1ce.nii.gz,sub-example/ses-followup1/anat/t1ce_mask.nii.gz,false,
+UCSD-EXAMPLE,followup2,730,sub-example/ses-followup2/anat/t1ce.nii.gz,sub-example/ses-followup2/anat/t1ce_mask.nii.gz,false,growing

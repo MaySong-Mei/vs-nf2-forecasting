@@ -1,0 +1,39 @@
+# Frozen formal-training profile for the reviewed 103-triplet / 73-patient cohort.
+# RTX 2080 / 8 GiB remains the compatibility target; runtime is measured on the
+# RTX 3080 Laptop GPU / 16 GiB recorded by the strict provenance report.
+experiment:
+  name: ucsd_deepgrowth_public_reproduction_formal_103_73
+  seed: 100
+
+preprocessing:
+  spacing_mm: 0.58
+  crop_size: [64, 64, 64]
+  intensity_percentiles: [0.5, 99.5]
+  sdf_clip_mm: 16.0
+  registration_iterations: 100
+  registration_sampling_percentage: 0.2
+  registration_shrink_factors: [1]
+  registration_smoothing_sigmas_mm: [0.0]
+  registration_overlap_review_threshold: 0.1
+  exclude_intervened: true
+  exclude_no_residual: true
+
+model:
+  latent_channels: 24
+  temporal_order: 6
+  decoder_hidden: 64
+  decoder_layers: 5
+  time_scale_days: 2190.0
+
+training:
+  epochs: 200
+  batch_size: 1
+  points_per_volume: 16384
+  inference_chunk: 32768
+  learning_rate: 0.0001
+  weight_decay: 0.00003
+  latent_weight: 0.1
+  gradient_accumulation: 8
+  amp: true
+  workers: 2
+  checkpoint_dir: outputs/checkpoints

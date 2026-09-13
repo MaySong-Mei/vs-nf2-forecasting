@@ -1,0 +1,10 @@
+# Validated on Windows/Python 3.10.15 on 2026-08-06.
+# Install PyTorch separately first:
+# python -m pip install torch==2.12.1 --index-url https://download.pytorch.org/whl/cu130
+numpy==2.2.6
+scipy==1.15.3
+pandas==2.3.3
+nibabel==5.4.2
+SimpleITK==2.5.6
+PyYAML==6.0.3
+tqdm==4.70.0

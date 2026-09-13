@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepgrowth-ucsd-reproduction"
+version = "0.1.0"
+description = "Public-cohort DeepGrowth reproduction on UCSD-VS-Longitudinal"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+include = ["ucsd_repro*"]
+
